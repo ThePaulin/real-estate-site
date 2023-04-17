@@ -2,7 +2,25 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-// import {  } from '@/components/elements/Icons'
+import {
+  IconSearch,
+  IconCommercial,
+  IconMenu,
+  IconResidential,
+  IconCaret,
+  IconBed,
+  IconBath,
+  IconHeart,
+  IconCaretInCircle,
+  IconInstagram,
+  IconFacebook,
+  IconTwitter,
+  IconAccount,
+  IconAgency,
+  IconBroker,
+  IconConfirmationCheckmark,
+  IconPinterest,
+} from "@/components/elements/Icons";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,6 +35,25 @@ export default function Home() {
       </Head>
       <main className=" bg-white h-screen">
         <h1 className="text-black">gashdgsg</h1>
+        <div>
+          <IconMenu />
+          <IconResidential />
+          <IconSearch />
+          <IconCommercial />
+          <IconCaret direction="up" />
+          <IconBed />
+          <IconBath />
+          <IconHeart />
+          <IconCaretInCircle />
+          <IconInstagram fill="black" />
+          <IconFacebook fill="black" />
+          <IconPinterest fill="black" />
+          <IconTwitter fill="black" />
+          <IconAgency />
+          <IconBroker />
+          <IconAccount />
+          <IconConfirmationCheckmark />
+        </div>
       </main>
     </>
   );
