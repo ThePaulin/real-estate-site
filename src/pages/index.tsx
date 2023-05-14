@@ -23,6 +23,7 @@ import {
 } from "@/components/elements/Icons";
 import Section from "@/components/elements/Section";
 import Layout from "@/components/global/Layout";
+import { motion } from "framer-motion";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,14 +38,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head> */}
         <main className=" bg-white h-screen">
-          <h1 className="text-black">gashdgsg</h1>
-
           <Section
             as="div"
             display="flex"
             className="justify-center items-center bg-red-400"
           >
-            <div>hsjkhdksdghfgjsdgfhsdhf</div>
+            {/* <div>hsjkhdksdghfgjsdgfhsdhf</div> */}
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
+              <h1>home page</h1>
+            </motion.div>
           </Section>
         </main>
       </Layout>
