@@ -1,0 +1,219 @@
+2023-05-13 17:25:34 info: tempDirectory:/Users/paulinkubwira/.vscode/extensions/embold-vscode.embold-0.1.4/temp
+2023-05-13 17:25:34 info: Extraction complete for source: /Users/paulinkubwira/.vscode/extensions/embold-vscode.embold-0.1.4/resources/embold-scanner-archive.zip, destination: /Users/paulinkubwira/.vscode/extensions/embold-vscode.embold-0.1.4/temp
+2023-05-13 17:25:34 info: Congratulations, your extension "Embold" is now active!
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/trace
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/package.json
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/server/_error.js
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/build-manifest.json
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/static/chunks/amp.js
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/static/chunks/main.js
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/static/chunks/_error.js
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/static/chunks/webpack.js
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/server/webpack-runtime.js
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/server/pages-manifest.json
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/static/chunks/polyfills.js
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/react-loadable-manifest.json
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/server/next-font-manifest.js
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/server/next-font-manifest.json
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/static/chunks/react-refresh.js
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/server/middleware-manifest.json
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/static/development/_ssgManifest.js
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/server/middleware-build-manifest.js
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/static/development/_buildManifest.js
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/static/media/9c4f34569c9b36ca-s.woff2
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/static/media/ae9ae6716d4f8bf8-s.woff2
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/static/media/b1db3e28af9ef94a-s.woff2
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/static/media/c0f5ec5bbf5913b7-s.woff2
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/static/media/d1d9458b69004127-s.woff2
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/static/media/2aaf0723e720e8b9-s.p.woff2
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/server/middleware-react-loadable-manifest.js
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/static/webpack/01b9ff62d05f6b2d.webpack.hot-update.json
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/static/webpack/2006f40ed906cee9.webpack.hot-update.json
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/static/webpack/36a117651bad6651.webpack.hot-update.json
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/static/webpack/3c791ab6077fd601.webpack.hot-update.json
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/static/webpack/3fead42c081bba39.webpack.hot-update.json
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/static/webpack/4086aefdd94c45e2.webpack.hot-update.json
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/server
+2023-05-13 17:26:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/static
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:26:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:28:06 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/client-development/2.pack_
+2023-05-13 17:28:06 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/client-development/3.pack_
+2023-05-13 17:28:06 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/client-development/8.pack_
+2023-05-13 17:28:06 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/server-development/0.pack_
+2023-05-13 17:28:06 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/server-development/2.pack_
+2023-05-13 17:28:06 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/server-development/5.pack_
+2023-05-13 17:28:06 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/server-development/index.pack_
+2023-05-13 17:28:06 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:28:06 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:28:06 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:28:06 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:28:06 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:28:06 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:28:06 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:28:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/client-development/2.pack_
+2023-05-13 17:28:19 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/client-development/3.pack_
+2023-05-13 17:28:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:28:19 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:30:38 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/client-development/9.pack_
+2023-05-13 17:30:38 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:31:28 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/client-development/9.pack_
+2023-05-13 17:31:28 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/client-development/10.pack_
+2023-05-13 17:31:28 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:31:28 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:31:37 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/server-development/9.pack_
+2023-05-13 17:31:37 error: SQLITE_ERROR: no such table: issues
+2023-05-13 17:38:28 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/src/components/global/Header.tsx
+2023-05-13 17:38:28 error: SQLITE_ERROR: no such table: issues
+2023-05-13 22:35:46 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/src/components/global/NavMenu.tsx
+2023-05-13 22:35:46 error: SQLITE_ERROR: no such table: issues
+2023-05-13 22:56:02 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/client-development/0.pack_
+2023-05-13 22:56:02 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/client-development/4.pack_
+2023-05-13 22:56:02 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/client-development/6.pack_
+2023-05-13 22:56:02 error: SQLITE_ERROR: no such table: issues
+2023-05-13 22:56:02 error: SQLITE_ERROR: no such table: issues
+2023-05-13 22:56:02 error: SQLITE_ERROR: no such table: issues
+2023-05-13 22:59:17 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/server-development/11.pack_
+2023-05-13 22:59:17 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/server-development/12.pack_
+2023-05-13 22:59:17 error: SQLITE_ERROR: no such table: issues
+2023-05-13 22:59:17 error: SQLITE_ERROR: no such table: issues
+2023-05-14 00:13:54 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/src/pages/demo/%5Bfilename%5D.tsx
+2023-05-14 00:13:54 error: SQLITE_ERROR: no such table: issues
+2023-05-14 00:14:35 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/src/pages/demo/blog
+2023-05-14 00:14:35 error: SQLITE_ERROR: no such table: issues
+2023-05-14 00:17:09 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/src/pages/demo
+2023-05-14 00:17:09 error: SQLITE_ERROR: no such table: issues
+2023-05-14 00:21:39 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/server-development/2.pack_
+2023-05-14 00:21:39 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/server-development/4.pack_
+2023-05-14 00:21:39 error: SQLITE_ERROR: no such table: issues
+2023-05-14 00:21:39 error: SQLITE_ERROR: no such table: issues
+2023-05-14 00:32:46 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/client-development/10.pack_
+2023-05-14 00:32:46 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/client-development/12.pack_
+2023-05-14 00:32:46 error: SQLITE_ERROR: no such table: issues
+2023-05-14 00:32:46 error: SQLITE_ERROR: no such table: issues
+2023-05-14 13:02:51 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/src/pages/%5Bfilename%5D.tsx
+2023-05-14 13:02:51 error: SQLITE_ERROR: no such table: issues
+2023-05-14 13:09:57 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/client-development/2.pack_
+2023-05-14 13:09:57 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/client-development/3.pack_
+2023-05-14 13:09:57 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/client-development/index.pack_
+2023-05-14 13:09:57 error: SQLITE_ERROR: no such table: issues
+2023-05-14 13:09:57 error: SQLITE_ERROR: no such table: issues
+2023-05-14 13:09:57 error: SQLITE_ERROR: no such table: issues
+2023-05-14 13:12:29 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/client-development/8.pack_
+2023-05-14 13:12:29 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/server-development/6.pack_
+2023-05-14 13:12:29 error: SQLITE_ERROR: no such table: issues
+2023-05-14 13:12:29 error: SQLITE_ERROR: no such table: issues
+2023-05-14 13:17:25 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/client-development/8.pack_
+2023-05-14 13:17:25 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/client-development/index.pack_
+2023-05-14 13:17:25 error: SQLITE_ERROR: no such table: issues
+2023-05-14 13:17:25 error: SQLITE_ERROR: no such table: issues
+2023-05-14 13:18:52 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/client-development/index.pack_
+2023-05-14 13:18:52 error: SQLITE_ERROR: no such table: issues
+2023-05-14 13:31:33 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/client-development/8.pack_
+2023-05-14 13:31:33 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/client-development/9.pack_
+2023-05-14 13:31:33 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/client-development/index.pack_
+2023-05-14 13:31:33 error: SQLITE_ERROR: no such table: issues
+2023-05-14 13:31:33 error: SQLITE_ERROR: no such table: issues
+2023-05-14 13:31:33 error: SQLITE_ERROR: no such table: issues
+2023-05-14 13:47:01 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/client-development/2.pack_
+2023-05-14 13:47:01 error: SQLITE_ERROR: no such table: issues
+2023-05-14 13:52:11 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/src/pages/%5Bslug%5D.tsx
+2023-05-14 13:52:11 error: SQLITE_ERROR: no such table: issues
+2023-05-14 13:57:15 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/src/pages/pageHandler.tsx
+2023-05-14 13:57:15 error: SQLITE_ERROR: no such table: issues
+2023-05-14 13:59:57 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/src/pages/%5Bslug%5D.tsx
+2023-05-14 13:59:57 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:00:12 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/src/pages/%5Bslug%5D/%5Bslug%5D.tsx
+2023-05-14 14:00:12 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:00:39 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/_events.json
+2023-05-14 14:00:39 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:00:46 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/trace
+2023-05-14 14:00:46 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/package.json
+2023-05-14 14:00:46 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/server/_error.js
+2023-05-14 14:00:46 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/build-manifest.json
+2023-05-14 14:00:46 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/server/pages/_app.js
+2023-05-14 14:00:46 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/server/pages/index.js
+2023-05-14 14:00:46 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/server/pages/%5Bslug%5D.js
+2023-05-14 14:00:46 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/server/pages/_error.js
+2023-05-14 14:00:46 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/server/pages/_document.js
+2023-05-14 14:00:46 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/server/webpack-runtime.js
+2023-05-14 14:00:46 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/server/pages-manifest.json
+2023-05-14 14:00:46 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/server/pages/pageHandler.js
+2023-05-14 14:00:46 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/fallback-build-manifest.json
+2023-05-14 14:00:46 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/react-loadable-manifest.json
+2023-05-14 14:00:46 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/server/next-font-manifest.js
+2023-05-14 14:00:46 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/server/next-font-manifest.json
+2023-05-14 14:00:46 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/server/middleware-manifest.json
+2023-05-14 14:00:46 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/server/middleware-build-manifest.js
+2023-05-14 14:00:46 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/server/middleware-react-loadable-manifest.js
+2023-05-14 14:00:46 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:00:46 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:00:46 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:00:46 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:00:46 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:00:46 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:00:46 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:00:46 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:00:46 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:00:46 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:00:46 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:00:46 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:00:46 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:00:46 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:00:46 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:00:46 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:00:46 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:00:46 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:00:46 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:00:47 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/server
+2023-05-14 14:00:47 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/static
+2023-05-14 14:00:47 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:00:47 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:00:51 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/client-development/10.pack_
+2023-05-14 14:00:51 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:05:02 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/src/pages/%5Bslug%5D/Page.tsx
+2023-05-14 14:05:02 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:05:11 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/src/pages/%5Bslug%5D/%5Bslug%5D.tsx
+2023-05-14 14:05:11 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:05:17 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/src/pages/%5Bslug%5D
+2023-05-14 14:05:17 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:07:28 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/client-development/10.pack_
+2023-05-14 14:07:28 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:14:05 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/client-development/11.pack_
+2023-05-14 14:14:05 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:20:52 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/cache/webpack/client-development/7.pack_
+2023-05-14 14:20:52 error: SQLITE_ERROR: no such table: issues
+2023-05-14 14:22:35 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.next/_events.json
+2023-05-14 14:22:35 error: SQLITE_ERROR: no such table: issues

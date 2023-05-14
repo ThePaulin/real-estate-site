@@ -4,7 +4,8 @@
 import Head from "next/head";
 import { useTina } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import client from "../../../../tina/__generated__/client";
+import client from "../../../tina/__generated__/client";
+import Layout from "@/components/global/Layout";
 
 const BlogPage = (props) => {
   const { data } = useTina({
@@ -15,8 +16,8 @@ const BlogPage = (props) => {
 
   return (
     <>
-      <Head>
-        {/* Tailwind CDN */}
+      <Layout title={data.post.title} description={data.post.description}>
+        {/* <Head>
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/tailwind.min.css"
@@ -24,30 +25,20 @@ const BlogPage = (props) => {
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
         />
-      </Head>
-      <div>
-        <div
-          style={{
-            textAlign: "center",
-          }}
-        >
-          <h1 className="text-3xl m-8 text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            {data.post.title}
-          </h1>
-          <ContentSection content={data.post.body}></ContentSection>
-        </div>
-        <div className="bg-green-100 text-center">
-          Lost and looking for a place to start?
-          <a
-            href="https://tina.io/guides/tina-cloud/getting-started/overview/"
-            className="text-blue-500 underline"
+      </Head> */}
+        <div>
+          <div
+            style={{
+              textAlign: "center",
+            }}
           >
-            {" "}
-            Check out this guide
-          </a>{" "}
-          to see how add TinaCMS to an existing Next.js site.
+            <h1 className="text-3xl m-8 text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+              {data.post.title}
+            </h1>
+            <ContentSection content={data.post.body}></ContentSection>
+          </div>
         </div>
-      </div>
+      </Layout>
     </>
   );
 };
