@@ -41,7 +41,7 @@ export default function Home() {
           <Section
             as="div"
             display="flex"
-            className="justify-center items-center bg-red-400"
+            className="justify-center items-center "
           >
             {/* <div>hsjkhdksdghfgjsdgfhsdhf</div> */}
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>

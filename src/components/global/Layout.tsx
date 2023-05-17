@@ -3,6 +3,7 @@ import Section from "../elements/Section";
 import Footer from "../elements/Footer";
 import Header from "./Header";
 import SEO from "../elements/Seo";
+// import '../../styles/globals.css';
 
 function Layout({ children, title, description, scripts = [] }) {
   return (

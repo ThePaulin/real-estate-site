@@ -2303,6 +2303,11 @@
   resolved "https://registry.yarnpkg.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
   integrity sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==
 
+"@types/parse-unit@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@types/parse-unit/-/parse-unit-1.0.1.tgz#1c1ffda43d17accccad048012f9c1764b4042bba"
+  integrity sha512-p6QazF9lsJKxD+l/jcPQSGthgFbtKQuNSOH48zdPCnItg2qrvKGwaDd5KRmdsC/qmJ20zGafQ/VzNtIfi7AfiA==
+
 "@types/prop-types@*":
   version "15.7.5"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.5.tgz#5f19d2b85a98e9558036f6a3cacc8819420f05cf"
@@ -8551,6 +8556,11 @@ parse-json@^5.0.0:
     json-parse-even-better-errors "^2.3.0"
     lines-and-columns "^1.1.6"
 
+parse-unit@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/parse-unit/-/parse-unit-1.0.1.tgz#7e1bb6d5bef3874c28e392526a2541170291eecf"
+  integrity sha512-hrqldJHokR3Qj88EIlV/kAyAi/G5R2+R56TBANxNMy0uPlYcttx0jnMW6Yx5KsKPSbC3KddM/7qQm3+0wEXKxg==
+
 parseurl@~1.3.3:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/parseurl/-/parseurl-1.3.3.tgz#9da19e7bee8d12dff0513ed5b76957793bc2e8d4"
@@ -10325,6 +10335,14 @@ tabbable@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/tabbable/-/tabbable-4.0.0.tgz#5bff1d1135df1482cf0f0206434f15eadbeb9261"
   integrity sha512-H1XoH1URcBOa/rZZWxLxHCtOdVUEev+9vo5YdYhC9tCY4wnybX+VQrCYuy9ubkg69fCBxCONJOSLGfw0DWMffQ==
+
+tailwindcss-font-inter@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/tailwindcss-font-inter/-/tailwindcss-font-inter-3.0.1.tgz#1a53688c42ff56eb2517fd11a9edb65fe71f0a89"
+  integrity sha512-wN0uIB+OzQk8ItqFoEl/eQM4H05AgNbqlI++IDb5B4Fqz8imee2dJAy85jyARwTUUouMwdwdBjx7yxXf22CyCg==
+  dependencies:
+    "@types/parse-unit" "^1.0.1"
+    parse-unit "^1.0.1"
 
 tailwindcss@^3.2.7, tailwindcss@^3.3.1:
   version "3.3.1"
