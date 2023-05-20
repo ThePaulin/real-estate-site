@@ -22,7 +22,7 @@ function Page() {
   return (
     <Layout title={pageData.title} description={pageData.description}>
       <Section as={"div"}>
-        <p className="text-white">{pageData.title}</p>
+        <p className="">{pageData.title}</p>
       </Section>
     </Layout>
   );

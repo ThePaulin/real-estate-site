@@ -18,13 +18,16 @@ function Button({
   href?: string;
   [key: string]: any;
 }) {
+  const variantStyles: Record<string, string> = {
+    primary: "bg-primary",
+    secondary: "bg-secondary",
+    inline:
+      "bg-none hover:border-1 hover:border-secondary focus:border-1 focus:border-secondary",
+    link: "bg-none",
+  };
   const styles = clsx(
     missingClass(className, "w-") && "w-full",
-    className,
-    "flex justify-center items-center",
-    `${variant === "primary" && "bg-primary"} ${
-      variant === "secondary" && "bg-secondary"
-    } ${variant === "inline" && "bg-none"} ${variant === "link" && "bg-none"}`
+    "flex justify-center items-center"
   );
 
   if (variant === "link" && href !== undefined) {

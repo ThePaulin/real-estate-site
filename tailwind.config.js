@@ -23,28 +23,30 @@ module.exports = {
   ],
   mode: "jit",
   theme: {
-    // extend: {
-    colors: {
-      primary: "rgb(var(--primary-color))",
-      secondary: "rgb(var(--secondary-color))",
-      tertiary: "rgb(var(--tertiary-color))",
-      accent: "rgb(var(--accent-color))",
+    extend: {
+      colors: {
+        primary: "rgb(var(--primary-color))",
+        secondary: "rgb(var(--secondary-color))",
+        tertiary: "rgb(var(--tertiary-color))",
+        accent: "rgb(var(--accent-color))",
+      },
+      fontFamily: {
+        sans: ["Inter var", ...defaultTheme.fontFamily.sans],
+      },
+      screens: {
+        tablet: "40px",
+        // 640px
+        laptop: "64em",
+        // 1024px
+        desktop: "80em",
+        // 1280px
+      },
     },
-    fontFamily: {
-      sans: ["Inter var", ...defaultTheme.fontFamily.sans],
-    },
-    screens: {
-      tablet: "40px",
-      // 640px
-      laptop: "64em",
-      // 1024px
-      desktop: "80em",
-      // 1280px
-    },
-    // }
   },
   plugins: [
     require("@tailwindcss/typography"),
     require("tailwindcss-font-inter"),
+    require("@headlessui/tailwindcss"),
+    require("@headlessui/tailwindcss")({ prefix: "ui" }),
   ],
 };

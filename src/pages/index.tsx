@@ -46,6 +46,7 @@ export default function Home() {
             {/* <div>hsjkhdksdghfgjsdgfhsdhf</div> */}
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
               <h1>home page</h1>
+              {/* <div class="transition-all duration-700 hover:translate-x-10 ">Hover me</div> */}
             </motion.div>
           </Section>
         </main>
