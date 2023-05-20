@@ -17,9 +17,15 @@ function Section({
   padding?: "x" | "y" | "all" | "none";
   [key: string]: any;
 }) {
+  const paddingStyle: Record<string, string> = {
+    x: "px-4 tablet:px-8",
+    y: "py-4 tablet:py-8",
+    all: "p-4 tablet:p-8",
+    none: "p-0",
+  };
   const styles = clsx(
     missingClass(className, "w-") && "w-full",
-    padding === "all" && "",
+    paddingStyle[padding],
     className,
     display
   );

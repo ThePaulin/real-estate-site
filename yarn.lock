@@ -1068,6 +1068,11 @@
   dependencies:
     client-only "^0.0.1"
 
+"@headlessui/tailwindcss@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@headlessui/tailwindcss/-/tailwindcss-0.1.3.tgz#a9b8b4c2677a7ef37889708d4401c7871b2e6105"
+  integrity sha512-3aMdDyYZx9A15euRehpppSyQnb2gIw2s/Uccn2ELIoLQ9oDy0+9oRygNWNjXCD5Dt+w1pxo7C+XoiYvGcqA4Kg==
+
 "@heroicons/react@1.0.6", "@heroicons/react@^1.0.4", "@heroicons/react@^1.0.5":
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-1.0.6.tgz#35dd26987228b39ef2316db3b1245c42eb19e324"
@@ -2302,6 +2307,11 @@
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
   integrity sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==
+
+"@types/parse-unit@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@types/parse-unit/-/parse-unit-1.0.1.tgz#1c1ffda43d17accccad048012f9c1764b4042bba"
+  integrity sha512-p6QazF9lsJKxD+l/jcPQSGthgFbtKQuNSOH48zdPCnItg2qrvKGwaDd5KRmdsC/qmJ20zGafQ/VzNtIfi7AfiA==
 
 "@types/prop-types@*":
   version "15.7.5"
@@ -8551,6 +8561,11 @@ parse-json@^5.0.0:
     json-parse-even-better-errors "^2.3.0"
     lines-and-columns "^1.1.6"
 
+parse-unit@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/parse-unit/-/parse-unit-1.0.1.tgz#7e1bb6d5bef3874c28e392526a2541170291eecf"
+  integrity sha512-hrqldJHokR3Qj88EIlV/kAyAi/G5R2+R56TBANxNMy0uPlYcttx0jnMW6Yx5KsKPSbC3KddM/7qQm3+0wEXKxg==
+
 parseurl@~1.3.3:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/parseurl/-/parseurl-1.3.3.tgz#9da19e7bee8d12dff0513ed5b76957793bc2e8d4"
@@ -10326,6 +10341,14 @@ tabbable@^4.0.0:
   resolved "https://registry.yarnpkg.com/tabbable/-/tabbable-4.0.0.tgz#5bff1d1135df1482cf0f0206434f15eadbeb9261"
   integrity sha512-H1XoH1URcBOa/rZZWxLxHCtOdVUEev+9vo5YdYhC9tCY4wnybX+VQrCYuy9ubkg69fCBxCONJOSLGfw0DWMffQ==
 
+tailwindcss-font-inter@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/tailwindcss-font-inter/-/tailwindcss-font-inter-3.0.1.tgz#1a53688c42ff56eb2517fd11a9edb65fe71f0a89"
+  integrity sha512-wN0uIB+OzQk8ItqFoEl/eQM4H05AgNbqlI++IDb5B4Fqz8imee2dJAy85jyARwTUUouMwdwdBjx7yxXf22CyCg==
+  dependencies:
+    "@types/parse-unit" "^1.0.1"
+    parse-unit "^1.0.1"
+
 tailwindcss@^3.2.7, tailwindcss@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.3.1.tgz#b6662fab6a9b704779e48d083a9fef5a81d2b81e"
@@ -11075,6 +11098,11 @@ use@^3.1.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/use/-/use-3.1.1.tgz#d50c8cac79a19fbc20f2911f56eb973f4e10070f"
   integrity sha512-cwESVXlO3url9YWlFW/TA9cshCEhtu7IKJ/p5soJ/gGpj7vbvFrAY/eIioQ6Dw23KjZhYgiIo8HOs1nQ2vr/oQ==
+
+usehooks-ts@^2.9.1:
+  version "2.9.1"
+  resolved "https://registry.yarnpkg.com/usehooks-ts/-/usehooks-ts-2.9.1.tgz#953d3284851ffd097432379e271ce046a8180b37"
+  integrity sha512-2FAuSIGHlY+apM9FVlj8/oNhd+1y+Uwv5QNkMQz1oSfdHk4PXo1qoCw9I5M7j0vpH8CSWFJwXbVPeYDjLCx9PA==
 
 util-deprecate@^1.0.1, util-deprecate@^1.0.2, util-deprecate@~1.0.1:
   version "1.0.2"

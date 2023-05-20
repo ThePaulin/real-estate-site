@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import React from "react";
 
 export interface IconProps {
@@ -32,7 +33,7 @@ export default function Icon(props: IconProps) {
       strokeWidth={props.strokeWidth || "1"}
       stroke={props.stroke || "#000"}
       xmlns="http://www.w3.org/2000/svg"
-      className={props.className}
+      className={clsx(props.className, "pointer-events-none")}
     >
       <title>{props.title || "icon"}</title>
       {props.children}
@@ -231,7 +232,7 @@ export function IconBath(props: IconProps) {
 
 export function IconHeart(props: IconProps) {
   return (
-    <Icon {...props} strokeWidth="0" stroke="red">
+    <Icon {...props} strokeWidth="0" stroke="red" title="heart">
       <path
         d="M14 5.274A7 7 0 0 0 4.386 15.446l7.957 7.957a2.334 2.334 0 0 0 3.29 0l7.956 -7.957A7 7 0 0 0 14 5.274Zm-1.376 1.913 0.536 0.537a1.166 1.166 0 0 0 1.656 0l0.537 -0.537a4.669 4.669 0 1 1 6.603 6.604L14 21.77l-7.956 -7.956a4.67 4.67 0 0 1 6.603 -6.604l-0.023 -0.024Z"
         fill={props.fill || "black"}
@@ -255,6 +256,7 @@ export function IconInstagram(props: IconProps) {
   return (
     <Icon
       {...props}
+      title="instagram"
       width="40"
       height="40"
       viewBox="0 0 40 40"
@@ -273,6 +275,7 @@ export function IconFacebook(props: IconProps) {
   return (
     <Icon
       {...props}
+      title="facebook"
       width="33"
       height="33"
       viewBox="0 0 33 33"
@@ -291,6 +294,7 @@ export function IconPinterest(props: IconProps) {
   return (
     <Icon
       {...props}
+      title="pinterest"
       width="28"
       height="35"
       viewBox="0 0 28 35"
@@ -309,6 +313,7 @@ export function IconTwitter(props: IconProps) {
   return (
     <Icon
       {...props}
+      title="twitter"
       width="28"
       height="24"
       viewBox="0 0 28 24"
@@ -325,7 +330,14 @@ export function IconTwitter(props: IconProps) {
 
 export function IconAgency(props: IconProps) {
   return (
-    <Icon {...props} width="40" height="40" viewBox="0 0 40 40" fill="none">
+    <Icon
+      {...props}
+      width="40"
+      height="40"
+      viewBox="0 0 40 40"
+      fill="none"
+      title="agency"
+    >
       <path
         d="M11.392 31.6H35.776V10.736H11.392V31.6ZM23.776 12.816L32.56 20.496H30.352V29.712H25.2V23.216H21.952V29.712H17.072V20.496H14.8L23.776 12.816ZM8.672 5.58404V0.81604H3.248V40H8.672V8.03204H36.848V5.60004L8.672 5.58404Z"
         fill={props.fill || "black"}
@@ -338,6 +350,7 @@ export function IconBroker(props: IconProps) {
   return (
     <Icon
       {...props}
+      title="broker"
       width="40"
       height="40"
       viewBox="0 0 40 40"
@@ -367,6 +380,7 @@ export function IconAccount(props: IconProps) {
   return (
     <Icon
       {...props}
+      title="account"
       width="40"
       height="40"
       viewBox="0 0 40 40"
@@ -396,6 +410,7 @@ export function IconLocation(props: IconProps) {
   return (
     <Icon
       {...props}
+      title="location"
       width="40"
       height="40"
       viewBox="0 0 40 40"
@@ -416,7 +431,14 @@ export function IconLocation(props: IconProps) {
 
 export function IconConfirmationCheckmark(props: IconProps) {
   return (
-    <Icon {...props} width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <Icon
+      {...props}
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      title="confirmation checkmark"
+    >
       <path
         d="M13.42 15.42a2 2 0 0 1-2.84 0l-4-4A2.001 2.001 0 1 1 9.4 8.58l2.6 2.58 6.64-6.64a10 10 0 1 0 3.16 9.52 9.86 9.86 0 0 0-.72-6.3l-7.66 7.68Z"
         fill={props.fill || "#000"}
@@ -425,6 +447,21 @@ export function IconConfirmationCheckmark(props: IconProps) {
         d="M12 15a1 1 0 0 1-.7-.28l-4-4a1.011 1.011 0 0 1 1.42-1.44L12 12.6l8.28-8.3a1.005 1.005 0 0 1 1.42 1.42l-9 9a1 1 0 0 1-.7.28Z"
         fill={props.fill || "#FFC702"}
       />
+    </Icon>
+  );
+}
+
+export function IconClose(props: IconProps) {
+  return (
+    <Icon
+      {...props}
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      title="close"
+    >
+      <path d="M2 2L18 18M2 18L18 2" stroke="black" stroke-width="2.66667" />
     </Icon>
   );
 }
