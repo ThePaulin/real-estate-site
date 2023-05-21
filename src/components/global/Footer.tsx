@@ -7,7 +7,7 @@ import {
 import Button from "../elements/Button";
 import Section from "../elements/Section";
 import Text from "../elements/Text";
-// RE-X_test-1
+// RE-X_test-2
 
 function Footer() {
 	const socialLinks: {
