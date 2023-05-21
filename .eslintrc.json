@@ -8,7 +8,11 @@
       "version": "detect"
     }
   },
-  "extends": ["plugin:react/recommended", "standard-with-typescript", "next/core-web-vitals"],
+  "extends": [
+    "plugin:react/recommended",
+    "standard-with-typescript",
+    "next/core-web-vitals"
+  ],
   "overrides": [],
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -17,6 +21,9 @@
   },
   "plugins": ["react"],
   "rules": {
-    "@typescript-eslint/no-explicit-any": ["off"]
+    "@typescript-eslint/no-explicit-any": ["off"],
+    "@typescript-eslint/no-tabs": ["off"],
+    "@next/next/no-sync-scripts": ["off"],
+    "@typescript-eslint/quotes": ["off"]
   }
 }

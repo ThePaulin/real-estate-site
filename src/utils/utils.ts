@@ -1,28 +1,28 @@
-import typographicBase from "typographic-base";
+import typographicBase from 'typographic-base'
 
 // identify if class is missing
-export function missingClass(string?: string, prefix?: string) {
+export function missingClass (string?: string, prefix?: string) {
   if (!string) {
-    return true;
+    return true
   }
   // class missing
 
-  const regex = new RegExp(` ?${prefix}`, "g");
+  const regex = new RegExp(` ?${prefix}`, 'g')
   // true when prefix is missing
-  return string.match(regex) === null;
+  return string.match(regex) === null
 }
 
-export function formatText(input?: string | React.ReactNode) {
+export function formatText (input?: string | React.ReactNode) {
   if (!input) {
-    return;
+    return
   }
 
-  if (typeof input !== "string") {
-    return input;
+  if (typeof input !== 'string') {
+    return input
   }
 
-  return typographicBase(input, { locale: "en-us" }).replace(
+  return typographicBase(input, { locale: 'en-us' }).replace(
     /\s([^\s<]+)\s*$/g,
-    "\u00A0$1"
-  );
+    '\u00A0$1'
+  )
 }

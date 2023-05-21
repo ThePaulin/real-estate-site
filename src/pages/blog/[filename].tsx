@@ -1,18 +1,18 @@
 // THIS FILE HAS BEEN GENERATED WITH THE TINA CLI.
 // This is a demo file once you have tina setup feel free to delete this file
 
-import Head from "next/head";
-import { useTina } from "tinacms/dist/react";
-import { TinaMarkdown } from "tinacms/dist/rich-text";
-import client from "../../../tina/__generated__/client";
-import Layout from "@/components/global/Layout";
+import Head from 'next/head'
+import { useTina } from 'tinacms/dist/react'
+import { TinaMarkdown } from 'tinacms/dist/rich-text'
+import client from '../../../tina/__generated__/client'
+import Layout from '@/components/global/Layout'
 
 const BlogPage = (props) => {
   const { data } = useTina({
     query: props.query,
     variables: props.variables,
-    data: props.data,
-  });
+    data: props.data
+  })
 
   return (
     <>
@@ -29,7 +29,7 @@ const BlogPage = (props) => {
         <div>
           <div
             style={{
-              textAlign: "center",
+              textAlign: 'center'
             }}
           >
             <h1 className="text-3xl m-8 text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
@@ -40,44 +40,44 @@ const BlogPage = (props) => {
         </div>
       </Layout>
     </>
-  );
-};
+  )
+}
 
 export const getStaticProps = async ({ params }) => {
-  let data = {};
-  let query = {};
-  let variables = { relativePath: `${params.filename}.md` };
+  let data = {}
+  let query = {}
+  let variables = { relativePath: `${params.filename}.md` }
   try {
-    const res = await client.queries.post(variables);
-    query = res.query;
-    data = res.data;
-    variables = res.variables;
+    const res = await client.queries.post(variables)
+    query = res.query
+    data = res.data
+    variables = res.variables
   } catch {
     // swallow errors related to document creation
   }
 
   return {
     props: {
-      variables: variables,
-      data: data,
-      query: query,
-      //myOtherProp: 'some-other-data',
-    },
-  };
-};
+      variables,
+      data,
+      query
+      // myOtherProp: 'some-other-data',
+    }
+  }
+}
 
 export const getStaticPaths = async () => {
-  const postsListData = await client.queries.postConnection();
+  const postsListData = await client.queries.postConnection()
 
   return {
     paths: postsListData.data.postConnection.edges.map((post) => ({
-      params: { filename: post.node._sys.filename },
+      params: { filename: post.node._sys.filename }
     })),
-    fallback: false,
-  };
-};
+    fallback: false
+  }
+}
 
-export default BlogPage;
+export default BlogPage
 
 const PageSection = (props) => {
   return (
@@ -85,12 +85,12 @@ const PageSection = (props) => {
       <h2>{props.heading}</h2>
       <p>{props.content}</p>
     </>
-  );
-};
+  )
+}
 
 const components = {
-  PageSection: PageSection,
-};
+  PageSection
+}
 
 const ContentSection = ({ content }) => {
   return (
@@ -204,5 +204,5 @@ const ContentSection = ({ content }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

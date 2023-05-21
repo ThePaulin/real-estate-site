@@ -1,6 +1,19 @@
+import { type HTMLAttributeReferrerPolicy } from 'react'
+
 export interface IMenuLink {
-  link: {
-    title: string;
-    link: string;
-  }[];
+  link: Array<{
+    title: string
+    link: string
+  }>
 }
+
+export interface IScripts {
+  scripts: Array<{
+    type: 'script' | 'link'
+    rel: string
+    href: string
+    integrity: string
+    crossOrigin: 'anonymous' | 'use-credentials' | '' | undefined
+    referrerPolicy: HTMLAttributeReferrerPolicy | undefined
+  }>
+};
