@@ -1,4 +1,4 @@
-import { type HTMLAttributeReferrerPolicy } from 'react'
+import { type HTMLAttributeReferrerPolicy } from "react"
 
 export interface IMenuLink {
   link: Array<{
@@ -9,11 +9,11 @@ export interface IMenuLink {
 
 export interface IScripts {
   scripts: Array<{
-    type: 'script' | 'link'
+    type: "script" | "link"
     rel: string
     href: string
     integrity: string
-    crossOrigin: 'anonymous' | 'use-credentials' | '' | undefined
+    crossOrigin: "anonymous" | "use-credentials" | "" | undefined
     referrerPolicy: HTMLAttributeReferrerPolicy | undefined
   }>
-};
+}

@@ -1,13 +1,12 @@
 // THIS FILE HAS BEEN GENERATED WITH THE TINA CLI.
 // This is a demo file once you have tina setup feel free to delete this file
 
-import Head from 'next/head'
-import { useTina } from 'tinacms/dist/react'
-import { TinaMarkdown } from 'tinacms/dist/rich-text'
-import client from '../../../tina/__generated__/client'
-import Layout from '@/components/global/Layout'
+import { useTina } from "tinacms/dist/react"
+import { TinaMarkdown } from "tinacms/dist/rich-text"
+import client from "../../../tina/__generated__/client"
+import Layout from "@/components/global/Layout"
 
-const BlogPage = (props) => {
+const BlogPage = (props: { query: string, variables: any, data: any }): JSX.Element => {
   const { data } = useTina({
     query: props.query,
     variables: props.variables,
@@ -29,7 +28,7 @@ const BlogPage = (props) => {
         <div>
           <div
             style={{
-              textAlign: 'center'
+              textAlign: "center"
             }}
           >
             <h1 className="text-3xl m-8 text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
@@ -43,7 +42,15 @@ const BlogPage = (props) => {
   )
 }
 
-export const getStaticProps = async ({ params }) => {
+interface IReturnGetStaticProps {
+  props: {
+    variables: any
+    data: any
+    query: any
+  }
+}
+
+export const getStaticProps = async ({ params }: { params: { filename: string } }): Promise<IReturnGetStaticProps> => {
   let data = {}
   let query = {}
   let variables = { relativePath: `${params.filename}.md` }
@@ -66,12 +73,12 @@ export const getStaticProps = async ({ params }) => {
   }
 }
 
-export const getStaticPaths = async () => {
+export const getStaticPaths = async (): Promise<any> => {
   const postsListData = await client.queries.postConnection()
 
   return {
-    paths: postsListData.data.postConnection.edges.map((post) => ({
-      params: { filename: post.node._sys.filename }
+    paths: postsListData?.data?.postConnection?.edges?.map((post) => ({
+      params: { filename: post?.node?._sys.filename }
     })),
     fallback: false
   }
@@ -79,7 +86,7 @@ export const getStaticPaths = async () => {
 
 export default BlogPage
 
-const PageSection = (props) => {
+const PageSection = (props: any): JSX.Element => {
   return (
     <>
       <h2>{props.heading}</h2>
@@ -92,7 +99,7 @@ const components = {
   PageSection
 }
 
-const ContentSection = ({ content }) => {
+const ContentSection = ({ content }: { content: any }): JSX.Element => {
   return (
     <div className="relative py-16 bg-white overflow-hidden">
       <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
