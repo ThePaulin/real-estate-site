@@ -1,16 +1,16 @@
-import { type IScripts } from "@/types"
-import Head from "next/head"
+import { type IScripts } from "@/types";
+import Head from "next/head";
 
-export default function SEO ({
+export default function SEO({
   title,
   description,
-  scripts
+  scripts,
 }: {
-  title: string
-  description: string
-  scripts: IScripts["scripts"]
+  title: string;
+  description: string;
+  scripts: IScripts["scripts"];
 }): JSX.Element {
-  const editedTitle = `${title} | Cribs KGL`
+  const editedTitle = `${title} | Cribs KGL`;
 
   return (
     <Head>
@@ -21,11 +21,9 @@ export default function SEO ({
       {scripts?.map((script) => {
         return (
           <>
-            {script.type === "script"
-              ? (
+            {script.type === "script" ? (
               <script type="text/javascript" src={script.href} />
-                )
-              : (
+            ) : (
               <link
                 rel={script.rel}
                 href={script.href}
@@ -33,10 +31,10 @@ export default function SEO ({
                 integrity={script.integrity}
                 referrerPolicy={script.referrerPolicy}
               />
-                )}
+            )}
           </>
-        )
+        );
       })}
     </Head>
-  )
+  );
 }

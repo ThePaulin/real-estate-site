@@ -1,28 +1,31 @@
-import { Transition, Dialog } from "@headlessui/react"
-import { Fragment } from "react"
-import { IconClose } from "../elements"
-import Button from "../elements/Button"
+import { Transition, Dialog } from "@headlessui/react";
+import { Fragment } from "react";
+import { IconClose } from "../elements";
+import Button from "../elements/Button";
 
-function openDrawer (setIsOpen: any): void {
-  setIsOpen((prev: boolean): boolean => !prev)
+function openDrawer(setIsOpen: any): void {
+  setIsOpen((prev: boolean): boolean => !prev);
 }
-function closeDrawer (setIsOpen: any): void {
-  setIsOpen(false)
+function closeDrawer(setIsOpen: any): void {
+  setIsOpen(false);
 }
-export function useDrawer (): { openDrawer: (setIsOpen: any) => void, closeDrawer: (setIsOpen: any) => void } {
-  return { openDrawer, closeDrawer }
+export function useDrawer(): {
+  openDrawer: (setIsOpen: any) => void;
+  closeDrawer: (setIsOpen: any) => void;
+} {
+  return { openDrawer, closeDrawer };
 }
 
-function Drawer ({
+function Drawer({
   title,
   open,
   onClose,
-  children
+  children,
 }: {
-  title: string
-  open: boolean
-  onClose: () => void
-  children: React.ReactNode
+  title: string;
+  open: boolean;
+  onClose: () => void;
+  children: React.ReactNode;
 }): JSX.Element {
   return (
     <Transition.Root appear show={open} as={Fragment}>
@@ -100,7 +103,7 @@ function Drawer ({
         </div>
       </Dialog>
     </Transition.Root>
-  )
+  );
 }
 
-export default Drawer
+export default Drawer;

@@ -1,16 +1,16 @@
-import Layout from "@/components/global/Layout"
-import Section from "@/components/elements/Section"
-import { useRouter } from "next/router"
+import Layout from "@/components/global/Layout";
+import Section from "@/components/elements/Section";
+import { useRouter } from "next/router";
 
-function Page (): JSX.Element {
-  const router = useRouter()
+function Page(): JSX.Element {
+  const router = useRouter();
 
-  console.log("params: ", router)
+  console.log("params: ", router);
 
-  const pageData: { title: string, description: string } = {
-    title: router?.query?.slug?.toString() ?? 'home',
-    description: "test description"
-  }
+  const pageData: { title: string; description: string } = {
+    title: router?.query?.slug?.toString() ?? "home",
+    description: "test description",
+  };
 
   return (
     <Layout title={pageData.title} description={pageData.description}>
@@ -18,7 +18,7 @@ function Page (): JSX.Element {
         <p className="">{pageData.title}</p>
       </Section>
     </Layout>
-  )
+  );
 }
 
-export default Page
+export default Page;

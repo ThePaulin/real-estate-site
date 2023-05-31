@@ -1,21 +1,20 @@
-
-import Section from "../elements/Section"
-import Footer from "../global/Footer"
-import Header from "./Header"
-import SEO from "../elements/Seo"
-import { type IScripts } from "@/types"
+import Section from "../elements/Section";
+import Footer from "../global/Footer";
+import Header from "./Header";
+import SEO from "../elements/Seo";
+import { type IScripts } from "@/types";
 // import '../../styles/globals.css';
 
-function Layout ({
+function Layout({
   children,
   title,
   description,
-  scripts = []
+  scripts = [],
 }: {
-  children: React.ReactNode
-  title: string
-  description: string
-  scripts?: IScripts["scripts"]
+  children: React.ReactNode;
+  title: string;
+  description: string;
+  scripts?: IScripts["scripts"];
 }): JSX.Element {
   return (
     <div className="h-screen">
@@ -35,7 +34,7 @@ function Layout ({
         <Footer />
       </Section>
     </div>
-  )
+  );
 }
 
-export default Layout
+export default Layout;

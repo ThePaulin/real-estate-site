@@ -1,17 +1,21 @@
 // THIS FILE HAS BEEN GENERATED WITH THE TINA CLI.
 // This is a demo file once you have tina setup feel free to delete this file
 
-import { useTina } from "tinacms/dist/react"
-import { TinaMarkdown } from "tinacms/dist/rich-text"
-import client from "../../../tina/__generated__/client"
-import Layout from "@/components/global/Layout"
+import { useTina } from "tinacms/dist/react";
+import { TinaMarkdown } from "tinacms/dist/rich-text";
+import client from "../../../tina/__generated__/client";
+import Layout from "@/components/global/Layout";
 
-const BlogPage = (props: { query: string, variables: any, data: any }): JSX.Element => {
+const BlogPage = (props: {
+  query: string;
+  variables: any;
+  data: any;
+}): JSX.Element => {
   const { data } = useTina({
     query: props.query,
     variables: props.variables,
-    data: props.data
-  })
+    data: props.data,
+  });
 
   return (
     <>
@@ -28,7 +32,7 @@ const BlogPage = (props: { query: string, variables: any, data: any }): JSX.Elem
         <div>
           <div
             style={{
-              textAlign: "center"
+              textAlign: "center",
             }}
           >
             <h1 className="text-3xl m-8 text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
@@ -39,26 +43,30 @@ const BlogPage = (props: { query: string, variables: any, data: any }): JSX.Elem
         </div>
       </Layout>
     </>
-  )
-}
+  );
+};
 
 interface IReturnGetStaticProps {
   props: {
-    variables: any
-    data: any
-    query: any
-  }
+    variables: any;
+    data: any;
+    query: any;
+  };
 }
 
-export const getStaticProps = async ({ params }: { params: { filename: string } }): Promise<IReturnGetStaticProps> => {
-  let data = {}
-  let query = {}
-  let variables = { relativePath: `${params.filename}.md` }
+export const getStaticProps = async ({
+  params,
+}: {
+  params: { filename: string };
+}): Promise<IReturnGetStaticProps> => {
+  let data = {};
+  let query = {};
+  let variables = { relativePath: `${params.filename}.md` };
   try {
-    const res = await client.queries.post(variables)
-    query = res.query
-    data = res.data
-    variables = res.variables
+    const res = await client.queries.post(variables);
+    query = res.query;
+    data = res.data;
+    variables = res.variables;
   } catch {
     // swallow errors related to document creation
   }
@@ -67,24 +75,24 @@ export const getStaticProps = async ({ params }: { params: { filename: string } 
     props: {
       variables,
       data,
-      query
+      query,
       // myOtherProp: 'some-other-data',
-    }
-  }
-}
+    },
+  };
+};
 
 export const getStaticPaths = async (): Promise<any> => {
-  const postsListData = await client.queries.postConnection()
+  const postsListData = await client.queries.postConnection();
 
   return {
     paths: postsListData?.data?.postConnection?.edges?.map((post) => ({
-      params: { filename: post?.node?._sys.filename }
+      params: { filename: post?.node?._sys.filename },
     })),
-    fallback: false
-  }
-}
+    fallback: false,
+  };
+};
 
-export default BlogPage
+export default BlogPage;
 
 const PageSection = (props: any): JSX.Element => {
   return (
@@ -92,12 +100,12 @@ const PageSection = (props: any): JSX.Element => {
       <h2>{props.heading}</h2>
       <p>{props.content}</p>
     </>
-  )
-}
+  );
+};
 
 const components = {
-  PageSection
-}
+  PageSection,
+};
 
 const ContentSection = ({ content }: { content: any }): JSX.Element => {
   return (
@@ -211,5 +219,5 @@ const ContentSection = ({ content }: { content: any }): JSX.Element => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
