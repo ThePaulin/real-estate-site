@@ -3189,3 +3189,5 @@
 2023-05-22 00:12:50 error: SQLITE_ERROR: no such table: issues
 2023-05-22 00:12:50 error: SQLITE_ERROR: no such table: issues
 2023-05-22 00:12:50 error: SQLITE_ERROR: no such table: issues
+2023-05-22 00:19:17 info: file:///Volumes/T7%20Shield/Files/Projects/Real-Estate/real-estate-site/real-estate-site/.git/index.lock
+2023-05-22 00:19:17 error: SQLITE_ERROR: no such table: issues

@@ -13,13 +13,14 @@ function Header (): JSX.Element {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
+    <>
     <nav className="flex justify-between px-4 py-10  ">
-      <div className="flex justify-start translate-x-10">
+      <div className="flex justify-start">
         <Button as={"a"} variant="link" href="/">
           <Image src={Logo} alt="Cribs KGL logo" />
         </Button>
       </div>
-      <div className="flex  tablet:gap-4">
+      <div className="flex tablet:gap-4">
         <Button variant="inline" aria-label="search">
           <IconSearch />
         </Button>
@@ -32,14 +33,15 @@ function Header (): JSX.Element {
         >
           <IconMenu />
         </Button>
-        <MenuDrawer
-          open={isMenuOpen}
-          onClose={() => {
-            closeDrawer(setIsMenuOpen)
-          }}
-        />
       </div>
     </nav>
+    <MenuDrawer
+    open={isMenuOpen}
+    onClose={() => {
+      closeDrawer(setIsMenuOpen)
+    }}
+  />
+  </>
   )
 }
 
