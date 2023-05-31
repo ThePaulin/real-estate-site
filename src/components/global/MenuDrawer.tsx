@@ -1,6 +1,5 @@
 import Link from "next/link"
 import Drawer from "./Drawer"
-import { motion } from "framer-motion"
 import { type IMenuLink } from "@/types"
 
 function MenuDrawer ({ open, onClose }: { open: boolean, onClose: () => void }): JSX.Element {
