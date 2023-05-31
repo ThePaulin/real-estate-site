@@ -1,11 +1,8 @@
-import Image from "next/image";
-import Logo from "../../assets/Logo.png";
 import Button from "../elements/Button";
 import { useState } from "react";
-import { IconMenu, IconSearch } from "../elements";
+import { IconLogo, IconMenu, IconSearch } from "../elements";
 import { useDrawer } from "./Drawer";
 import MenuDrawer from "./MenuDrawer";
-// import Router, { withRouter } from 'next/router';
 
 function Header(): JSX.Element {
   const { closeDrawer, openDrawer } = useDrawer();
@@ -17,7 +14,7 @@ function Header(): JSX.Element {
       <nav className="flex justify-between px-4 py-10  ">
         <div className="flex justify-start">
           <Button as={"a"} variant="link" href="/">
-            <Image src={Logo} alt="Cribs KGL logo" />
+            <IconLogo />
           </Button>
         </div>
         <div className="flex tablet:gap-4">
