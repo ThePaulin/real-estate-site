@@ -1,29 +1,29 @@
-import clsx from "clsx"
-import React from "react"
+import clsx from "clsx";
+import React from "react";
 
 export interface IconProps {
-  title?: string
-  direction?: string
-  viewBox?: string
-  stroke?: string
-  width?: string
-  height?: string
-  fill?: string
-  color?: string
-  className?: string
-  strokeWidth?: string | number
+  title?: string;
+  direction?: string;
+  viewBox?: string;
+  stroke?: string;
+  width?: string;
+  height?: string;
+  fill?: string;
+  color?: string;
+  className?: string;
+  strokeWidth?: string | number;
   children?:
-  | string
-  | number
-  | boolean
-  | React.ReactElement<any, string | React.JSXElementConstructor<any>>
-  | React.ReactFragment
-  | React.ReactPortal
-  | null
-  | undefined
+    | string
+    | number
+    | boolean
+    | React.ReactElement<any, string | React.JSXElementConstructor<any>>
+    | React.ReactFragment
+    | React.ReactPortal
+    | null
+    | undefined;
 }
 
-export default function Icon (props: IconProps): JSX.Element {
+export default function Icon(props: IconProps): JSX.Element {
   return (
     <svg
       width={props.width ?? "28px"}
@@ -38,10 +38,10 @@ export default function Icon (props: IconProps): JSX.Element {
       <title>{props.title ?? "icon"}</title>
       {props.children}
     </svg>
-  )
+  );
 }
 
-export function IconMenu (props: IconProps): JSX.Element {
+export function IconMenu(props: IconProps): JSX.Element {
   return (
     <Icon {...props} strokeWidth="0" title="menu">
       <path
@@ -49,10 +49,10 @@ export function IconMenu (props: IconProps): JSX.Element {
         fill={props.fill ?? "#0D0D0D"}
       />
     </Icon>
-  )
+  );
 }
 
-export function IconSearch (props: IconProps): JSX.Element {
+export function IconSearch(props: IconProps): JSX.Element {
   return (
     <Icon
       {...props}
@@ -66,10 +66,10 @@ export function IconSearch (props: IconProps): JSX.Element {
       <path d="m14.56 15.68 -3.395 -3.395q-1.47 1.12 -3.325 1.12 -1.505 0 -2.8 -0.735 -1.295 -0.77 -2.03 -2.065 -0.77 -1.295 -0.77 -2.8t0.77 -2.8q0.735 -1.295 2.03 -2.03 1.295 -0.77 2.8 -0.77t2.8 0.77q1.295 0.735 2.065 2.03 0.735 1.295 0.735 2.8 0 1.89 -1.155 3.36l3.395 3.395 -1.12 1.12ZM7.805 11.76q1.645 0 2.8 -1.155 1.12 -1.155 1.12 -2.765 0 -1.645 -1.12 -2.765 -1.155 -1.155 -2.8 -1.155 -1.61 0 -2.765 1.155 -1.155 1.12 -1.155 2.765 0 1.61 1.155 2.765t2.765 1.155Z" />
     </Icon>
     // <svg width="28px" height="28px" viewBox="0 0 0.84 0.84" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.35 0.14a0.21 0.21 0 1 0 0 0.42 0.21 0.21 0 0 0 0 -0.42zm-0.28 0.21a0.28 0.28 0 1 1 0.501 0.172l0.189 0.189a0.035 0.035 0 0 1 -0.049 0.049l-0.189 -0.189A0.28 0.28 0 0 1 0.07 0.35z" fill="#0D0D0D"/></svg>
-  )
+  );
 }
 
-export function IconResidential (props: IconProps): JSX.Element {
+export function IconResidential(props: IconProps): JSX.Element {
   return (
     <Icon
       {...props}
@@ -83,10 +83,10 @@ export function IconResidential (props: IconProps): JSX.Element {
       <path d="M0.42 0.105s-0.217 0.187 -0.338 0.288A0.036 0.036 0 0 0 0.07 0.42a0.035 0.035 0 0 0 0.035 0.035h0.07v0.245a0.035 0.035 0 0 0 0.035 0.035h0.105a0.035 0.035 0 0 0 0.035 -0.035v-0.14h0.14v0.14a0.035 0.035 0 0 0 0.035 0.035h0.105a0.035 0.035 0 0 0 0.035 -0.035v-0.245h0.07a0.035 0.035 0 0 0 0.035 -0.035 0.034 0.034 0 0 0 -0.013 -0.027C0.636 0.292 0.42 0.105 0.42 0.105z" />
       {/* <path d="M16 2.66666C15.8237 2.66668 15.6491 2.70168 15.4864 2.76962C15.3237 2.83757 15.176 2.93711 15.0521 3.06249L1.60415 14.7969C1.52016 14.8588 1.4519 14.9397 1.40485 15.0328C1.35781 15.126 1.33331 15.2289 1.33331 15.3333C1.33331 15.5101 1.40355 15.6797 1.52858 15.8047C1.6536 15.9298 1.82317 16 1.99998 16H5.33331V26.6667C5.33331 27.4027 5.93065 28 6.66665 28H12C12.736 28 13.3333 27.4027 13.3333 26.6667V18.6667H18.6666V26.6667C18.6666 27.4027 19.264 28 20 28H25.3333C26.0693 28 26.6666 27.4027 26.6666 26.6667V16H30C30.1768 16 30.3464 15.9298 30.4714 15.8047C30.5964 15.6797 30.6666 15.5101 30.6666 15.3333C30.6667 15.2289 30.6421 15.126 30.5951 15.0328C30.5481 14.9397 30.4798 14.8588 30.3958 14.7969L16.9557 3.0703C16.9531 3.06769 16.9505 3.06508 16.9479 3.06249C16.8239 2.93711 16.6763 2.83757 16.5136 2.76962C16.3509 2.70168 16.1763 2.66668 16 2.66666Z" fill="black"/> */}
     </Icon>
-  )
+  );
 }
 
-export function IconCommercial (props: IconProps): JSX.Element {
+export function IconCommercial(props: IconProps): JSX.Element {
   return (
     <Icon
       {...props}
@@ -124,35 +124,35 @@ export function IconCommercial (props: IconProps): JSX.Element {
         </clipPath>
       </defs>
     </Icon>
-  )
+  );
 }
 
-export function IconCaret (props: IconProps): JSX.Element {
-  const direction = props.direction ?? "up"
+export function IconCaret(props: IconProps): JSX.Element {
+  const direction = props.direction ?? "up";
 
-  function getDirectionsStyle (direction: string): string {
-    let style
+  function getDirectionsStyle(direction: string): string {
+    let style;
 
     switch (direction) {
       case "up":
-        style = ""
-        break
+        style = "";
+        break;
       case "right":
-        style = "rotate-90"
-        break
+        style = "rotate-90";
+        break;
       case "down":
-        style = "rotate-180"
-        break
+        style = "rotate-180";
+        break;
       case "left":
-        style = "-rotate-90"
-        break
+        style = "-rotate-90";
+        break;
       default:
-        style = ""
+        style = "";
     }
-    return style
+    return style;
   }
 
-  const directionStyle = getDirectionsStyle(direction)
+  const directionStyle = getDirectionsStyle(direction);
 
   return (
     <Icon
@@ -179,10 +179,10 @@ export function IconCaret (props: IconProps): JSX.Element {
         </clipPath>
       </defs>
     </Icon>
-  )
+  );
 }
 
-export function IconBed (props: IconProps): JSX.Element {
+export function IconBed(props: IconProps): JSX.Element {
   return (
     <Icon
       {...props}
@@ -198,10 +198,10 @@ export function IconBed (props: IconProps): JSX.Element {
         fill={props.fill ?? "black"}
       />
     </Icon>
-  )
+  );
 }
 
-export function IconBath (props: IconProps): JSX.Element {
+export function IconBath(props: IconProps): JSX.Element {
   return (
     <Icon {...props} title="bath" strokeWidth="0">
       <g clip-path="url(#clip0_78_1441)">
@@ -226,10 +226,10 @@ export function IconBath (props: IconProps): JSX.Element {
         </clipPath>
       </defs>
     </Icon>
-  )
+  );
 }
 
-export function IconHeart (props: IconProps): JSX.Element {
+export function IconHeart(props: IconProps): JSX.Element {
   return (
     <Icon {...props} strokeWidth="0" stroke="red" title="heart">
       <path
@@ -237,10 +237,10 @@ export function IconHeart (props: IconProps): JSX.Element {
         fill={props.fill ?? "black"}
       />
     </Icon>
-  )
+  );
 }
 
-export function IconCaretInCircle (props: IconProps): JSX.Element {
+export function IconCaretInCircle(props: IconProps): JSX.Element {
   return (
     <Icon {...props} strokeWidth="0">
       <path
@@ -248,10 +248,10 @@ export function IconCaretInCircle (props: IconProps): JSX.Element {
         fill={props.fill ?? "black"}
       />
     </Icon>
-  )
+  );
 }
 
-export function IconInstagram (props: IconProps): JSX.Element {
+export function IconInstagram(props: IconProps): JSX.Element {
   return (
     <Icon
       {...props}
@@ -267,10 +267,10 @@ export function IconInstagram (props: IconProps): JSX.Element {
         fill={props.fill ?? "#fff"}
       />
     </Icon>
-  )
+  );
 }
 
-export function IconFacebook (props: IconProps): JSX.Element {
+export function IconFacebook(props: IconProps): JSX.Element {
   return (
     <Icon
       {...props}
@@ -286,10 +286,10 @@ export function IconFacebook (props: IconProps): JSX.Element {
         fill={props.fill ?? "white"}
       />
     </Icon>
-  )
+  );
 }
 
-export function IconPinterest (props: IconProps): JSX.Element {
+export function IconPinterest(props: IconProps): JSX.Element {
   return (
     <Icon
       {...props}
@@ -305,10 +305,10 @@ export function IconPinterest (props: IconProps): JSX.Element {
         fill={props.fill ?? "#fff"}
       />
     </Icon>
-  )
+  );
 }
 
-export function IconTwitter (props: IconProps): JSX.Element {
+export function IconTwitter(props: IconProps): JSX.Element {
   return (
     <Icon
       {...props}
@@ -324,10 +324,10 @@ export function IconTwitter (props: IconProps): JSX.Element {
         fill={props.fill ?? "white"}
       />
     </Icon>
-  )
+  );
 }
 
-export function IconAgency (props: IconProps): JSX.Element {
+export function IconAgency(props: IconProps): JSX.Element {
   return (
     <Icon
       {...props}
@@ -342,10 +342,10 @@ export function IconAgency (props: IconProps): JSX.Element {
         fill={props.fill ?? "black"}
       />
     </Icon>
-  )
+  );
 }
 
-export function IconBroker (props: IconProps): JSX.Element {
+export function IconBroker(props: IconProps): JSX.Element {
   return (
     <Icon
       {...props}
@@ -372,10 +372,10 @@ export function IconBroker (props: IconProps): JSX.Element {
         </clipPath>
       </defs>
     </Icon>
-  )
+  );
 }
 
-export function IconAccount (props: IconProps): JSX.Element {
+export function IconAccount(props: IconProps): JSX.Element {
   return (
     <Icon
       {...props}
@@ -402,10 +402,10 @@ export function IconAccount (props: IconProps): JSX.Element {
         </clipPath>
       </defs>
     </Icon>
-  )
+  );
 }
 
-export function IconLocation (props: IconProps): JSX.Element {
+export function IconLocation(props: IconProps): JSX.Element {
   return (
     <Icon
       {...props}
@@ -425,10 +425,10 @@ export function IconLocation (props: IconProps): JSX.Element {
         fill={props.fill ?? "#000"}
       />
     </Icon>
-  )
+  );
 }
 
-export function IconConfirmationCheckmark (props: IconProps): JSX.Element {
+export function IconConfirmationCheckmark(props: IconProps): JSX.Element {
   return (
     <Icon
       {...props}
@@ -447,10 +447,10 @@ export function IconConfirmationCheckmark (props: IconProps): JSX.Element {
         fill={props.fill ?? "#FFC702"}
       />
     </Icon>
-  )
+  );
 }
 
-export function IconClose (props: IconProps): JSX.Element {
+export function IconClose(props: IconProps): JSX.Element {
   return (
     <Icon
       {...props}
@@ -462,7 +462,7 @@ export function IconClose (props: IconProps): JSX.Element {
     >
       <path d="M2 2L18 18M2 18L18 2" stroke="black" stroke-width="2.66667" />
     </Icon>
-  )
+  );
 }
 
 // export function (props: IconProps):JSX.Element{

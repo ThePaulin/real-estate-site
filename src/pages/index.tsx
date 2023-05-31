@@ -1,8 +1,8 @@
-import Section from "@/components/elements/Section"
-import Layout from "@/components/global/Layout"
-import { motion } from "framer-motion"
+import Section from "@/components/elements/Section";
+import Layout from "@/components/global/Layout";
+import { motion } from "framer-motion";
 
-export default function Home (): JSX.Element {
+export default function Home(): JSX.Element {
   return (
     <>
       <Layout title={"Home Page"} description={"home page Cribs KGL"}>
@@ -19,5 +19,5 @@ export default function Home (): JSX.Element {
         </main>
       </Layout>
     </>
-  )
+  );
 }

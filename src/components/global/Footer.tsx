@@ -2,54 +2,54 @@ import {
   IconFacebook,
   IconInstagram,
   IconPinterest,
-  IconTwitter
-} from "../elements"
-import Button from "../elements/Button"
-import Section from "../elements/Section"
-import Text from "../elements/Text"
+  IconTwitter,
+} from "../elements";
+import Button from "../elements/Button";
+import Section from "../elements/Section";
+import Text from "../elements/Text";
 // RE-X_test-2
 
-function Footer (): JSX.Element {
+function Footer(): JSX.Element {
   const socialLinks: Array<{
-    title: string
-    icon: React.FC
-    link: string
+    title: string;
+    icon: React.FC;
+    link: string;
   }> = [
     {
       title: "instagram",
       icon: IconInstagram,
-      link: "https://www.instagram.com/"
+      link: "https://www.instagram.com/",
     },
     {
       title: "facebook",
       icon: IconFacebook,
-      link: "https://www.facebook.com/"
+      link: "https://www.facebook.com/",
     },
     {
       title: "pinterest",
       icon: IconPinterest,
-      link: "https://www.pinterest.ca/"
+      link: "https://www.pinterest.ca/",
     },
     {
       title: "twitter",
       icon: IconTwitter,
-      link: "https://twitter.com/"
-    }
-  ]
+      link: "https://twitter.com/",
+    },
+  ];
   const footerMenu = [
     {
       title: "Terms of Service",
-      link: "/terms-of-service"
+      link: "/terms-of-service",
     },
     {
       title: "Pivacy Policy",
-      link: "/privacy-policy"
+      link: "/privacy-policy",
     },
     {
       title: "Site-map",
-      link: "/site-map"
-    }
-  ]
+      link: "/site-map",
+    },
+  ];
   return (
     <Section
       padding="all"
@@ -61,7 +61,7 @@ function Footer (): JSX.Element {
         className="flex flex-row justify-center items-center gap-4"
       >
         {socialLinks?.map((link) => {
-          const Icon = link.icon
+          const Icon = link.icon;
           return (
             <li key={link.title}>
               <Button as="a" variant="link" href={link.link}>
@@ -69,7 +69,7 @@ function Footer (): JSX.Element {
                 <Icon />
               </Button>
             </li>
-          )
+          );
         })}
       </ul>
       <ul className="flex flex-col items-center justify-center gap-8 py-16">
@@ -86,7 +86,7 @@ function Footer (): JSX.Element {
                 </Text>
               </Button>
             </li>
-          )
+          );
         })}
       </ul>
       <Text fontWeight="semibold" size="lead">
@@ -94,7 +94,7 @@ function Footer (): JSX.Element {
         &#169; CRIBS KGL
       </Text>
     </Section>
-  )
+  );
 }
 
-export default Footer
+export default Footer;
