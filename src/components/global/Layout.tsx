@@ -21,9 +21,14 @@ function Layout({
 
   useEffect(() => {
     const query = '*[_type == "navigation"]';
-    sanityClient.fetch(query).then((data) => {
-      setMenuItems(data);
-    });
+    // @ts-expect-error to be adjusted later
+    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+    async function runQuery(){
+      await sanityClient.fetch(query).then((data) => {
+        setMenuItems(data);
+      });
+    }
+    void runQuery();
   }, []);
 
   return (
