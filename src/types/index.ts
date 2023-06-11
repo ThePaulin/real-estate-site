@@ -17,3 +17,40 @@ export interface IScripts {
     referrerPolicy: HTMLAttributeReferrerPolicy | undefined;
   }>;
 }
+
+export interface IProperty {
+    price: number;
+    _createdAt: string;
+    _id: string;
+    description: string;
+    tags: string[];
+    title: string;
+    type: string;
+    slug: {
+      current: string;
+      _type: string;
+    };
+    address: {
+      country: string;
+      city: string;
+      zone: string;
+      street: string;
+      street_number: number;
+    };
+    _rev: string;
+    contact: {
+      _ref: string;
+      _type: string;
+    };
+    bathroom_count: number;
+    category: string;
+    status: string;
+    images: Array<{
+      _ref: string;
+      _type: string;
+      _key: string;
+    }>;
+    _type: string;
+    bedroom_count: number;
+    _updatedAt: string;  
+}

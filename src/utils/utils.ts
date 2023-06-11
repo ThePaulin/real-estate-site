@@ -1,4 +1,5 @@
 // identify if class is missing
+
 export function missingClass(string?: string, prefix?: string): boolean {
   if (string === undefined) {
     return true;
