@@ -1,3 +1,4 @@
+import { type IMenuItem } from "@/types";
 import {
   IconFacebook,
   IconInstagram,
@@ -9,7 +10,7 @@ import Section from "../elements/Section";
 import Text from "../elements/Text";
 // RE-X_test-2
 
-function Footer(): JSX.Element {
+function Footer({ menuItems }: { menuItems: IMenuItem[] }): JSX.Element {
   const socialLinks: Array<{
     title: string;
     icon: React.FC;
@@ -36,20 +37,7 @@ function Footer(): JSX.Element {
       link: "https://twitter.com/",
     },
   ];
-  const footerMenu = [
-    {
-      title: "Terms of Service",
-      link: "/terms-of-service",
-    },
-    {
-      title: "Pivacy Policy",
-      link: "/privacy-policy",
-    },
-    {
-      title: "Site-map",
-      link: "/site-map",
-    },
-  ];
+
   return (
     <Section
       padding="all"
@@ -73,16 +61,16 @@ function Footer(): JSX.Element {
         })}
       </ul>
       <ul className="flex flex-col items-center justify-center gap-8 py-16">
-        {footerMenu?.map((link) => {
+        {menuItems?.map((link) => {
           return (
-            <li key={link.title}>
+            <li key={link.cta}>
               <Button as="a" variant="link" href={link.link}>
                 <Text
                   size="small"
                   className="text-accent"
                   fontWeight={"semibold"}
                 >
-                  {link.title}
+                  {link.cta}
                 </Text>
               </Button>
             </li>

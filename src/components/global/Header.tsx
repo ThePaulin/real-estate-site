@@ -3,8 +3,9 @@ import { useState } from "react";
 import { IconLogo, IconMenu, IconSearch } from "../elements";
 import { useDrawer } from "./Drawer";
 import MenuDrawer from "./MenuDrawer";
+import { type IMenuItem } from "@/types";
 
-function Header(): JSX.Element {
+function Header({ menuItems }: { menuItems: IMenuItem[] }): JSX.Element {
   const { closeDrawer, openDrawer } = useDrawer();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,6 +34,7 @@ function Header(): JSX.Element {
         </div>
       </nav>
       <MenuDrawer
+        menuItems={menuItems}
         open={isMenuOpen}
         onClose={() => {
           closeDrawer(setIsMenuOpen);

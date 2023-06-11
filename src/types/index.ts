@@ -54,3 +54,14 @@ export interface IProperty {
   bedroom_count: number;
   _updatedAt: string;
 }
+
+export interface IMenuObject {
+  footer: IMenuItem[];
+  header: IMenuItem[];
+}
+export interface IMenuItem {
+  cta: string;
+  link: string;
+  _key: string;
+  _type: string;
+}
