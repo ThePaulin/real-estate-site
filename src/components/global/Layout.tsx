@@ -2,8 +2,9 @@ import Section from "../elements/Section";
 import Footer from "../global/Footer";
 import Header from "./Header";
 import SEO from "../elements/Seo";
-import { type IScripts } from "@/types";
-// import '../../styles/globals.css';
+import { type IMenuObject, type IScripts } from "@/types";
+import { useEffect, useState } from "react";
+import { sanityClient } from "@/client";
 
 function Layout({
   children,
@@ -16,11 +17,25 @@ function Layout({
   description: string;
   scripts?: IScripts["scripts"];
 }): JSX.Element {
+  const [menuItems, setMenuItems] = useState<IMenuObject[]>();
+
+  useEffect(() => {
+    const query = '*[_type == "navigation"]';
+    async function runQuery(){
+      await sanityClient.fetch(query).then((data) => {
+        setMenuItems(data);
+      });
+    }
+    void runQuery();
+  }, []);
+
   return (
     <div className="h-screen">
       <SEO title={title} description={description} scripts={scripts} />
       <header role="header">
-        <Header />
+        {menuItems !== undefined ? (
+          <Header menuItems={menuItems[0]?.header} />
+        ) : null}
       </header>
       <main role="main" className="h-fit">
         {children}
@@ -31,7 +46,9 @@ function Layout({
         role="footer"
         className="bottom-0 mb-0 h-fit "
       >
-        <Footer />
+        {menuItems !== undefined ? (
+          <Footer menuItems={menuItems[0]?.footer} />
+        ) : null}
       </Section>
     </div>
   );

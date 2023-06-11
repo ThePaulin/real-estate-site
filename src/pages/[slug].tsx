@@ -5,10 +5,8 @@ import { useRouter } from "next/router";
 function Page(): JSX.Element {
   const router = useRouter();
 
-  console.log("params: ", router);
-
   const pageData: { title: string; description: string } = {
-    title: router?.query?.slug?.toString() ?? "home",
+    title: router?.query?.slug?.toString() ?? "/home",
     description: "test description",
   };
 
