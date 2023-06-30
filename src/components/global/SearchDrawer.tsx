@@ -5,7 +5,7 @@ import { Listbox, Transition } from '@headlessui/react'
 import {useUrl} from '../../hooks/index';
 
 
-function SearchDrawer({close}: {clode: ()=> void}) {
+function SearchDrawer({close}: {close: ()=> void}) {
     const searchBox = useRef(null);
     const options: string[] = ['For Sale', 'For Rent'];
     const [q, setQ] = useState<string>('');
