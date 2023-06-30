@@ -1,7 +1,7 @@
 import { type IScripts } from "@/types";
 import Head from "next/head";
 
-export default function SEO({
+export function SEO({
   title,
   description,
   scripts,
@@ -38,3 +38,5 @@ export default function SEO({
     </Head>
   );
 }
+
+export default SEO;

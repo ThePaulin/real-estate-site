@@ -42,11 +42,11 @@ function Footer({ menuItems }: { menuItems: IMenuItem[] }): JSX.Element {
     <Section
       padding="all"
       display="flex"
-      className=" flex-col justify-center items-center bottom-0 bg-primary"
+      className=" w-screen flex-col justify-center items-center bottom-0 bg-primary"
     >
       <ul
         aria-label="social link menu"
-        className="flex flex-row justify-center items-center gap-4"
+        className="flex flex-row flex-wrap justify-center items-center gap-4"
       >
         {socialLinks?.map((link) => {
           const Icon = link.icon;

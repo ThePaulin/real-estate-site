@@ -18,14 +18,14 @@ export interface IScripts {
   }>;
 }
 
-export interface IProperty {
+export interface IPropertyFull {
   price: number;
   _createdAt: string;
   _id: string;
   description: string;
   tags: string[];
   title: string;
-  type: string;
+  "type": string;
   slug: {
     current: string;
     _type: string;
@@ -41,18 +41,54 @@ export interface IProperty {
   contact: {
     _ref: string;
     _type: string;
+    contact_name: string;
+    email: string;
+    phone: number;
+    type: 'Agency' | 'Broker';
+    _id: string;
   };
   bathroom_count: number;
   category: string;
-  status: string;
-  images: Array<{
+  images: {
     _ref: string;
     _type: string;
     _key: string;
-  }>;
+    images: IPropertyImage[];
+  };
   _type: string;
   bedroom_count: number;
   _updatedAt: string;
+  status: 'Available' | 'Pending' | 'Not Available';
+}
+
+// export interface IPropertyFull extends IProperty {
+//   ...images: {
+
+//   }
+    
+// }
+
+export interface IPropertyImage {
+  image: {
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+    _type: string;
+  };
+  alt_text: string;
+  _type: string;
+  _key: string;
+}
+
+export interface IPropertyImages {
+  _createdAt: string;
+  _rev: string;
+  _type: string;
+  _id: string;
+  title: string;
+  _updatedAt: string;
+  images: IPropertyImage[];
 }
 
 export interface IMenuObject {
@@ -62,6 +98,6 @@ export interface IMenuObject {
 export interface IMenuItem {
   cta: string;
   link: string;
-  _key: string;
+  _key: string
   _type: string;
 }

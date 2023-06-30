@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-function TextInput({
+export function TextInput({
   as: Component = "input",
   type = "text",
   className,

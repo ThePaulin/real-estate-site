@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { missingClass } from "@/utils/utils";
 
-function Section({
+export function Section({
   as: Component = "section",
   display = "flex",
   className,

@@ -32,7 +32,7 @@ function Layout({
   return (
     <div className="h-screen">
       <SEO title={title} description={description} scripts={scripts} />
-      <header role="header">
+      <header role="header" className=" z-40">
         {menuItems !== undefined ? (
           <Header menuItems={menuItems[0]?.header} />
         ) : null}
