@@ -34,7 +34,7 @@ module.exports = {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],
       },
       screens: {
-        tablet: "40px",
+        tablet: "40em",
         // 640px
         laptop: "64em",
         // 1024px

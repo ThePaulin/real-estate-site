@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-function Text({
+export function Text({
   as: Component = "p",
   size = "general",
   fontWeight = "general",
@@ -9,8 +9,8 @@ function Text({
   ...props
 }: {
   as?: React.ElementType;
-  size: "big" | "heading" | "lead" | "general" | "small";
-  fontWeight: "bold" | "semibold" | "light" | "general";
+  size?: "big" | "heading" | "lead" | "general" | "small";
+  fontWeight?: "bold" | "semibold" | "light" | "general";
   className?: string;
   children: React.ReactNode;
 }): JSX.Element {
@@ -32,11 +32,16 @@ function Text({
   const textWeight: Record<string, string> = {
     bold: "font-bold",
     semibold: "font-semibold",
-    light: "font-normal",
-    general: "text-[0.875em] leading-[1.0625em]",
+    light: "font-light",
+    general: "font-normal",
   };
 
-  const styles = clsx(textSizes[size], textWeight[fontWeight], className);
+  const styles = clsx(
+    "pointer-events-none",
+    textSizes[size],
+    textWeight[fontWeight],
+    className
+  );
 
   return (
     <Component {...props} className={styles}>

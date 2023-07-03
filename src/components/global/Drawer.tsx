@@ -1,17 +1,17 @@
 import { Transition, Dialog } from "@headlessui/react";
-import { Fragment } from "react";
+import { Fragment, type Dispatch, type SetStateAction } from "react";
 import { IconClose } from "../elements";
 import Button from "../elements/Button";
 
-function openDrawer(setIsOpen: any): void {
+function openDrawer(setIsOpen: Dispatch<SetStateAction<boolean>>): void {
   setIsOpen((prev: boolean): boolean => !prev);
 }
-function closeDrawer(setIsOpen: any): void {
+function closeDrawer(setIsOpen: Dispatch<SetStateAction<boolean>>): void {
   setIsOpen(false);
 }
 export function useDrawer(): {
-  openDrawer: (setIsOpen: any) => void;
-  closeDrawer: (setIsOpen: any) => void;
+  openDrawer: (setIsOpen: Dispatch<SetStateAction<boolean>>) => void;
+  closeDrawer: (setIsOpen: Dispatch<SetStateAction<boolean>>) => void;
 } {
   return { openDrawer, closeDrawer };
 }
@@ -28,10 +28,9 @@ function Drawer({
   children: React.ReactNode;
 }): JSX.Element {
   return (
-    <Transition.Root appear show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={onClose}>
+    <Transition.Root show={open} as={Fragment}>
+      <Dialog as="div" className="absolute z-40" onClose={onClose}>
         <Transition.Child
-          appear
           as={Fragment}
           enter="ease-in-out duration-500"
           enterFrom="opacity-0"
@@ -47,7 +46,6 @@ function Drawer({
           <div className="absolute inset-0 overflow-hidden">
             <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full desktop:pl-10">
               <Transition.Child
-                appear
                 as={Fragment}
                 enter="transform transition ease-in-out duration-500 sm:duration-700"
                 enterFrom="translate-x-full"
