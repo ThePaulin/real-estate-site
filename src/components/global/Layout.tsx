@@ -21,7 +21,7 @@ function Layout({
 
   useEffect(() => {
     const query = '*[_type == "navigation"]';
-    async function runQuery(){
+    async function runQuery() {
       await sanityClient.fetch(query).then((data) => {
         setMenuItems(data);
       });

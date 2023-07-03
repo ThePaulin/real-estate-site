@@ -58,7 +58,7 @@ export function IconSearch(props: IconProps): JSX.Element {
       {...props}
       strokeWidth="0"
       title="search"
-      fill={ props.fill ?? "#000000"}
+      fill={props.fill ?? "#000000"}
       width="28px"
       height="28px"
       viewBox="0 0 17.92 17.92"
@@ -149,16 +149,28 @@ function getDirectionsStyle(direction: string): string {
   return style;
 }
 
-export function IconCustomCaret(props: IconProps): JSX.Element{
-
+export function IconCustomCaret(props: IconProps): JSX.Element {
   const direction = props.direction ?? "up";
 
   const directionStyle = getDirectionsStyle(direction);
 
-  return(
-    <Icon {...props} title={`custom-caret-${direction}`} className={`${directionStyle}`} width="40" height="40" viewBox="0 0 40 40" stroke="none"  fill="#fff">
-      <path d="M20 36.875A16.875 16.875 0 1 0 3.125 20 16.894 16.894 0 0 0 20 36.875Zm0-30A13.125 13.125 0 1 1 6.875 20 13.14 13.14 0 0 1 20 6.875Zm-7.019 13.747 5.625-6.25a1.875 1.875 0 0 1 2.788 0l5.625 6.25a1.875 1.875 0 0 1-2.788 2.51l-4.23-4.704-4.232 4.7a1.876 1.876 0 0 1-3.267-1.156c-.026-.497.147-.98.48-1.35Z" fill="#fff"/> 
-    </Icon>  )
+  return (
+    <Icon
+      {...props}
+      title={`custom-caret-${direction}`}
+      className={`${directionStyle}`}
+      width="40"
+      height="40"
+      viewBox="0 0 40 40"
+      stroke="none"
+      fill="#fff"
+    >
+      <path
+        d="M20 36.875A16.875 16.875 0 1 0 3.125 20 16.894 16.894 0 0 0 20 36.875Zm0-30A13.125 13.125 0 1 1 6.875 20 13.14 13.14 0 0 1 20 6.875Zm-7.019 13.747 5.625-6.25a1.875 1.875 0 0 1 2.788 0l5.625 6.25a1.875 1.875 0 0 1-2.788 2.51l-4.23-4.704-4.232 4.7a1.876 1.876 0 0 1-3.267-1.156c-.026-.497.147-.98.48-1.35Z"
+        fill="#fff"
+      />
+    </Icon>
+  );
 }
 
 export function IconCaret(props: IconProps): JSX.Element {

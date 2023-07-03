@@ -1,17 +1,17 @@
 import { Transition, Dialog } from "@headlessui/react";
-import { Fragment } from "react";
+import { Fragment, type Dispatch, type SetStateAction } from "react";
 import { IconClose } from "../elements";
 import Button from "../elements/Button";
 
-function openDrawer(setIsOpen: any): void {
+function openDrawer(setIsOpen: Dispatch<SetStateAction<boolean>>): void {
   setIsOpen((prev: boolean): boolean => !prev);
 }
-function closeDrawer(setIsOpen: any): void {
+function closeDrawer(setIsOpen: Dispatch<SetStateAction<boolean>>): void {
   setIsOpen(false);
 }
 export function useDrawer(): {
-  openDrawer: (setIsOpen: any) => void;
-  closeDrawer: (setIsOpen: any) => void;
+  openDrawer: (setIsOpen: Dispatch<SetStateAction<boolean>>) => void;
+  closeDrawer: (setIsOpen: Dispatch<SetStateAction<boolean>>) => void;
 } {
   return { openDrawer, closeDrawer };
 }

@@ -36,7 +36,12 @@ export function Text({
     general: "font-normal",
   };
 
-  const styles = clsx('pointer-events-none',textSizes[size], textWeight[fontWeight], className);
+  const styles = clsx(
+    "pointer-events-none",
+    textSizes[size],
+    textWeight[fontWeight],
+    className
+  );
 
   return (
     <Component {...props} className={styles}>

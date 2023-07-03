@@ -13,16 +13,14 @@ function Header({ menuItems }: { menuItems: IMenuItem[] }): JSX.Element {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
-  const primaryColor = getCSSVariable('--primary-color');
-  const hexPrimaryColor = rgbToHex(primaryColor)
+  const primaryColor = getCSSVariable("--primary-color");
+  const hexPrimaryColor = rgbToHex(primaryColor);
 
   function getFill(isSearchOpen: boolean) {
-    if(isSearchOpen) {
-      return hexPrimaryColor
+    if (isSearchOpen) {
+      return hexPrimaryColor;
     }
-    
   }
-  
 
   return (
     <>
@@ -32,17 +30,20 @@ function Header({ menuItems }: { menuItems: IMenuItem[] }): JSX.Element {
             <IconLogo />
           </Button>
         </div>
-        <div className="flex justify-center items-center gap-4 tablet:gap-2">
-          <Button 
-          className=" h-fit px-0 py-0" 
-          variant="inline" 
-          aria-label="search" 
-          onClick={() => { setIsSearchOpen(prev => !prev) }}>
-            <IconSearch  fill={getFill(isSearchOpen)}  />
+        <div className="flex justify-center items-center gap-4 tablet:gap-6">
+          <Button
+            className=" w-fit px-0 py-0 "
+            variant="blank"
+            aria-label="search"
+            onClick={() => {
+              setIsSearchOpen((prev) => !prev);
+            }}
+          >
+            <IconSearch className="" fill={getFill(isSearchOpen)} />
           </Button>
           <Button
-            className=" h-fit px-0 py-0"
-            variant="inline"
+            className=" w-fit  px-0 py-0"
+            variant="blank"
             aria-label="menu"
             onClick={() => {
               openDrawer(setIsMenuOpen);
@@ -52,10 +53,14 @@ function Header({ menuItems }: { menuItems: IMenuItem[] }): JSX.Element {
           </Button>
         </div>
       </nav>
-      
+
       {isSearchOpen ? (
         <div className="w-full">
-           <SearchDrawer close={()=>{ setIsSearchOpen(false)}} />
+          <SearchDrawer
+            close={() => {
+              setIsSearchOpen(false);
+            }}
+          />
         </div>
       ) : null}
       <MenuDrawer
