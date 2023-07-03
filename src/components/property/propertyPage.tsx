@@ -2,12 +2,12 @@ import { type IPropertyFull } from "@/types";
 import { Button, IconCustomCaret, IconHeart, Section, Text } from "../elements";
 import Carousel from "nuka-carousel";
 import { urlFor } from "@/client";
-import { CountsDisplay } from "@/pages/search";
+import { CountAndSave, CountsDisplay } from "@/pages/search";
 import Link from "next/link";
 import { useState } from "react";
 import Modal, { useModal } from "../global/Modal";
 
-function propertyPage({ property }: { property: IPropertyFull }) {
+function PropertyPage({ property }: { property: IPropertyFull }) {
   const address = `${property.address.street_number}, ${property.address.street}, ${property.address.city}, ${property.address.zone}, ${property.address.country}`;
 
   return (
@@ -77,10 +77,7 @@ function propertyPage({ property }: { property: IPropertyFull }) {
           <Text size="small" className="text-black/40">
             {address}
           </Text>
-          <div className="flex justify-between">
-            <CountsDisplay item={property} />
-            <IconHeart />
-          </div>
+          <CountAndSave item={property} />
           <Text
             size="small"
             fontWeight="light"
@@ -117,7 +114,7 @@ function propertyPage({ property }: { property: IPropertyFull }) {
   );
 }
 
-export default propertyPage;
+export default PropertyPage;
 
 function Images({
   property,

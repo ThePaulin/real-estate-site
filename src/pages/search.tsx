@@ -3,7 +3,7 @@ import Layout from "@/components/global/Layout";
 import { useUrl } from "@/hooks";
 import type { IPropertyFull, IPropertyFullSearch } from "@/types";
 import React, { Suspense, useEffect, useState } from "react";
-import { Grid, IconBath, IconBed, Section, Text } from "@/components/elements";
+import { Button, Grid, IconBath, IconBed, IconHeart, Section, Text } from "@/components/elements";
 import type {
   GetServerSideProps,
   InferGetServerSidePropsType,
@@ -199,8 +199,8 @@ function PropertyCard({ item }: { item: IPropertyFullSearch }) {
         ) : null}
       </div>
 
-      <div className="w-full flex justify-between gap-4">
-        <div className=" w-full flex flex-col justify-start gap-2 text-left">
+      <div className="w-full flex justify-between gap-4 ">
+        <div className=" w-full flex flex-col justify-start gap-2 text-left ">
           <Text size="small">{item?.category}</Text>
           <Text size="general" fontWeight="bold">
             {item?.title}
@@ -208,14 +208,25 @@ function PropertyCard({ item }: { item: IPropertyFullSearch }) {
           <Text size="small" className="text-black/40">
             {address}
           </Text>
-          <CountsDisplay item={item} />
+          
+          
         </div>
         <Text size="general" fontWeight="semibold" className="text-primary">
           ${item?.price}
         </Text>
       </div>
+      <CountAndSave item={item} />
     </Link>
   );
+}
+
+export function CountAndSave({item}: {item: IPropertyFullSearch | IPropertyFull}): JSX.Element {
+    return (<div className="flex w-full justify-between items-center ">
+            <CountsDisplay item={item} />
+            <Button variant="blank" className="w-fit hidden">
+                    <IconHeart />
+            </Button>
+      </div>)
 }
 
 export function CountsDisplay({
