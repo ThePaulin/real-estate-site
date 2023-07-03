@@ -1,8 +1,8 @@
 import { type IPropertyFull } from "@/types";
-import { Button, IconCustomCaret, IconHeart, Section, Text } from "../elements";
+import { Button, IconCustomCaret, Section, Text } from "../elements";
 import Carousel from "nuka-carousel";
 import { urlFor } from "@/client";
-import { CountAndSave, CountsDisplay } from "@/pages/search";
+import { CountAndSave } from "@/pages/search";
 import Link from "next/link";
 import { useState } from "react";
 import Modal, { useModal } from "../global/Modal";
