@@ -84,7 +84,7 @@ function propertyPage({ property }: { property: IPropertyFull }) {
           <Text
             size="small"
             fontWeight="light"
-            className=" leading-6 tablet:leading-[24px] mt-4 text-black/80 "
+            className=" leading-[24px] mt-4 text-black/80 "
           >
             {property?.description}
           </Text>
