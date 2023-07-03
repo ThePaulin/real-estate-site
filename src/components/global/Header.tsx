@@ -55,7 +55,7 @@ function Header({ menuItems }: { menuItems: IMenuItem[] }): JSX.Element {
       </nav>
 
       {isSearchOpen ? (
-        <div className="w-full">
+        <div className="w-full -translate-y-full transition-all  ">
           <SearchDrawer
             close={() => {
               setIsSearchOpen(false);

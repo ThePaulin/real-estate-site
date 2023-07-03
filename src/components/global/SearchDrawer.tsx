@@ -76,14 +76,14 @@ function SearchDrawer({ close }: { close: () => void }) {
       urlType +
       "&category=" +
       urlCategory;
-    // : () => void();
     window.location.href = searchUrl;
   }
   function handleTypeSelect(
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) {
-    // e.preventDefault();
-    setType(e.target as unknown as HTMLInputElement["name"]);
+    const target = e.target as HTMLButtonElement;
+    e.preventDefault();
+    setType(target.value);
   }
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
@@ -129,6 +129,7 @@ function SearchDrawer({ close }: { close: () => void }) {
               <button
                 aria-label={NAMES.type.residential}
                 name={NAMES.type.residential}
+                value={NAMES.type.residential}
                 onClick={(e) => {
                   handleTypeSelect(e);
                 }}
@@ -153,6 +154,7 @@ function SearchDrawer({ close }: { close: () => void }) {
               <button
                 aria-label={NAMES.type.commercial}
                 name={NAMES.type.commercial}
+                value={NAMES.type.commercial}
                 onClick={(e) => {
                   handleTypeSelect(e);
                 }}
@@ -170,7 +172,6 @@ function SearchDrawer({ close }: { close: () => void }) {
 
           <input
             ref={searchBox}
-            // onSubmit={(e) =>{handleSubmit(e)}}
             onChange={(e) => {
               setQ(e.target.value);
             }}
@@ -228,14 +229,10 @@ export function CustomListBox({
             onClick={() => {
               setIsOpen((prev) => !prev);
             }}
-            className="relative w-fit tablet:w-full h-8 cursor-default rounded-lg bg-tertiary/20 py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm"
+            className="relative w-fit flex  items-center tablet:w-full h-8 cursor-default rounded-lg bg-tertiary/20 py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm"
           >
             <span className="block whitespace-nowrap">{selected}</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-              {/* <ChevronUpDownIcon
-                className="h-5 w-5 text-gray-400"
-                aria-hidden="true"
-              /> */}
               <IconCaret direction={`${isOpen ? "up" : "down"}`} />
             </span>
           </Listbox.Button>

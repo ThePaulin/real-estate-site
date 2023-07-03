@@ -27,9 +27,9 @@ function propertyPage({ property }: { property: IPropertyFull }) {
       <Section
         padding="none"
         display="flex"
-        className="w-full flex-col tablet:flex-row mt-8"
+        className="w-full flex-col tablet:flex-row mt-8 "
       >
-        <div className="w-full hidden lg:grid lg:grid-flow-row lg:grid-cols-2 lg:gap-2">
+        <div className="w-full hidden lg:grid lg:grid-flow-row lg:grid-cols-2 lg:gap-2  ">
           <Images property={property} clickable />
         </div>
         <div className="w-full block lg:hidden ">
