@@ -1,4 +1,4 @@
-import { sanityClient } from "@/client";
+import { sanityClient, urlFor } from "@/client";
 import type { IPropertyFullSearch, ISiteMapPost, ISitemapPostsObject } from "@/types";
 
 const CHG_FREQ = {
@@ -18,7 +18,13 @@ function renderTag(post: ISiteMapPost) {
        <lastmod>${post.lastMod}</lastmod>
         <changefreq>${post.changeFreq}</changefreq>
        </url>
-       
+       ${post.image?.url !== undefined ? 
+        `<image:image>
+        <image:loc>${post.image.url}</image:loc>
+        <image:title>${post.title}</image:title>
+        <image:caption/>
+        </image:image>`
+        : ''}
      `;
 }
 
@@ -30,9 +36,13 @@ function generateSiteMap(posts: ISitemapPostsObject , origin: string) {
           .map((p) => {
             const url = `${origin}/properties/${p.slug.current}`;
             return {
+              title: p?.title,
               url,
               lastMod: p._updatedAt,
               changeFreq: CHG_FREQ.property,
+              image: {
+                url: urlFor(p?.images?.images?.image).url(),
+              }
             };
           })
       : [];
@@ -44,12 +54,13 @@ function generateSiteMap(posts: ISitemapPostsObject , origin: string) {
           .map((p) => {
             const url = encodeXML(`${origin}/pages/${p.slug.current}`);
             return {
+              title: p?.title,
               url,
               lastMod: p._updatedAt,
               changeFreq: CHG_FREQ.page,
-              // image: {
-              //     url: p.images
-              // }
+            //   image: {
+            //     url: urlFor(p.images.images.image).url(),
+            //   }
             };
           })
       : [];
@@ -61,6 +72,7 @@ function generateSiteMap(posts: ISitemapPostsObject , origin: string) {
           .map((p) => {
             const url = `${origin}/blog/${p.slug.current}`;
             return {
+              title: p?.title,
               url,
               lastMod: p._updatedAt,
               changeFreq: CHG_FREQ.blog,
