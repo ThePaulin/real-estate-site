@@ -173,6 +173,12 @@ export interface IMenuItem {
 
 export interface ISiteMapPost {
   url: string;
-  lastMod: Date;
-  changeFreq: 'daily' | 'weekly' | 'monthly' | 'yearly';
+  lastMod: string;
+  changeFreq: 'daily' | 'weekly' | 'monthly' | 'yearly' | string;
+}
+
+export interface ISitemapPostsObject {
+  properties: IPropertyFullSearch[];
+  pages: Array<{slug:{current: string}; _updatedAt: string}>;
+  blogs: Array<{slug:{current: string}; _updatedAt: string}>;
 }

@@ -1,8 +1,5 @@
 import { sanityClient } from "@/client";
-import { IPropertyFullSearch, ISiteMapPost } from "@/types";
-
-// const EXTERNAL_DATA_URL = 'https://jsonplaceholder.typicode.com/posts';
-const JSON_PLACEHOLDER = "https://jsonplaceholder.typicode.com/posts";
+import type { IPropertyFullSearch, ISiteMapPost, ISitemapPostsObject } from "@/types";
 
 const CHG_FREQ = {
   property: "daily",
@@ -25,8 +22,8 @@ function renderTag(post: ISiteMapPost) {
      `;
 }
 
-function generateSiteMap(posts, origin) {
-  const propertyData: ISiteMapPost[] =
+function generateSiteMap(posts: ISitemapPostsObject , origin: string) {
+  const propertyData =
     posts?.properties?.length > 0
       ? posts.properties
           .filter((p) => p.slug.current)
@@ -40,7 +37,7 @@ function generateSiteMap(posts, origin) {
           })
       : [];
 
-  const pageData: ISiteMapPost[] =
+  const pageData =
     posts?.pages?.length > 0
       ? posts.pages
           .filter((p) => p.slug.current)
@@ -57,9 +54,9 @@ function generateSiteMap(posts, origin) {
           })
       : [];
 
-  const blogData: ISiteMapPost[] =
-    posts?.blog?.length > 0
-      ? posts.blog
+  const blogData =
+    posts?.blogs?.length > 0
+      ? posts.blogs
           .filter((p) => p.slug.current)
           .map((p) => {
             const url = `${origin}/blog/${p.slug.current}`;
@@ -77,7 +74,8 @@ function generateSiteMap(posts, origin) {
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
      ${siteMapData
        .map((post) => {
-         if (post) return renderTag(post);
+        //  if (post.url) return renderTag(post);
+        return post.url !== undefined && renderTag(post);
        })
        .join("")}
    </urlset>
@@ -88,7 +86,8 @@ function SiteMap() {
   // getServerSideProps will do the heavy lifting
 }
 
-export async function getServerSideProps({ res, req }) {
+export async function getServerSideProps({ res, req }: {res: any; req: any}) {
+  // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
   const origin = req.rawHeaders[req.rawHeaders.indexOf("Host") + 1];
   // Products
   const query = `*[_type == "property" && status == "Available" || status == "Pending" ]{ ...,images->{...,images[0]}, contact->}`;
@@ -99,7 +98,7 @@ export async function getServerSideProps({ res, req }) {
   const properties: IPropertyFullSearch[] = await request;
   // add all posts
   // const posts = await { properties, pages:[{slug: { current: 'testpage'}, _updatedAt:'uy7326462384'}] };
-  const posts = await { properties };
+  const posts: ISitemapPostsObject = { properties, pages: [], blogs: [] };
 
   // We generate the XML sitemap with the posts data
   const sitemap = generateSiteMap(posts, origin);
