@@ -170,3 +170,9 @@ export interface IMenuItem {
   _key: string;
   _type: string;
 }
+
+export interface ISiteMapPost {
+  url: string;
+  lastMod: Date;
+  changeFreq: 'daily' | 'weekly' | 'monthly' | 'yearly';
+}
