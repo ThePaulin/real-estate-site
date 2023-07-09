@@ -3,7 +3,15 @@ import Layout from "@/components/global/Layout";
 import { useUrl } from "@/hooks";
 import type { IPropertyFull, IPropertyFullSearch } from "@/types";
 import React, { Suspense, useEffect, useState } from "react";
-import { Button, Grid, IconBath, IconBed, IconHeart, Section, Text } from "@/components/elements";
+import {
+  Button,
+  Grid,
+  IconBath,
+  IconBed,
+  IconHeart,
+  Section,
+  Text,
+} from "@/components/elements";
 import type {
   GetServerSideProps,
   InferGetServerSidePropsType,
@@ -208,8 +216,6 @@ function PropertyCard({ item }: { item: IPropertyFullSearch }) {
           <Text size="small" className="text-black/40">
             {address}
           </Text>
-          
-          
         </div>
         <Text size="general" fontWeight="semibold" className="text-primary">
           ${item?.price}
@@ -220,13 +226,19 @@ function PropertyCard({ item }: { item: IPropertyFullSearch }) {
   );
 }
 
-export function CountAndSave({item}: {item: IPropertyFullSearch | IPropertyFull}): JSX.Element {
-    return (<div className="flex w-full justify-between items-center ">
-            <CountsDisplay item={item} />
-            <Button variant="blank" className="w-fit hidden">
-                    <IconHeart />
-            </Button>
-      </div>)
+export function CountAndSave({
+  item,
+}: {
+  item: IPropertyFullSearch | IPropertyFull;
+}): JSX.Element {
+  return (
+    <div className="flex w-full justify-between items-center ">
+      <CountsDisplay item={item} />
+      <Button variant="blank" className="w-fit hidden">
+        <IconHeart />
+      </Button>
+    </div>
+  );
 }
 
 export function CountsDisplay({
