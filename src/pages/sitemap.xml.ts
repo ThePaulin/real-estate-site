@@ -1,6 +1,5 @@
 import { sanityClient, urlFor } from "@/client";
 import type { IPropertyFullSearch, ISiteMapPost, ISitemapPostsObject } from "@/types";
-import { encode } from "punycode";
 
 const CHG_FREQ = {
   property: "daily",
