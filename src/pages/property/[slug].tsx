@@ -4,6 +4,7 @@ import type {
   InferGetServerSidePropsType,
 } from "next/types";
 import type { IPropertyFull } from "@/types";
+// @ts-ignore
 import PropertyPage from "../../components/property/PropertyPage";
 import { sanityClient } from "@/client";
 
