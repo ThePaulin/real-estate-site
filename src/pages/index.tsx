@@ -6,7 +6,7 @@ export default function Home(): JSX.Element {
   return (
     <>
       <Layout title={"Home Page"} description={"home page Cribs KGL"}>
-        <main className=" bg-white h-screen">
+        <main className=" bg-white">
           <Section
             as="div"
             display="flex"

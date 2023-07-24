@@ -1,5 +1,9 @@
 import { sanityClient, urlFor } from "@/client";
-import type { IPropertyFullSearch, ISiteMapPost, ISitemapPostsObject } from "@/types";
+import type {
+  IPropertyFullSearch,
+  ISiteMapPost,
+  ISitemapPostsObject,
+} from "@/types";
 
 const CHG_FREQ = {
   property: "daily",
@@ -17,20 +21,21 @@ function renderTag(post: ISiteMapPost) {
        <loc>${`${post.url}`}</loc>
        <lastmod>${post.lastMod}</lastmod>
         <changefreq>${post.changeFreq}</changefreq>
-        ${post.image?.url !== undefined ? 
-            `<image:image>
+        ${
+          post.image?.url !== undefined
+            ? `<image:image>
             <image:loc>${post.image.url}</image:loc>
             <image:title>${post.title}</image:title>
             <image:caption/>
             </image:image>`
-            : ''}
+            : ""
+        }
        </url>
        
      `;
 }
 
-
-function generateSiteMap(posts: ISitemapPostsObject , origin: string) {
+function generateSiteMap(posts: ISitemapPostsObject, origin: string) {
   const propertyData =
     posts?.properties?.length > 0
       ? posts.properties
@@ -44,7 +49,7 @@ function generateSiteMap(posts: ISitemapPostsObject , origin: string) {
               changeFreq: encodeXML(CHG_FREQ.property),
               image: {
                 url: encodeXML(urlFor(p?.images?.images?.image).url()),
-              }
+              },
             };
           })
       : [];
@@ -60,9 +65,9 @@ function generateSiteMap(posts: ISitemapPostsObject , origin: string) {
               url,
               lastMod: encodeXML(p._updatedAt),
               changeFreq: encodeXML(CHG_FREQ.page),
-            //   image: {
-            //     url: urlFor(p.images.images.image).url(),
-            //   }
+              //   image: {
+              //     url: urlFor(p.images.images.image).url(),
+              //   }
             };
           })
       : [];
@@ -88,8 +93,8 @@ function generateSiteMap(posts: ISitemapPostsObject , origin: string) {
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
      ${siteMapData
        .map((post) => {
-        //  if (post.url) return renderTag(post);
-        return post.url !== undefined && renderTag(post);
+         //  if (post.url) return renderTag(post);
+         return post.url !== undefined && renderTag(post);
        })
        .join("")}
    </urlset>
@@ -100,7 +105,7 @@ function SiteMap() {
   // getServerSideProps will do the heavy lifting
 }
 
-export async function getServerSideProps({ res, req }: {res: any; req: any}) {
+export async function getServerSideProps({ res, req }: { res: any; req: any }) {
   // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
   const origin = req.rawHeaders[req.rawHeaders.indexOf("Host") + 1];
   // Products

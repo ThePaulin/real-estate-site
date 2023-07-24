@@ -37,7 +37,7 @@ function Layout({
           <Header menuItems={menuItems[0]?.header} />
         ) : null}
       </header>
-      <main role="main" className="h-fit">
+      <main role="main" className="h-fit min-h-[70vh]">
         {children}
       </main>
       <Section

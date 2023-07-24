@@ -19,13 +19,13 @@ export function Button({
 }): JSX.Element {
   const variantStyles: Record<string, string> = {
     primary:
-      "hover:bg-primary hover:text-secondary bg-accent text-secondary transition-all  h-12 w-fit py-2 px-4",
+      "bg-primary tablet:bg-primary tablet:hover:bg-primary/80 tablet:hover:text-secondary tablet:bg-accent text-secondary transition-all  h-12 w-fit py-2 px-4",
     secondary: "bg-accent transition-all  h-12 w-fit py-2 px-4",
     outline:
       "bg-accent border-[1px] border-secondary transition-all  h-12 w-fit py-2 px-4",
     inline:
       "bg-none hover:border-1 hover:border-secondary focus:border-1 focus:border-secondary transition-all h-12 w-fit py-2 px-4",
-    link: "bg-none transition-all   w-fit ",
+    link: "bg-none transition-all ",
     blank: "",
   };
   const styles = clsx(
