@@ -17,12 +17,12 @@
     // "paths": {
     //   "@/*": ["./src/*"]
     // }
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
-      "@ali/assets/*": ["src/assets/*"],
-      "@ali/src/*": ["src/*"],
-      "@ali/components/*": ["src/components/*"],
-      "@ali/colors/*": ["src/theme/colors"]
+      "@ali/assets/*": ["./src/assets/*"],
+      "@ali/src/*": ["./src/*"],
+      "@ali/components/*": ["./src/components/*"],
+      "@ali/colors/*": ["./src/theme/colors"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
