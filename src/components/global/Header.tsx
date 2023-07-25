@@ -3,9 +3,9 @@ import { useState } from "react";
 import { IconLogo, IconMenu, IconSearch } from "../elements";
 import { useDrawer } from "./Drawer";
 import MenuDrawer from "./MenuDrawer";
-import { type IMenuItem } from "@/types";
+import { type IMenuItem } from "@ali/src/types";
 import SearchDrawer from "./SearchDrawer";
-import { getCSSVariable, rgbToHex } from "@/utils/utils";
+import { getCSSVariable, rgbToHex } from "@ali/src//utils/utils";
 
 function Header({ menuItems }: { menuItems: IMenuItem[] }): JSX.Element {
   const { closeDrawer, openDrawer } = useDrawer();

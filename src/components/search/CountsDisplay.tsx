@@ -1,4 +1,4 @@
-import type { IPropertyFull, IPropertyFullSearch } from "@/types";
+import type { IPropertyFull, IPropertyFullSearch } from "@ali/src/types";
 import { IconBed, IconBath, Text } from "../elements";
 
 export default function CountsDisplay({

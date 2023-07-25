@@ -1,7 +1,7 @@
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { Button, IconHeart } from "../elements";
-import { getCSSVariable, rgbToHex } from "@/utils/utils";
+import { getCSSVariable, rgbToHex } from "@ali/src/utils/utils";
 
 function SaveButton({ item, items }: { item: string; items: string[] }) {
   const { data: session, status, update } = useSession();

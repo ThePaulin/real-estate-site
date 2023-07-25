@@ -1,5 +1,5 @@
-import { Button, Section, Text } from "@/components/elements";
-import Layout from "@/components/global/Layout";
+import { Button, Section, Text } from "@ali/src/components/elements";
+import Layout from "@ali/src/components/global/Layout";
 
 function success() {
   return (

@@ -1,5 +1,5 @@
 "use client";
-import type { IPropertyFullSearch, IPropertyFull } from "@/types";
+import type { IPropertyFullSearch, IPropertyFull } from "@ali/src/types";
 import SaveButton from "../property/SaveButton";
 import CountsDisplay from "./CountsDisplay";
 import { useSession } from "next-auth/react";

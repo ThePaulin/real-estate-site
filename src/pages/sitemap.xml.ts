@@ -1,9 +1,9 @@
-import { sanityClient, urlFor } from "@/client";
+import { sanityClient, urlFor } from "@ali/src/client";
 import type {
   IPropertyFullSearch,
   ISiteMapPost,
   ISitemapPostsObject,
-} from "@/types";
+} from "@ali/src/types";
 
 const CHG_FREQ = {
   property: "daily",

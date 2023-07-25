@@ -20,6 +20,7 @@
     "baseUrl": ".",
     "paths": {
        "@ali/assets/*": ["src/assets/*"],
+       "@ali/src/*": ["src/*"],
        "@ali/components/*": ["src/components/*"],
        "@ali/colors/*": ["src/theme/colors"]
      }

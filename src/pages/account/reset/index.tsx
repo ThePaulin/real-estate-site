@@ -1,5 +1,5 @@
-import { Section, Text } from "@/components/elements";
-import Layout from "@/components/global/Layout";
+import { Section, Text } from "@ali/src/components/elements";
+import Layout from "@ali/src/components/global/Layout";
 
 function Reset() {
   return (

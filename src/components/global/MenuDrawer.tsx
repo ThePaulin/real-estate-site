@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Drawer from "./Drawer";
-import { type IMenuItem } from "@/types";
+import { type IMenuItem } from "@ali/src/types";
 
 function MenuDrawer({
   menuItems,

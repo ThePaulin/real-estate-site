@@ -1,5 +1,5 @@
-import { urlFor } from "@/client";
-import type { IPropertyFullSearch } from "@/types";
+import { urlFor } from "@ali/src/client";
+import type { IPropertyFullSearch } from "@ali/src/types";
 import Link from "next/link";
 import { CountAndSave } from "./CountAndSave";
 import { Text } from "../elements";

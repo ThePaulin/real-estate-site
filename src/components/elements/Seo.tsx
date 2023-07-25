@@ -1,4 +1,4 @@
-import { type IScripts } from "@/types";
+import { type IScripts } from "@ali/src/types";
 import Head from "next/head";
 
 export function SEO({

@@ -1,11 +1,11 @@
-import Layout from "@/components/global/Layout";
+import Layout from "@ali/src/components/global/Layout";
 import type {
   GetServerSideProps,
   InferGetServerSidePropsType,
 } from "next/types";
-import type { IPropertyFull } from "@/types";
+import type { IPropertyFull } from "@ali/src/types";
 import PropertyPage from "../../components/property/PropertyPage";
-import { sanityClient } from "@/client";
+import { sanityClient } from "@ali/src/client";
 
 function Property({
   property,

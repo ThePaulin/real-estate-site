@@ -1,9 +1,9 @@
-import { Button, TextBox, Text, Section } from "@/components/elements";
+import { Button, TextBox, Text, Section } from "@ali/src/components/elements";
 import { type FormEvent, useRef } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
-import Layout from "@/components/global/Layout";
-import clientPromise from "@/utils/mongodb";
+import Layout from "@ali/src/components/global/Layout";
+import clientPromise from "@ali/src/utils/mongodb";
 
 export const getServerSideProps = async () => {
   try {

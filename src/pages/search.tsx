@@ -1,19 +1,19 @@
-import { sanityClient } from "@/client";
-import Layout from "@/components/global/Layout";
-import { useUrl } from "@/hooks";
-import type { IPropertyFullSearch } from "@/types";
+import { sanityClient } from "@ali/src/client";
+import Layout from "@ali/src/components/global/Layout";
+import { useUrl } from "@ali/src/hooks";
+import type { IPropertyFullSearch } from "@ali/src/types";
 import React, { Suspense, useEffect, useState } from "react";
 import {
   Grid,
   Section,
   Text,
-} from "@/components/elements";
+} from "@ali/src/components/elements";
 import type {
   GetServerSideProps,
   InferGetServerSidePropsType,
 } from "next/types";
 import { capitaliseFirstLetter } from "../utils/utils";
-import PropertyCard from "@/components/search/PropertyCard";
+import PropertyCard from "@ali/src/components/search/PropertyCard";
 
 export const getServerSideProps: GetServerSideProps<{
   properties: IPropertyFullSearch[];

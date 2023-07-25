@@ -2,9 +2,9 @@ import Section from "../elements/Section";
 import Footer from "../global/Footer";
 import Header from "./Header";
 import SEO from "../elements/Seo";
-import { type IMenuObject, type IScripts } from "@/types";
+import { type IMenuObject, type IScripts } from "@ali/src/types";
 import { useEffect, useState } from "react";
-import { sanityClient } from "@/client";
+import { sanityClient } from "@ali/src/client";
 
 function Layout({
   children,

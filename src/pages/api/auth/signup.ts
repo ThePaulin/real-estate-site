@@ -1,4 +1,4 @@
-import clientPromise from "@/utils/mongodb";
+import clientPromise from "@ali/src/utils/mongodb";
 import { hashPassword } from "../../../utils/auth";
 import type { NextApiRequest, NextApiResponse } from "next";
 

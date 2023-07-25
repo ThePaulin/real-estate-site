@@ -1,5 +1,5 @@
-import { Button, TextBox, Text, Section } from "@/components/elements";
-import Layout from "@/components/global/Layout";
+import { Button, TextBox, Text, Section } from "@ali/src/components/elements";
+import Layout from "@ali/src/components/global/Layout";
 import { useRouter } from "next/router";
 import { type FormEvent, useRef } from "react";
 

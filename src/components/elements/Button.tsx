@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { missingClass } from "@/utils/utils";
+import { missingClass } from "../../utils/utils";
 import Link from "next/link";
 
 export function Button({

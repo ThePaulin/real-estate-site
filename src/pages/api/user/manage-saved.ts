@@ -1,5 +1,5 @@
-import clientPromise from "@/utils/mongodb";
-import type { ImanageSavedItem } from "@/types";
+import clientPromise from "@ali/src/utils/mongodb";
+import type { ImanageSavedItem } from "@ali/src/types";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {

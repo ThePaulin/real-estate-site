@@ -1,8 +1,8 @@
 import { useSession, signOut } from "next-auth/react";
 import clientPromise from "../../utils/mongodb";
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
-import { Button, Section } from "@/components/elements";
-import Layout from "@/components/global/Layout";
+import { Button, Section } from "@ali/src/components/elements";
+import Layout from "@ali/src/components/global/Layout";
 
 
 interface ConnectionStatus {

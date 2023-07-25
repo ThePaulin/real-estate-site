@@ -3,7 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import { verifyPassword } from "../../../utils/auth";
 import type { AuthOptions } from "next-auth";
-import clientPromise from "@/utils/mongodb";
+import clientPromise from "@ali/src/utils/mongodb";
 
 export const authOptions: AuthOptions = {
   adapter: MongoDBAdapter(clientPromise, {

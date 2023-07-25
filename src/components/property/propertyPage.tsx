@@ -1,7 +1,7 @@
-import { type IPropertyFull } from "@/types";
+import { type IPropertyFull } from "@ali/src/types";
 import { Button, IconCustomCaret, Section, Text } from "../elements";
 import Carousel from "nuka-carousel";
-import { urlFor } from "@/client";
+import { urlFor } from "@ali/src/client";
 import { CountAndSave } from "../search/CountAndSave";
 import Link from "next/link";
 import { useState } from "react";

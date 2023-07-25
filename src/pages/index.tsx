@@ -1,5 +1,5 @@
-import Section from "@/components/elements/Section";
-import Layout from "@/components/global/Layout";
+import Section from "@ali/src/components/elements/Section";
+import Layout from "@ali/src/components/global/Layout";
 import { motion } from "framer-motion";
 
 export default function Home(): JSX.Element {
