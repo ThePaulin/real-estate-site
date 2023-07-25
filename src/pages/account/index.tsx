@@ -4,7 +4,6 @@ import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
 import { Button, Section } from "@ali/src/components/elements";
 import Layout from "@ali/src/components/global/Layout";
 
-
 interface ConnectionStatus {
   isConnected: boolean;
 }

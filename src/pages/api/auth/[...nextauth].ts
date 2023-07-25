@@ -14,7 +14,6 @@ export const authOptions: AuthOptions = {
   },
   providers: [
     CredentialsProvider({
-      
       // @ts-expect-error description: credential type is different
       async authorize(credentials: { email: string; password: string }) {
         // const client = await connectToDatabase();
@@ -72,7 +71,7 @@ export const authOptions: AuthOptions = {
 
     async session({ session, token, user, trigger }) {
       // Send properties to the client, like an access_token from a provider.
-      
+
       // @ts-expect-error description accessToken to be added to session type
       session.accessToken = token.accessToken;
       // @ts-expect-error description user to be added to session type

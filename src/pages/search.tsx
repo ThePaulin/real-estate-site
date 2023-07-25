@@ -3,11 +3,7 @@ import Layout from "@ali/src/components/global/Layout";
 import { useUrl } from "@ali/src/hooks";
 import type { IPropertyFullSearch } from "@ali/src/types";
 import React, { Suspense, useEffect, useState } from "react";
-import {
-  Grid,
-  Section,
-  Text,
-} from "@ali/src/components/elements";
+import { Grid, Section, Text } from "@ali/src/components/elements";
 import type {
   GetServerSideProps,
   InferGetServerSidePropsType,

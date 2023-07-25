@@ -16,7 +16,7 @@ function SaveButton({ item, items }: { item: string; items: string[] }) {
     e.stopPropagation();
     e.preventDefault();
     // if (session?.user?.email !== undefined) {
-    const email = session?.user?.email !== undefined ? session?.user.email : '';
+    const email = session?.user?.email !== undefined ? session?.user.email : "";
     const item: string = e.target.value;
     const action: "add" | "remove" = e.target.name;
 
@@ -33,7 +33,7 @@ function SaveButton({ item, items }: { item: string; items: string[] }) {
           action,
         }),
       });
-    // }
+      // }
       // Await for data for any desirable next steps
       const data = await res.json();
 
@@ -101,7 +101,11 @@ function SaveButton({ item, items }: { item: string; items: string[] }) {
   }, []);
 
   async function updateSession() {
-    if (getAction(saveStatus) === "add" && session !== null && session?.user !== undefined) {
+    if (
+      getAction(saveStatus) === "add" &&
+      session !== null &&
+      session?.user !== undefined
+    ) {
       console.log("adding");
       await update({
         ...session,
@@ -110,7 +114,11 @@ function SaveButton({ item, items }: { item: string; items: string[] }) {
           savedItems: [...session?.user.savedItems, item],
         },
       });
-    } else if (getAction(saveStatus) === "remove" && session !== null && session?.user !== undefined) {
+    } else if (
+      getAction(saveStatus) === "remove" &&
+      session !== null &&
+      session?.user !== undefined
+    ) {
       console.log("removing");
       await update({
         ...session,
