@@ -81,6 +81,9 @@ function SaveButton({ item, items }: { item: string; items: string[] }) {
           }
           setSaveStatusLoc(false);
         }
+      } else {
+        localStorage.setItem("saved-items", JSON.stringify([item]));
+        setSaveStatusLoc(true);
       }
     }
   }
