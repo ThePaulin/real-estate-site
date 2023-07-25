@@ -4,7 +4,6 @@ import type {
   InferGetServerSidePropsType,
 } from "next/types";
 import type { IPropertyFull } from "@/types";
-// @ts-expect-error  directive import problem
 import PropertyPage from "../../components/property/PropertyPage";
 import { sanityClient } from "@/client";
 
