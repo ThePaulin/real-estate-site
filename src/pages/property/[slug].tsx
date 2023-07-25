@@ -4,7 +4,7 @@ import type {
   InferGetServerSidePropsType,
 } from "next/types";
 import type { IPropertyFull } from "@ali/src/types";
-import PropertyPage from "@ali/src/components/property/PropertyPage";
+import PropertyPage from "../../components/property/propertyPage";
 import { sanityClient } from "@ali/src/client";
 
 function Property({
