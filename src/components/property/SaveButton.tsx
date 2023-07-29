@@ -2,16 +2,90 @@ import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { Button, IconHeart } from "../elements";
 import { getCSSVariable, rgbToHex } from "@ali/src/utils/utils";
+import { LOCALHOST_SAVED_ITEMS } from "@ali/src/utils/consts";
 
-function SaveButton({ item, items }: { item: string; items: string[] }) {
+function SaveButton({
+  item,
+  items,
+  locItems,
+  onClearItem,
+}: {
+  item: string;
+  items?: string[];
+  locItems?: string[];
+  onClearItem?: (item: string) => void;
+}) {
   const { data: session, status, update } = useSession();
   // const savedItems = session?.user?.savedItems;
   const savedItems = items;
 
-  const [localStorageSaved, setLocalStorageSaved] = useState<string[]>();
+  console.log("locItems: ", locItems, "items: ", items);
+
+  // const [localStorageSaved, setLocalStorageSaved] = useState<string[]>(locItems);
 
   const [saveStatus, setSaveStatus] = useState<boolean>(false);
   const [saveStatusLoc, setSaveStatusLoc] = useState<boolean>(false);
+
+  // function onClearItem (item:string) {
+  //   setLocalStorageSaved(prev => prev?.filter(el => el !== item));
+  // }
+  // function onAddItem (item:string) {
+
+  //   if (localStorageSaved !== undefined) {
+  //     setLocalStorageSaved(prev => {
+  //       if (prev !== undefined){
+  //         return  [...prev, item]
+  //       }
+  //     } );
+  //   } else {
+  //     setLocalStorageSaved([item]);
+  //   }
+  // }
+
+  useEffect(() => {
+    // logic to save to user account
+    if (status === "authenticated" && savedItems !== undefined) {
+      if (savedItems?.includes(item)) {
+        setSaveStatus(true);
+      }
+    } else {
+      // logic to save to session storage
+      if (locItems !== undefined) {
+        setSaveStatusLoc(locItems.includes(item));
+      }
+    }
+  }, [
+    setSaveStatus,
+    status,
+    session,
+    setSaveStatusLoc,
+    item,
+    locItems,
+    savedItems,
+  ]);
+
+  // useEffect(() => {
+  //   console.log('HERE', localStorageSaved )
+  //   // if (localStorageSaved !== undefined) {
+  //   //   setSaveStatusLoc(localStorageSaved.includes(item));
+  //   // }
+  // }, [localStorageSaved]);
+
+  useEffect(() => {
+    console.log("saveStatusLoc: ", saveStatusLoc);
+  }, [saveStatusLoc]);
+
+  // useEffect(() => {
+  //   // setSaveItem(item);
+  //   // const interSaved = localStorage.getItem(LOCALHOST_SAVED_ITEMS);
+
+  //   // if (interSaved !== null) {
+  //   //   setLocalStorageSaved(JSON.parse(interSaved));
+  //   // }
+
+  //   setLocalStorageSaved(locItems)
+  // }, []);
+
   function handleManageSaved(e: React.BaseSyntheticEvent<Event, EventTarget>) {
     e.stopPropagation();
     e.preventDefault();
@@ -54,54 +128,46 @@ function SaveButton({ item, items }: { item: string; items: string[] }) {
     } else {
       // logic to save to session storage
       // add
-      const interSaved = localStorage.getItem("saved-items");
+      const interSaved = localStorage.getItem(LOCALHOST_SAVED_ITEMS);
+      // const interSaved = itemsLoc;
       if (interSaved !== null) {
         const currLocItems: string[] =
-          localStorage.getItem("saved-items") !== null
+          localStorage.getItem(LOCALHOST_SAVED_ITEMS) !== null
             ? JSON.parse(interSaved)
             : null;
         if (action === "add") {
           if (currLocItems !== null) {
             localStorage.setItem(
-              "saved-items",
+              LOCALHOST_SAVED_ITEMS,
               JSON.stringify([...currLocItems, item])
             );
           } else {
-            localStorage.setItem("saved-items", JSON.stringify([item]));
+            localStorage.setItem(LOCALHOST_SAVED_ITEMS, JSON.stringify([item]));
           }
 
           setSaveStatusLoc(true);
+          // console.log('ON ADD RAN')
+          // onAddItem(item);
           // remove
         } else {
           if (currLocItems !== null) {
             localStorage.setItem(
-              "saved-items",
+              LOCALHOST_SAVED_ITEMS,
               JSON.stringify([...currLocItems.filter((el) => el !== item)])
             );
           }
           setSaveStatusLoc(false);
+          if (onClearItem !== undefined) {
+            console.log("ON CLEAR RAN");
+            onClearItem(item);
+          }
         }
       } else {
-        localStorage.setItem("saved-items", JSON.stringify([item]));
+        localStorage.setItem(LOCALHOST_SAVED_ITEMS, JSON.stringify([item]));
         setSaveStatusLoc(true);
       }
     }
   }
-
-  useEffect(() => {
-    if (localStorageSaved !== undefined) {
-      setSaveStatusLoc(localStorageSaved.includes(item));
-    }
-  }, [localStorageSaved]);
-
-  useEffect(() => {
-    // setSaveItem(item);
-    const interSaved = localStorage.getItem("saved-items");
-
-    if (interSaved !== null) {
-      setLocalStorageSaved(JSON.parse(interSaved));
-    }
-  }, []);
 
   async function updateSession() {
     if (
@@ -133,15 +199,6 @@ function SaveButton({ item, items }: { item: string; items: string[] }) {
     }
   }
 
-  useEffect(() => {
-    // logic to save to session storage
-    // logic to save to user account
-    if (savedItems?.includes(item)) {
-      console.log("FOund: ", savedItems?.includes(item));
-      setSaveStatus(true);
-    }
-  });
-
   function getAction(saveStatus: boolean | undefined) {
     if (saveStatus === true) {
       return "remove";
@@ -154,7 +211,7 @@ function SaveButton({ item, items }: { item: string; items: string[] }) {
   return (
     <>
       {/* handle logged in saves */}
-      {savedItems.length >= 0 && status === "authenticated" ? (
+      {status === "authenticated" ? (
         <Button
           variant="inline"
           className="w-fit z-40"

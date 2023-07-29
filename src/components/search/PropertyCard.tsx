@@ -10,7 +10,7 @@ export default function PropertyCard({ item }: { item: IPropertyFullSearch }) {
   return (
     <Link
       href={`/property/${item?.slug.current}`}
-      className="flex flex-col  gap-4 justify-between items-center rounded bg-tertiary/10 p-2 w-fit hover:border-primary hover:border-[1px]"
+      className="flex flex-col  gap-4 justify-between items-center rounded bg-tertiary/10 p-2 w-fit border hover:border-primary hover:border-[1px]"
     >
       <div className="object-cover w-full  ">
         {item?.images?.images !== null ? (

@@ -1,30 +1,35 @@
 import Button from "../elements/Button";
 import { useState } from "react";
-import { IconLogo, IconMenu, IconSearch } from "../elements";
+import { IconHeart, IconLogo, IconMenu, IconSearch } from "../elements";
 import { useDrawer } from "./Drawer";
 import MenuDrawer from "./MenuDrawer";
 import { type IMenuItem } from "@ali/src/types";
 import SearchDrawer from "./SearchDrawer";
 import { getCSSVariable, rgbToHex } from "@ali/src//utils/utils";
+import SavedDrawer from "./SavedDrawer";
 
 function Header({ menuItems }: { menuItems: IMenuItem[] }): JSX.Element {
   const { closeDrawer, openDrawer } = useDrawer();
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isSavedOpen, setIsSavedOpen] = useState(false);
+
+
+  // const { data: session, status} = useSession();
 
   const primaryColor = getCSSVariable("--primary-color");
   const hexPrimaryColor = rgbToHex(primaryColor);
 
-  function getFill(isSearchOpen: boolean) {
-    if (isSearchOpen) {
+  function getFill(isOpen: boolean) {
+    if (isOpen) {
       return hexPrimaryColor;
     }
   }
 
+
   return (
     <>
-      <nav className="flex justify-between px-4 py-10 ">
+      <nav className="flex justify-between px-4 w-full py-10 ">
         <div className="flex justify-start">
           <Button as={"a"} variant="link" href="/">
             <IconLogo />
@@ -42,6 +47,16 @@ function Header({ menuItems }: { menuItems: IMenuItem[] }): JSX.Element {
             <IconSearch className="" fill={getFill(isSearchOpen)} />
           </Button>
           <Button
+            className=" w-fit px-0 py-0 "
+            variant="blank"
+            aria-label="saved"
+            onClick={() => {
+              openDrawer(setIsSavedOpen);
+            }}
+          >
+            <IconHeart className="" />
+          </Button>
+          <Button
             className=" w-fit  px-0 py-0"
             variant="blank"
             aria-label="menu"
@@ -55,8 +70,9 @@ function Header({ menuItems }: { menuItems: IMenuItem[] }): JSX.Element {
       </nav>
 
       {isSearchOpen ? (
-        <div className="w-full -translate-y-full transition-all  ">
+        <div className="w-full z-40    ">
           <SearchDrawer
+            open={isSearchOpen}
             close={() => {
               setIsSearchOpen(false);
             }}
@@ -70,6 +86,15 @@ function Header({ menuItems }: { menuItems: IMenuItem[] }): JSX.Element {
           closeDrawer(setIsMenuOpen);
         }}
       />
+      {isSavedOpen && (
+        <SavedDrawer
+          // savedItems={savedItems}
+          open={isSavedOpen}
+          onClose={() => {
+            closeDrawer(setIsSavedOpen);
+          }}
+        />
+      )}
     </>
   );
 }

@@ -8,7 +8,7 @@ import { useState } from "react";
 import Modal, { useModal } from "../global/Modal";
 
 function PropertyPage({ property }: { property: IPropertyFull }) {
-  const address = `${property.address.street_number}, ${property.address.street}, ${property.address.city}, ${property.address.zone}, ${property.address.country}`;
+  const address = `${property?.address?.street_number}, ${property?.address?.street}, ${property?.address?.city}, ${property?.address?.zone}, ${property?.address?.country}`;
 
   return (
     <Section
@@ -22,7 +22,7 @@ function PropertyPage({ property }: { property: IPropertyFull }) {
         fontWeight="bold"
         className="capitalize text-center"
       >
-        {property.title}
+        {property?.title}
       </Text>
       <Section
         padding="none"
@@ -48,7 +48,7 @@ function PropertyPage({ property }: { property: IPropertyFull }) {
             wrapAround={true}
             cellAlign="center"
           >
-            {property.images.images.map((image) => {
+            {property?.images?.images?.map((image) => {
               return (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
@@ -69,15 +69,19 @@ function PropertyPage({ property }: { property: IPropertyFull }) {
           className="flex-col mt-6 tablet:mt-0 w-full tablet:w-1/3 gap-2"
         >
           <div className="w-full flex justify-between items-center">
-            <Text size="general">{property.category}</Text>
+            <Text size="general">{property?.category}</Text>
             <Text size="lead" fontWeight="bold" className="text-primary">
-              ${property.price}
+              ${property?.price}
             </Text>
           </div>
           <Text size="small" className="text-black/40">
             {address}
           </Text>
-          <CountAndSave item={property} />
+          {property !== undefined ? (
+            <CountAndSave item={property} />
+          ) : (
+            "loading"
+          )}
           <Text
             size="small"
             fontWeight="light"
@@ -160,7 +164,7 @@ function Images({
           wrapAround={true}
           cellAlign="center"
         >
-          {property.images.images.map((image) => {
+          {property?.images?.images?.map((image) => {
             return (
               // eslint-disable-next-line @next/next/no-img-element
               <img
@@ -174,7 +178,7 @@ function Images({
           })}
         </Carousel>
       </Modal>
-      {property.images.images.map((image, idx) => {
+      {property?.images?.images?.map((image, idx) => {
         return (
           <Button
             key={image._key}

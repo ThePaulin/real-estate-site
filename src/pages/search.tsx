@@ -1,28 +1,13 @@
-import { sanityClient } from "@ali/src/client";
 import Layout from "@ali/src/components/global/Layout";
 import { useUrl } from "@ali/src/hooks";
 import type { IPropertyFullSearch } from "@ali/src/types";
-import React, { Suspense, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Grid, Section, Text } from "@ali/src/components/elements";
-import type {
-  GetServerSideProps,
-  InferGetServerSidePropsType,
-} from "next/types";
+
 import { capitaliseFirstLetter } from "../utils/utils";
 import PropertyCard from "@ali/src/components/search/PropertyCard";
 
-export const getServerSideProps: GetServerSideProps<{
-  properties: IPropertyFullSearch[];
-}> = async (context) => {
-  //   const { slug }: {slug: string} = context.query
-  const query = `*[_type == "property" && status == "Available" || status == "Pending" ]{ ...,images->{...,images[0]}, contact->}`;
-  const properties: IPropertyFullSearch[] = await sanityClient.fetch(query);
-  return { props: { properties } };
-};
-
-const Search = ({
-  properties,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const Search = () => {
   const { href, search } = useUrl();
 
   const [found, setFound] = useState<IPropertyFullSearch[]>([]);
@@ -35,6 +20,32 @@ const Search = ({
 
   const typeParam = params.get("type")?.toLowerCase();
   const categoryParam = params.get("category")?.toLowerCase();
+
+  const [properties, setProperties] = useState<IPropertyFullSearch[]>();
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const propertQuery = `*[_type == "property" && status == "Available" || status == "Pending" ]{ ...,images->{...,images[0]}, contact->}  | order(_createdAt asc)`;
+
+  useEffect(() => {
+    async function fetchProperties() {
+      const res = await fetch("/api/properties", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          query: propertQuery,
+          type: "searchPage",
+        }),
+      });
+      const data = await res.json();
+
+      setProperties(Object.values(data.properties));
+      setIsLoading(false);
+    }
+
+    void fetchProperties();
+  }, [isLoading]);
 
   const queryParam = decodeURIComponent(
     search.split("&")[0].split("=")[1]
@@ -100,28 +111,35 @@ const Search = ({
     }
 
     const ret: IPropertyFullSearch[] = [];
-    for (const item of items) {
-      const hasType = filterBy(item, "type", typeParam);
-      const hasCategory = filterBy(item, "category", categoryParam);
-      if (hasType === true && hasCategory === true) {
-        const hasQuery = checkQuery(item, queryParam);
-        if (hasQuery) ret.push(item);
+    if (items?.length > 0) {
+      for (const item of items) {
+        const hasType = filterBy(item, "type", typeParam);
+        const hasCategory = filterBy(item, "category", categoryParam);
+        if (hasType === true && hasCategory === true) {
+          const hasQuery = checkQuery(item, queryParam);
+          if (hasQuery) ret.push(item);
+        }
       }
     }
+
+    console.log("ret: ", ret);
 
     return ret;
   }
 
   useEffect(() => {
     const result = filterItems(
-      properties,
+      properties ?? [],
       categoryParam,
       typeParam,
       queryParam
     );
     setFoundAndFiltered(result);
-    setFound(properties);
-  }, []);
+    if (properties !== undefined) {
+      setFound(properties);
+
+    }
+  }, [properties]);
 
   const notFound = foundAndFiltered.length === 0;
 
@@ -134,16 +152,17 @@ const Search = ({
   }, [found, foundAndFiltered]);
 
   return (
-    <Layout title="search" description="search page">
-      <Suspense fallback={<h1 className="px-4">Loading...</h1>}>
-        <Section padding="y" display="flex" className="flex-col ">
-          {notFound ? (
-            <Text className="px-4" size="lead">
-              No results found :&#40;
-            </Text>
-          ) : null}
-          <div className="mt-4">
-            {fullProperty?.length > 0 ? (
+    <>
+      {fullProperty?.length > 0 && (
+        <Layout title="search" description="search page">
+          {/* <Suspense fallback={<h1 className="px-4">Loading...</h1>}> */}
+          <Section padding="y" display="flex" className="flex-col ">
+            {notFound ? (
+              <Text className="px-4" size="lead">
+                No results found :&#40;
+              </Text>
+            ) : null}
+            <div className="mt-4">
               <div className="flex flex-col">
                 {!notFound ? (
                   <Text
@@ -163,17 +182,20 @@ const Search = ({
                 )}
                 <Grid className="mt-10 px-2">
                   {fullProperty?.map((item) => {
-                    return <PropertyCard item={item} key={item?._id} />;
+                    return (
+                      item !== undefined && (
+                        <PropertyCard item={item} key={item?._id} />
+                      )
+                    );
                   })}
                 </Grid>
               </div>
-            ) : (
-              "Loading..."
-            )}
-          </div>
-        </Section>
-      </Suspense>
-    </Layout>
+            </div>
+          </Section>
+          {/* </Suspense> */}
+        </Layout>
+      )}
+    </>
   );
 };
 
