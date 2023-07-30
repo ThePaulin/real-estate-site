@@ -121,9 +121,6 @@ const Search = () => {
         }
       }
     }
-
-    console.log("ret: ", ret);
-
     return ret;
   }
 

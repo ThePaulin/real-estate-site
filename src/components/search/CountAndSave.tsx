@@ -28,7 +28,6 @@ export function CountAndSave({
   }, []);
 
   useEffect(() => {
-    console.log("before: ", locItems, savedItems);
   }, [locItems]);
 
   return (

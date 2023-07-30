@@ -95,12 +95,6 @@ function SavedItemCard({
 
   const address = itemObj !== undefined ? generateAddress(itemObj) : '';
 
-  // function onClear(item: string) {
-  //     setLocalItems(prev => prev?.filter(el => el !== item));
-  // }
-
-  console.log("itemObj: ", itemObj);
-
   return (
     <li className=" w-full min-w-fit tablet:min-w-max bg-tertiary/25 rounded-md  ">
       {itemObj !== undefined ? (

@@ -16,31 +16,12 @@ function SaveButton({
   onClearItem?: (item: string) => void;
 }) {
   const { data: session, status, update } = useSession();
-  // const savedItems = session?.user?.savedItems;
   const savedItems = items;
 
-  console.log("locItems: ", locItems, "items: ", items);
 
-  // const [localStorageSaved, setLocalStorageSaved] = useState<string[]>(locItems);
 
   const [saveStatus, setSaveStatus] = useState<boolean>(false);
   const [saveStatusLoc, setSaveStatusLoc] = useState<boolean>(false);
-
-  // function onClearItem (item:string) {
-  //   setLocalStorageSaved(prev => prev?.filter(el => el !== item));
-  // }
-  // function onAddItem (item:string) {
-
-  //   if (localStorageSaved !== undefined) {
-  //     setLocalStorageSaved(prev => {
-  //       if (prev !== undefined){
-  //         return  [...prev, item]
-  //       }
-  //     } );
-  //   } else {
-  //     setLocalStorageSaved([item]);
-  //   }
-  // }
 
   useEffect(() => {
     // logic to save to user account
@@ -64,15 +45,8 @@ function SaveButton({
     savedItems,
   ]);
 
-  // useEffect(() => {
-  //   console.log('HERE', localStorageSaved )
-  //   // if (localStorageSaved !== undefined) {
-  //   //   setSaveStatusLoc(localStorageSaved.includes(item));
-  //   // }
-  // }, [localStorageSaved]);
 
   useEffect(() => {
-    console.log("saveStatusLoc: ", saveStatusLoc);
   }, [saveStatusLoc]);
 
   // useEffect(() => {
@@ -146,8 +120,6 @@ function SaveButton({
           }
 
           setSaveStatusLoc(true);
-          // console.log('ON ADD RAN')
-          // onAddItem(item);
           // remove
         } else {
           if (currLocItems !== null) {
@@ -158,7 +130,6 @@ function SaveButton({
           }
           setSaveStatusLoc(false);
           if (onClearItem !== undefined) {
-            console.log("ON CLEAR RAN");
             onClearItem(item);
           }
         }
@@ -175,7 +146,6 @@ function SaveButton({
       session !== null &&
       session?.user !== undefined
     ) {
-      console.log("adding");
       await update({
         ...session,
         user: {
