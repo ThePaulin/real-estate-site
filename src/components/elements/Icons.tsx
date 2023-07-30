@@ -255,7 +255,7 @@ export function IconBath(props: IconProps): JSX.Element {
 
 export function IconHeart(props: IconProps): JSX.Element {
   return (
-    <Icon {...props} strokeWidth="0" stroke="red" title="heart">
+    <Icon {...props} strokeWidth="0" title="heart">
       <path
         d="M14 5.274A7 7 0 0 0 4.386 15.446l7.957 7.957a2.334 2.334 0 0 0 3.29 0l7.956 -7.957A7 7 0 0 0 14 5.274Zm-1.376 1.913 0.536 0.537a1.166 1.166 0 0 0 1.656 0l0.537 -0.537a4.669 4.669 0 1 1 6.603 6.604L14 21.77l-7.956 -7.956a4.67 4.67 0 0 1 6.603 -6.604l-0.023 -0.024Z"
         fill={props.fill ?? "black"}

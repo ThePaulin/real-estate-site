@@ -7,8 +7,9 @@ export const sanityClient = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
   apiVersion: "2023-03-01",
-  useCdn: true,
+  useCdn: false,
   token: process.env.NEXT_PUBLIC_SANITY_TOKEN,
+  ignoreBrowserTokenWarning: true,
 });
 
 const builder = imageUrlBuilder(sanityClient);

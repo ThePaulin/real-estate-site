@@ -2,9 +2,8 @@ import Section from "../elements/Section";
 import Footer from "../global/Footer";
 import Header from "./Header";
 import SEO from "../elements/Seo";
-import { type IMenuObject, type IScripts } from "@/types";
+import { type IMenuObject, type IScripts } from "@ali/src/types";
 import { useEffect, useState } from "react";
-import { sanityClient } from "@/client";
 
 function Layout({
   children,
@@ -20,11 +19,13 @@ function Layout({
   const [menuItems, setMenuItems] = useState<IMenuObject[]>();
 
   useEffect(() => {
-    const query = '*[_type == "navigation"]';
     async function runQuery() {
-      await sanityClient.fetch(query).then((data) => {
-        setMenuItems(data);
+      const res = await fetch("/api/navigation", {
+        method: "GET",
       });
+
+      const data = await res.json();
+      setMenuItems(data.menuItems);
     }
     void runQuery();
   }, []);
@@ -37,14 +38,14 @@ function Layout({
           <Header menuItems={menuItems[0]?.header} />
         ) : null}
       </header>
-      <main role="main" className="h-fit">
+      <main role="main" className="h-fit z-0 min-h-[70vh]">
         {children}
       </main>
       <Section
         padding="none"
         as={"footer"}
         role="footer"
-        className="bottom-0 mb-0 h-fit "
+        className="bottom-0 mb-0 h-fit z-40 "
       >
         {menuItems !== undefined ? (
           <Footer menuItems={menuItems[0]?.footer} />

@@ -4,7 +4,7 @@
 import { useTina } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import client from "../../../tina/__generated__/client";
-import Layout from "@/components/global/Layout";
+import Layout from "@ali/src/components/global/Layout";
 
 const BlogPage = (props: {
   query: string;
