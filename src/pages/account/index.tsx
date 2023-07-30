@@ -1,8 +1,9 @@
 import { useSession, signOut } from "next-auth/react";
 import clientPromise from "../../utils/mongodb";
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
-import { Button, Section } from "@ali/src/components/elements";
+import { Button, IconAccount, Section, Text } from "@ali/src/components/elements";
 import Layout from "@ali/src/components/global/Layout";
+import SavedItems from "@ali/src/components/global/SavedItems";
 
 interface ConnectionStatus {
   isConnected: boolean;
@@ -63,11 +64,26 @@ export default function Component({
             <Section
               padding="none"
               display="flex"
-              className="flex-col justify-center items-center"
+              className="flex-col justify-center items-center gap-6"
             >
-              <p>Signed in as {session?.user?.email}</p>
-              <p>Signed in as {session?.user?.firstname}</p>
-              <Button onClick={signOut} variant={"outline"}>
+              {/* <p>Signed in as {session?.user?.email}</p>
+              <p>Signed in as {session?.user?.firstname}</p> */}
+              <div className="w-full flex justify-end">
+                <IconAccount />
+              </div>
+              <div className="flex flex-col justify-start w-full">
+                <Text as={'h1'} size="lead" fontWeight="bold" >Profile:</Text>
+                <ul>
+                  <li>Firstname: {session?.user.firstname}</li>
+                  <li>Lastname: {session?.user.lastname}</li>
+                  <li>Email: {session?.user.email}</li>
+                </ul>
+              </div>
+              <div>
+                <SavedItems savedItems={session?.user.savedItems} account={true}  />
+              </div>
+              
+              <Button className="max-w-sm" onClick={signOut} variant={"outline"}>
                 Logout
               </Button>
             </Section>

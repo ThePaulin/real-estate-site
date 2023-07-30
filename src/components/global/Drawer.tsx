@@ -18,63 +18,30 @@ export function useDrawer(): {
 
 function Drawer({
   title,
-  direction = "x",
   open,
   onClose,
   children,
   className,
 }: {
   title: string;
-  direction?: "x" | "y";
   open: boolean;
   onClose: () => void;
   children: React.ReactNode;
   className?: string;
 }): JSX.Element {
-  const config = {
-    enter: {
-      x: "ease-in-out duration-500",
-      y: "ease-in-out duration-500",
-    },
-    enterFrom: {
-      x: "opacity-0",
-      t: "opacity-0",
-    },
-    enterTo: {
-      x: "opacity-100",
-      y: "opacity-100",
-    },
-    leave: {
-      x: "ease-in-out duration-500",
-      y: "ease-in-out duration-500",
-    },
-    leaveFrom: {
-      x: "opacity-100",
-      y: "opacity-100",
-    },
-    leaveTo: {
-      x: "opacity-0",
-      y: "opacity-0",
-    },
-  };
+  
   return (
     <Transition.Root show={open} as={Fragment}>
       <div className={className}>
         <Dialog as="div" className="absolute z-40" onClose={onClose}>
           <Transition.Child
             as={Fragment}
-            // enter="ease-in-out duration-500"
-            // enterFrom="opacity-0"
-            // enterTo="opacity-100"
-            // leave="ease-in-out duration-500"
-            // leaveFrom="opacity-100"
-            // leaveTo="opacity-0"
-            enter={config.enter[direction]}
-            enterFrom={config.enterFrom[direction]}
-            enterTo={config.enterTo[direction]}
-            leave={config.leave[direction]}
-            leaveFrom={config.leaveFrom[direction]}
-            leaveTo={config.leaveTo[direction]}
+            enter="ease-in-out duration-500"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in-out duration-500"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
           >
             <div className=" fixed inset-0 bg-gray-100 bg-opacity-75 transition-opacity" />
           </Transition.Child>
