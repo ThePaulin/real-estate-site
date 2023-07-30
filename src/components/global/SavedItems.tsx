@@ -17,7 +17,7 @@ export default function SavedItems({
   savedItems: string[];
   onClose?: () => void;
   onClearItem?: (item: string) => void;
-  account: boolean;
+  account?: boolean;
 }) {
 
     function getStyles(account: boolean): string {
