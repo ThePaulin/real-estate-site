@@ -1,4 +1,4 @@
-import { type IScripts } from "@/types";
+import { type IScripts } from "@ali/src/types";
 import Head from "next/head";
 
 export function SEO({
@@ -14,7 +14,7 @@ export function SEO({
 
   return (
     <Head>
-      <title>{editedTitle} </title>
+      <title>{`${editedTitle}`}</title>
       <meta name="description" content={description} key="desc" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="icon" href="/favicon.ico" />

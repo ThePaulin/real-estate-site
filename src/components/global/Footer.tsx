@@ -1,4 +1,4 @@
-import { type IMenuItem } from "@/types";
+import { type IMenuItem } from "@ali/src/types";
 import {
   IconFacebook,
   IconInstagram,

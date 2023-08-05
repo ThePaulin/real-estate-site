@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { missingClass } from "@/utils/utils";
+import { missingClass } from "@ali/src/utils/utils";
 
 export function Section({
   as: Component = "section",

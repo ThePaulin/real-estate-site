@@ -1,31 +1,50 @@
-import Layout from "@/components/global/Layout";
-import type {
-  GetServerSideProps,
-  InferGetServerSidePropsType,
-} from "next/types";
-import type { IPropertyFull } from "@/types";
-import PropertyPage from "@/components/property/propertyPage";
-import { sanityClient } from "@/client";
+import Layout from "@ali/src/components/global/Layout";
+import type { IPropertyFull } from "@ali/src/types";
+import PropertyPage from "../../components/property/propertyPage";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
-function Property({
-  property,
-}: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element {
+function Property(): JSX.Element {
+  const {
+    query: { slug },
+  } = useRouter();
+
+  const [property, setProperty] = useState<IPropertyFull>();
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const propertQuery = `*[_type == "property" && slug.current == "${
+    typeof slug === "string" ? slug : ""
+  }"]{..., images->, contact->} | order(_createdAt asc)`;
+
+  useEffect(() => {
+    async function fetchProperties() {
+      const res = await fetch("/api/properties", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          query: propertQuery,
+          type: "propertyPage",
+        }),
+      });
+      const data = await res.json();
+
+      setProperty(data.property);
+      setIsLoading(false);
+    }
+
+    void fetchProperties();
+  }, [isLoading, propertQuery]);
+
   return (
-    <Layout title={property.title} description={property.description}>
-      <PropertyPage property={property} />
-    </Layout>
+    <>
+      {property !== undefined && (
+        <Layout title={property?.title} description={property?.description}>
+          <PropertyPage property={property} />
+        </Layout>
+      )}
+    </>
   );
 }
 export default Property;
-
-export const getServerSideProps: GetServerSideProps<{
-  property: IPropertyFull;
-}> = async (context) => {
-  const { slug }: { slug?: string | string[] } = context.query;
-  const query = `*[_type == "property" && slug.current == "${
-    typeof slug === "string" ? slug : ""
-  }"]{..., images->, contact->}`;
-
-  const property: IPropertyFull[] = await sanityClient.fetch(query);
-  return { props: { property: property[0] } };
-};

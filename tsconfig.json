@@ -14,8 +14,15 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    // "paths": {
+    //   "@/*": ["./src/*"]
+    // }
+    "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/*"]
+      "@ali/assets/*": ["./src/assets/*"],
+      "@ali/src/*": ["./src/*"],
+      "@ali/components/*": ["./src/components/*"],
+      "@ali/colors/*": ["./src/theme/colors"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

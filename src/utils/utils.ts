@@ -1,5 +1,7 @@
 // identify if class is missing
 
+import type { IPropertyFull, IPropertyFullSearch } from "../types";
+
 export function missingClass(string?: string, prefix?: string): boolean {
   if (string === undefined) {
     return true;
@@ -48,4 +50,9 @@ export function capitaliseFirstLetter(str: string): string {
   }
   const str2 = arr.join(" ");
   return str2;
+}
+
+export function generateAddress(property: IPropertyFull | IPropertyFullSearch) {
+  const address = `${property?.address?.street_number}, ${property?.address?.street}, ${property?.address?.city}, ${property?.address?.zone}, ${property?.address?.country}`;
+  return address;
 }

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Drawer from "./Drawer";
-import { type IMenuItem } from "@/types";
-
+import { type IMenuItem } from "@ali/src/types";
 function MenuDrawer({
   menuItems,
   open,
@@ -19,10 +18,10 @@ function MenuDrawer({
             return (
               <li
                 className=" w-fit transition-all duration-300 text-secondary/60 hover:text-secondary hover:font-700 hover:translate-x-1 "
-                key={el.cta}
+                key={el?.cta}
               >
-                <Link href={el.link} className="" onClick={onClose}>
-                  {el.cta}
+                <Link href={el?.link} className="" onClick={onClose}>
+                  {el?.cta}
                 </Link>
               </li>
             );

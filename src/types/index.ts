@@ -170,3 +170,41 @@ export interface IMenuItem {
   _key: string;
   _type: string;
 }
+
+export interface ISiteMapPost {
+  title: string;
+  url: string;
+  lastMod: string;
+  changeFreq: "daily" | "weekly" | "monthly" | "yearly" | string;
+  image?: {
+    url: string;
+  };
+}
+
+export interface ISitemapPostsObject {
+  properties: IPropertyFullSearch[];
+  pages: Array<{
+    title: string;
+    slug: { current: string };
+    _updatedAt: string;
+    image: { url: string };
+  }>;
+  blogs: Array<{
+    title: string;
+    slug: { current: string };
+    _updatedAt: string;
+    image: { url: string };
+  }>;
+}
+
+export interface ImanageSavedItem {
+  action: "add" | "remove";
+}
+export interface IUser {
+  email: string;
+  password: string;
+  firstname: string;
+  lastname: string;
+  role: "customer" | "vendor";
+  savedItems: string[];
+}

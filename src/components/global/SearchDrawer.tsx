@@ -19,13 +19,14 @@ import {
 } from "../elements/index";
 import { Listbox, Transition } from "@headlessui/react";
 import { useUrl } from "../../hooks/index";
+import { useLockedBody } from "usehooks-ts";
 
-function SearchDrawer({ close }: { close: () => void }) {
+function SearchDrawer({ open, close }: { open: boolean; close: () => void }) {
   const searchBox = useRef<HTMLInputElement>(null);
   const options: string[] = ["For Sale", "For Rent"];
   const [q, setQ] = useState<string>("");
   const [type, setType] = useState<string>("residential");
-  const [category, setCategory] = useState<string>(options[0]);
+  const [category, setCategory] = useState<string>(options[1]);
   const { href } = useUrl();
 
   useEffect(() => {
@@ -88,115 +89,123 @@ function SearchDrawer({ close }: { close: () => void }) {
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === "Enter") {
-      // const event: React.KeyboardEvent<HTMLInputElement> & = e;
       handleSubmit(e);
     }
   }
 
+  useLockedBody(true, "test-id");
+
   const topButtonStyle =
     "w-full rounded-md  flex flex-row justify-center gap-4 items-center h-12 w-fit p-4 ";
   return (
-    <Section
-      display="flex"
-      padding="x"
-      className=" absolute z-40 w-full bg-white pb-8 flex justify-center items-center border-b-[1px] border-b-black/10 shadow-lg  "
-    >
-      <div className="w-full flex flex-col justify-center items-center gap-6 ">
-        <div className="w-full flex justify-end">
-          <Button
-            aria-label="close"
-            className="w-fit max-w-3 "
-            variant="inline"
-            onClick={close}
+    <div id="test-id" className="relative w-full ">
+      <div
+        onClick={close}
+        className="w-screen h-screen inset-0 absolute overscroll-none bg-white opacity-20 z-20"
+      ></div>
+
+      <Section
+        display="flex"
+        padding="x"
+        className=" fixed z-30  overscroll-contain w-full h-fit bg-white pb-8 flex justify-center items-center border-b-[1px] border-b-black/10 shadow-lg  "
+      >
+        <div className="w-full flex flex-col justify-center items-center gap-6 bg-white ">
+          <div className="w-full flex justify-end">
+            <Button
+              aria-label="close"
+              className="w-fit max-w-3 "
+              variant="inline"
+              onClick={close}
+            >
+              <IconClose className="h-3 w-3" />
+            </Button>
+          </div>
+          <form
+            className="px-1 w-screen flex flex-col justify-center items-center gap-4"
+            onSubmit={(e) => {
+              handleSubmit(e);
+            }}
           >
-            <IconClose className="h-3 w-3" />
-          </Button>
-        </div>
-        <form
-          className="px-1 w-screen flex flex-col justify-center items-center gap-4"
-          onSubmit={(e) => {
-            handleSubmit(e);
-          }}
-        >
-          <div className=" w-full max-w-sm  flex flex-col md:flex-row  justify-center items-center gap-4  ">
-            <label className="w-full">
-              <input
-                type="radio"
-                readOnly
-                checked={type === NAMES.type.residential}
-                className="sr-only"
-              />
-              <button
-                aria-label={NAMES.type.residential}
-                name={NAMES.type.residential}
-                value={NAMES.type.residential}
-                onClick={(e) => {
-                  handleTypeSelect(e);
-                }}
-                className={`${topButtonStyle}  ${
-                  type === NAMES.type.residential
-                    ? "bg-primary "
-                    : "bg-accent border-[1px] border-secondary/20 "
-                }`}
-              >
-                <Text>Residential</Text>
-                <IconResidential />
-              </button>
-            </label>
+            <div className=" w-full max-w-sm  flex flex-col md:flex-row  justify-center items-center gap-4  ">
+              <label className="w-full">
+                <input
+                  type="radio"
+                  readOnly
+                  checked={type === NAMES.type.residential}
+                  className="sr-only"
+                />
+                <button
+                  aria-label={NAMES.type.residential}
+                  name={NAMES.type.residential}
+                  value={NAMES.type.residential}
+                  onClick={(e) => {
+                    handleTypeSelect(e);
+                  }}
+                  className={`${topButtonStyle}  ${
+                    type === NAMES.type.residential
+                      ? "bg-primary "
+                      : "bg-accent border-[1px] border-secondary/20 "
+                  }`}
+                >
+                  <Text>Residential</Text>
+                  <IconResidential />
+                </button>
+              </label>
 
-            <label className="w-full">
-              <input
-                type="radio"
-                readOnly
-                checked={type === NAMES.type.commercial}
-                className="sr-only"
-              />
-              <button
-                aria-label={NAMES.type.commercial}
-                name={NAMES.type.commercial}
-                value={NAMES.type.commercial}
-                onClick={(e) => {
-                  handleTypeSelect(e);
-                }}
-                className={`${topButtonStyle}  ${
-                  type === NAMES.type.commercial
-                    ? "bg-primary"
-                    : "bg-accent border-[1px] border-secondary/20 "
-                }`}
-              >
-                <Text>Commercial</Text>
-                <IconCommercial />
-              </button>
-            </label>
-          </div>
-
-          <input
-            ref={searchBox}
-            onChange={(e) => {
-              setQ(e.target.value);
-            }}
-            onKeyDown={(e) => {
-              handleKeyDown(e);
-            }}
-            type="search"
-            placeholder="Search by city, neighbourhood or province"
-            className="hide-clear rounded-sm  h-12 text-black bg-tertiary/20 p-2 w-full max-w-lg"
-          />
-          <div className="w-full tablet:max-w-lg p-2 flex justify-center tablet:justify-end items-center gap-4">
-            <div className="w-full flex justify-start tablet:justify-end relative">
-              <CustomListBox
-                options={options}
-                selected={category}
-                setSelected={setCategory}
-              />
+              <label className="w-full">
+                <input
+                  type="radio"
+                  readOnly
+                  checked={type === NAMES.type.commercial}
+                  className="sr-only"
+                />
+                <button
+                  aria-label={NAMES.type.commercial}
+                  name={NAMES.type.commercial}
+                  value={NAMES.type.commercial}
+                  onClick={(e) => {
+                    handleTypeSelect(e);
+                  }}
+                  className={`${topButtonStyle}  ${
+                    type === NAMES.type.commercial
+                      ? "bg-primary"
+                      : "bg-accent border-[1px] border-secondary/20 "
+                  }`}
+                >
+                  <Text>Commercial</Text>
+                  <IconCommercial />
+                </button>
+              </label>
             </div>
-            <button className="bg-secondary rounded-md px-2 h-8 w-20 flex justify-center items-center">
-              <IconSearch fill="#FFD600" className="text-accent" />
-            </button>
-          </div>
-        </form>
-      </div>
-    </Section>
+
+            <input
+              ref={searchBox}
+              onChange={(e) => {
+                setQ(e.target.value);
+              }}
+              onKeyDown={(e) => {
+                handleKeyDown(e);
+              }}
+              type="search"
+              placeholder="Search by city, neighbourhood or province"
+              className="hide-clear rounded-sm  h-12 text-black bg-tertiary/20 p-2 w-full max-w-lg"
+            />
+            <div className="w-full tablet:max-w-lg p-2 flex justify-center tablet:justify-end items-center gap-4">
+              <div className="w-full flex justify-start tablet:justify-end relative">
+                <CustomListBox
+                  options={options}
+                  selected={category}
+                  setSelected={setCategory}
+                />
+              </div>
+              <button className="bg-secondary rounded-md px-2 h-8 w-20 flex justify-center items-center">
+                <IconSearch fill="#FFD600" className="text-accent" />
+              </button>
+            </div>
+          </form>
+        </div>
+      </Section>
+    </div>
   );
 }
 
@@ -212,10 +221,6 @@ export function CustomListBox({
   setSelected: Dispatch<SetStateAction<string>>;
 }) {
   const [isOpen, setIsOpen] = useState(false);
-
-  //   useEffect(() => {
-  //     console.log('selected: ', selected);
-  //   }, [selected])
 
   useEffect(() => {
     setIsOpen(false);
