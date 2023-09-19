@@ -12,7 +12,7 @@ export default function PageContent({
   layout: "page" | "article";
 }) {
   return (
-    <div className="flex flex-col mt-8 pb-12 ">
+    <div className="flex flex-col mt-8 pb-12   w-full">
       <div className="w-full flex justify-center py-8 ">
         <Text
           as="h1"
