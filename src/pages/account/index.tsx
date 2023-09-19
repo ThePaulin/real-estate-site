@@ -40,9 +40,9 @@ export default function Component({
     <Layout title="account" description="account">
       {isConnected ? (
         <Section
-          padding="all"
+          padding="x"
           display="flex"
-          className="flex-col justify-center items-center w-full h-[500px]"
+          className="flex-col justify-center items-center w-full  py-16 "
         >
           {status !== "authenticated" ? (
             <Section
@@ -86,7 +86,7 @@ export default function Component({
                   <li>Email: {session?.user.email}</li>
                 </ul>
               </div>
-              <div>
+              <div className="py-16">
                 <SavedItems
                   savedItems={session?.user.savedItems}
                   account={true}

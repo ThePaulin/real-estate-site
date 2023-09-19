@@ -22,7 +22,7 @@ export default function SavedItems({
 }) {
   function getStyles(account: boolean): string {
     if (account) {
-      return "flex flex-col tablet:flex-row max-h-[75vh] max-w-screen tablet:max-w-[60vw] overflow-y-auto overflow-x-auto items-center justify-start gap-8 py-12 ";
+      return "flex flex-col tablet:flex-row  max-w-screen tablet:max-w-[60vw] max-h-[75vh] overflow-y-auto overflow-x-auto items-center justify-start gap-8 py-12 ";
     } else {
       return "flex flex-col max-h-[75vh] w-full  overflow-y-auto overflow-x-hidden items-center justify-start gap-8 py-12 mt-12";
     }
@@ -39,9 +39,12 @@ export default function SavedItems({
           Saved Properties:{" "}
         </Text>
       )}
-      <div>
+      <div className="relative">
         {savedItems.length > 0 ? (
-          <ul className={getStyles(account)}>
+          <ul 
+          className={getStyles(account)}
+          // className="flex flex-col desktop:flex-row gap-4"
+          >
             {savedItems.map((el) => {
               return (
                 <SavedItemCard
