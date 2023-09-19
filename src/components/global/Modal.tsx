@@ -52,7 +52,7 @@ function Modal({
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-4xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-fit max-w-[80vw] max-h-[90vh] transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   {title !== undefined ? (
                     <Dialog.Title
                       as="h3"
@@ -71,7 +71,9 @@ function Modal({
                       <IconClose />
                     </Button>
                   </div>
-                  <div className="w-full mt-8 ">{children}</div>
+                  <div className="w-fit max-w-2xl mt-8 relative">
+                    {children}
+                  </div>
                 </Dialog.Panel>
               </Transition.Child>
             </div>

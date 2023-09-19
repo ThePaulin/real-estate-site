@@ -1,18 +1,16 @@
 import Layout from "@ali/src/components/global/Layout";
-import Section from "@ali/src/components/elements/Section";
 import { useRouter } from "next/router";
-import type { IPage } from "../types";
-import NotFound from "../components/global/NotFound";
 import { useEffect, useState } from "react";
-import PageContent from "../components/page/PageContent";
+import type { IPage } from "@ali/src/types/index";
+import NotFound from "@ali/src/components/global/NotFound";
+import PageContent from "@ali/src/components/page/PageContent";
 
-function Page(): JSX.Element {
-  // const router = useRouter();
+const ArticlePage = (): JSX.Element => {
   const {
     query: { slug },
   } = useRouter();
 
-  const [page, setPage] = useState<IPage>();
+  const [article, setArticle] = useState<IPage>();
   const [loading, setLoading] = useState<boolean>();
 
   useEffect(() => {
@@ -21,7 +19,7 @@ function Page(): JSX.Element {
       const reqBody = JSON.stringify({
         type: "one",
         slug,
-        category: "page",
+        category: "article",
         // query: typeof slug === 'string' ? `*[_type == 'page' && slug.current == '${slug}']` : `*[_type == 'page'][0]`,
       });
       const res = await fetch("/api/articles", {
@@ -38,7 +36,7 @@ function Page(): JSX.Element {
 
       const { article }: { article: IPage } = await res.json();
       console.log("DATA: ", article);
-      setPage(article);
+      setArticle(article);
       setLoading(false);
     };
 
@@ -49,17 +47,21 @@ function Page(): JSX.Element {
 
   // not found case
 
-  if (page == null && loading === false) {
-    return <NotFound type="page" />;
+  if (article == null && loading === false) {
+    return <NotFound type="article" />;
   }
 
   return (
-    <Layout title={page?.title} description={page?.description}>
-      <Section as={"div"} display="flex" className="justify-center">
-        <PageContent page={page} layout="page" />
-      </Section>
-    </Layout>
+    <>
+      <Layout title={article?.title} description={article?.description}>
+        {article != null ? (
+          // <ArticleContent article={article} />
+          <PageContent page={article} layout={"article"} />
+        ) : (
+          <>{loading === false && <NotFound type="article" />}</>
+        )}
+      </Layout>
+    </>
   );
-}
-
-export default Page;
+};
+export default ArticlePage;

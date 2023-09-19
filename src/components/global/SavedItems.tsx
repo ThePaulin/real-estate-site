@@ -19,30 +19,44 @@ export default function SavedItems({
   onClearItem?: (item: string) => void;
   account?: boolean;
 }) {
-
-    function getStyles(account: boolean): string {
-        if (account) {
-            return "flex flex-col tablet:flex-row max-h-[75vh] max-w-screen tablet:max-w-[60vw] overflow-y-auto overflow-x-auto items-center justify-start gap-8 py-12 "
-        } else {
-            return "flex flex-col max-h-[75vh] w-full  overflow-y-auto overflow-x-hidden items-center justify-start gap-8 py-12 mt-12"
-        }
+  function getStyles(account: boolean): string {
+    if (account) {
+      return "flex flex-col tablet:flex-row max-h-[75vh] max-w-screen tablet:max-w-[60vw] overflow-y-auto overflow-x-auto items-center justify-start gap-8 py-12 ";
+    } else {
+      return "flex flex-col max-h-[75vh] w-full  overflow-y-auto overflow-x-hidden items-center justify-start gap-8 py-12 mt-12";
     }
+  }
+
   return (
-    <Section padding="none" display="flex" className="flex-col w-full justify-start items-center">
-    { account && <Text as={'h1'} size="lead" fontWeight="bold" className="">Saved Properties: </Text>}
-    <ul className={getStyles(account)}>
-      {savedItems.map((el) => {
-        return (
-          <SavedItemCard
-            key={el.split("-").pop()}
-            item={el}
-            onClose={onClose}
-            onClearItem={onClearItem}
-            account={account}
-          />
-        );
-      })}
-    </ul>
+    <Section
+      padding="none"
+      display="flex"
+      className="flex-col w-full justify-start items-center gap-4"
+    >
+      {account && (
+        <Text as={"h1"} size="lead" fontWeight="bold" className="">
+          Saved Properties:{" "}
+        </Text>
+      )}
+      <div>
+        {savedItems.length > 0 ? (
+          <ul className={getStyles(account)}>
+            {savedItems.map((el) => {
+              return (
+                <SavedItemCard
+                  key={el.split("-").pop()}
+                  item={el}
+                  onClose={onClose}
+                  onClearItem={onClearItem}
+                  account={account}
+                />
+              );
+            })}
+          </ul>
+        ) : (
+          <h3>No properties saved yet!</h3>
+        )}
+      </div>
     </Section>
   );
 }
@@ -56,7 +70,7 @@ function SavedItemCard({
   item: string;
   onClose?: () => void;
   onClearItem?: (item: string) => void;
-  account: boolean
+  account: boolean;
 }) {
   const { data: session, status } = useSession();
   const savedItems = session?.user.savedItems;
@@ -93,7 +107,7 @@ function SavedItemCard({
     void runQuery();
   }, []);
 
-  const address = itemObj !== undefined ? generateAddress(itemObj) : '';
+  const address = itemObj !== undefined ? generateAddress(itemObj) : "";
 
   return (
     <li className=" w-full min-w-fit tablet:min-w-max bg-tertiary/25 rounded-md  ">
@@ -104,12 +118,14 @@ function SavedItemCard({
           onClick={onClose}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          {!account && <img
-            width={400}
-            src={urlFor(itemObj?.images.images.image).url()}
-            alt={itemObj?.images.images.alt_text}
-            className="rounded-md p-1 flex-1 w-full tablet:w-[150px]"
-          />}
+          {!account && (
+            <img
+              width={400}
+              src={urlFor(itemObj?.images.images.image).url()}
+              alt={itemObj?.images.images.alt_text}
+              className="rounded-md p-1 flex-1 w-full tablet:w-[150px]"
+            />
+          )}
           <Section
             padding="none"
             display="flex"

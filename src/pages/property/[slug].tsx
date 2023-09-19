@@ -11,7 +11,7 @@ function Property(): JSX.Element {
 
   const [property, setProperty] = useState<IPropertyFull>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const propertQuery = `*[_type == "property" && slug.current == "${
+  const propertyQuery = `*[_type == "property" && slug.current == "${
     typeof slug === "string" ? slug : ""
   }"]{..., images->, contact->} | order(_createdAt asc)`;
 
@@ -24,7 +24,7 @@ function Property(): JSX.Element {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          query: propertQuery,
+          query: propertyQuery,
           type: "propertyPage",
         }),
       });
@@ -35,7 +35,9 @@ function Property(): JSX.Element {
     }
 
     void fetchProperties();
-  }, [isLoading, propertQuery]);
+  }, [isLoading, propertyQuery]);
+
+  console.log("property: ", property);
 
   return (
     <>

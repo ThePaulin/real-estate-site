@@ -1,6 +1,13 @@
 // identify if class is missing
 
-import type { IPropertyFull, IPropertyFullSearch } from "../types";
+import type {
+  IBlock,
+  IHero,
+  IImage,
+  IPage,
+  IPropertyFull,
+  IPropertyFullSearch,
+} from "../types";
 
 export function missingClass(string?: string, prefix?: string): boolean {
   if (string === undefined) {
@@ -55,4 +62,25 @@ export function capitaliseFirstLetter(str: string): string {
 export function generateAddress(property: IPropertyFull | IPropertyFullSearch) {
   const address = `${property?.address?.street_number}, ${property?.address?.street}, ${property?.address?.city}, ${property?.address?.zone}, ${property?.address?.country}`;
   return address;
+}
+
+export function getColor(
+  page: IPage,
+  idx: number,
+  item: IBlock | IImage | IHero,
+  type: "header" | "paragraph"
+) {
+  // colors are only applied to text in the IHero
+  if (item?._type === "hero") {
+    // @ts-expect-error  type error expected
+    const color =
+      type === "header"
+        ? page?.content[idx]?.header_color !== undefined
+          ? page?.content[idx]?.header_color
+          : "black"
+        : page?.content[idx]?.paragraph_color !== undefined
+        ? page?.content[idx]?.paragraph_color
+        : "black";
+    return color;
+  }
 }

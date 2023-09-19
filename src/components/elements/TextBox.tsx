@@ -7,7 +7,10 @@ export function TextBox({
   classNames,
   inputRef,
   type,
+  name,
   onChange,
+  required,
+  ...props
 }: {
   labelText: string;
   placeholder?: string;
@@ -20,11 +23,14 @@ export function TextBox({
   };
   inputRef: React.MutableRefObject<string>;
   type?: "search" | "textarea" | "text" | "email" | "password";
+  name: string;
   onChange: (
     e: React.BaseSyntheticEvent<Event, EventTarget>,
     inputRef: React.MutableRefObject<string>
   ) => void;
+  required?: boolean;
 }) {
+  // const required: boolean = props.props.required != null  ? props.props.required : false;
   return (
     <div className={classNames?.root}>
       {labelText !== undefined ? (
@@ -43,6 +49,9 @@ export function TextBox({
         type={type}
         placeholder={placeholder}
         className={classNames?.input}
+        required={required}
+        name={name}
+        {...props}
       />
     </div>
   );
