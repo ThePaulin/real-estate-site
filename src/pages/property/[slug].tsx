@@ -37,7 +37,6 @@ function Property(): JSX.Element {
     void fetchProperties();
   }, [isLoading, propertyQuery]);
 
-  console.log("property: ", property);
 
   return (
     <>

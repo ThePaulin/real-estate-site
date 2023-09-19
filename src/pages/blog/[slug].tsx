@@ -35,7 +35,6 @@ const ArticlePage = (): JSX.Element => {
       // const res = await sanityClient.fetch(query);
 
       const { article }: { article: IPage } = await res.json();
-      console.log("DATA: ", article);
       setArticle(article);
       setLoading(false);
     };
