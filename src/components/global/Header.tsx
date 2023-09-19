@@ -1,5 +1,5 @@
 import Button from "../elements/Button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { IconHeart, IconLogo, IconMenu, IconSearch } from "../elements";
 import { useDrawer } from "./Drawer";
 import MenuDrawer from "./MenuDrawer";
@@ -7,15 +7,25 @@ import { type IMenuItem } from "@ali/src/types";
 import SearchDrawer from "./SearchDrawer";
 import { getCSSVariable, rgbToHex } from "@ali/src//utils/utils";
 import SavedDrawer from "./SavedDrawer";
+import { useSession } from "next-auth/react";
 
 function Header({ menuItems }: { menuItems: IMenuItem[] }): JSX.Element {
   const { closeDrawer, openDrawer } = useDrawer();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isSavedOpen, setIsSavedOpen] = useState(false);
+  const { data: session, status } = useSession();
 
+  const [savedLocalItems, setSavedLocalItems] = useState<string[]>([]);
 
-  // const { data: session, status} = useSession();
+  useEffect(() => {
+    const savedLocal = localStorage.getItem("saved-items");
+    if (savedLocal != null) {
+      setSavedLocalItems(JSON.parse(savedLocal));
+    }
+  }, []);
+
+  const savedItems = session?.user.savedItems;
 
   const primaryColor = getCSSVariable("--primary-color");
   const hexPrimaryColor = rgbToHex(primaryColor);
@@ -25,7 +35,6 @@ function Header({ menuItems }: { menuItems: IMenuItem[] }): JSX.Element {
       return hexPrimaryColor;
     }
   }
-
 
   return (
     <>
@@ -54,7 +63,16 @@ function Header({ menuItems }: { menuItems: IMenuItem[] }): JSX.Element {
               openDrawer(setIsSavedOpen);
             }}
           >
-            <IconHeart className="" />
+            <IconHeart
+              fill={`${
+                (savedLocalItems.length > 0 && status === "unauthenticated") ||
+                (savedItems !== undefined && savedItems.length > 0)
+                  ? hexPrimaryColor
+                  : ""
+              }`}
+              color=""
+              className=""
+            />
           </Button>
           <Button
             className=" w-fit  px-0 py-0"
@@ -70,7 +88,7 @@ function Header({ menuItems }: { menuItems: IMenuItem[] }): JSX.Element {
       </nav>
 
       {isSearchOpen ? (
-        <div className="w-full z-40    ">
+        <div className="w-full absolute z-40 mt-[60px]   ">
           <SearchDrawer
             open={isSearchOpen}
             close={() => {

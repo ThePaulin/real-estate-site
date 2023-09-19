@@ -29,7 +29,6 @@ function Drawer({
   children: React.ReactNode;
   className?: string;
 }): JSX.Element {
-  
   return (
     <Transition.Root show={open} as={Fragment}>
       <div className={className}>

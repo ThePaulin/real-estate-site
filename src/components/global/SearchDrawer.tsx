@@ -21,7 +21,40 @@ import { Listbox, Transition } from "@headlessui/react";
 import { useUrl } from "../../hooks/index";
 import { useLockedBody } from "usehooks-ts";
 
-function SearchDrawer({ open, close }: { open: boolean; close: () => void }) {
+interface ISearchDrawer {
+  style: "widget" | "embedded";
+  open: boolean;
+  close: () => void;
+}
+
+function getBgFromStyle(style: ISearchDrawer["style"]): string {
+  let bgStyle: string = "";
+  // if (isSearchBox) {
+  //   if (style === "widget") {
+  //     bgStyle = 'bg-tertiary'
+  //   } else {
+  //     bgStyle = 'bg-tertiary'
+  //   }
+  // } else {
+  if (style === "widget") {
+    bgStyle = "bg-white border-b-[1px] border-b-black/10 shadow-lg";
+  } else {
+    bgStyle = "bg-transparent";
+  }
+  // }
+
+  return bgStyle;
+}
+
+function SearchDrawer({
+  open,
+  close,
+  style = "widget",
+}: {
+  open: ISearchDrawer["open"];
+  close: ISearchDrawer["close"];
+  style?: ISearchDrawer["style"];
+}) {
   const searchBox = useRef<HTMLInputElement>(null);
   const options: string[] = ["For Sale", "For Rent"];
   const [q, setQ] = useState<string>("");
@@ -93,24 +126,36 @@ function SearchDrawer({ open, close }: { open: boolean; close: () => void }) {
     }
   }
 
-  useLockedBody(true, "test-id");
+  useLockedBody(style === "widget", "test-id");
 
   const topButtonStyle =
     "w-full rounded-md  flex flex-row justify-center gap-4 items-center h-12 w-fit p-4 ";
   return (
-    <div id="test-id" className="relative w-full ">
+    <div id="test-id" className="relative w-full  ">
       <div
-        onClick={close}
-        className="w-screen h-screen inset-0 absolute overscroll-none bg-white opacity-20 z-20"
+        onMouseEnter={close}
+        className={`w-screen ${
+          style === "widget" ? "h-screen bg-white" : "hidden"
+        } inset-0 absolute overscroll-none opacity-75 z-20`}
       ></div>
 
       <Section
         display="flex"
         padding="x"
-        className=" fixed z-30  overscroll-contain w-full h-fit bg-white pb-8 flex justify-center items-center border-b-[1px] border-b-black/10 shadow-lg  "
+        className={` ${
+          style === "widget" ? "fixed bg-white" : "absolute"
+        } z-30  overscroll-contain w-full h-fit  pb-8 flex justify-center  items-center ${getBgFromStyle(
+          style
+        )}`}
       >
-        <div className="w-full flex flex-col justify-center items-center gap-6 bg-white ">
-          <div className="w-full flex justify-end">
+        <div
+          className={`w-full flex flex-col justify-center items-center gap-6 `}
+        >
+          <div
+            className={`${
+              style === "widget" ? "w-full flex justify-end" : "hidden"
+            }`}
+          >
             <Button
               aria-label="close"
               className="w-fit max-w-3 "
@@ -126,7 +171,7 @@ function SearchDrawer({ open, close }: { open: boolean; close: () => void }) {
               handleSubmit(e);
             }}
           >
-            <div className=" w-full max-w-sm  flex flex-col md:flex-row  justify-center items-center gap-4  ">
+            <div className=" w-full max-w-md  flex flex-col md:flex-row  justify-center items-center gap-4  ">
               <label className="w-full">
                 <input
                   type="radio"
@@ -144,7 +189,7 @@ function SearchDrawer({ open, close }: { open: boolean; close: () => void }) {
                   className={`${topButtonStyle}  ${
                     type === NAMES.type.residential
                       ? "bg-primary "
-                      : "bg-accent border-[1px] border-secondary/20 "
+                      : "bg-accent/90 border-[1px] border-secondary/20 "
                   }`}
                 >
                   <Text>Residential</Text>
@@ -169,7 +214,7 @@ function SearchDrawer({ open, close }: { open: boolean; close: () => void }) {
                   className={`${topButtonStyle}  ${
                     type === NAMES.type.commercial
                       ? "bg-primary"
-                      : "bg-accent border-[1px] border-secondary/20 "
+                      : "bg-accent/90 border-[1px] border-secondary/20 "
                   }`}
                 >
                   <Text>Commercial</Text>
@@ -187,18 +232,24 @@ function SearchDrawer({ open, close }: { open: boolean; close: () => void }) {
                 handleKeyDown(e);
               }}
               type="search"
+              enterKeyHint="search"
               placeholder="Search by city, neighbourhood or province"
-              className="hide-clear rounded-sm  h-12 text-black bg-tertiary/20 p-2 w-full max-w-lg"
+              className={`hide-clear rounded-sm  h-12 text-black ${
+                style === "widget" ? "bg-tertiary/20" : "bg-tertiary/90"
+              } p-2 w-full max-w-lg`}
             />
             <div className="w-full tablet:max-w-lg p-2 flex justify-center tablet:justify-end items-center gap-4">
-              <div className="w-full flex justify-start tablet:justify-end relative">
+              <div className=" flex justify-start tablet:justify-end relative w-1/3">
                 <CustomListBox
                   options={options}
                   selected={category}
                   setSelected={setCategory}
                 />
               </div>
-              <button className="bg-secondary rounded-md px-2 h-8 w-20 flex justify-center items-center">
+              <button
+                className="bg-secondary rounded-md px-2 h-8 w-20 flex justify-center items-center"
+                aria-label="search"
+              >
                 <IconSearch fill="#FFD600" className="text-accent" />
               </button>
             </div>
@@ -210,7 +261,6 @@ function SearchDrawer({ open, close }: { open: boolean; close: () => void }) {
 }
 
 export default SearchDrawer;
-
 export function CustomListBox({
   options,
   selected,
@@ -227,14 +277,14 @@ export function CustomListBox({
   }, [selected]);
 
   return (
-    <div className=" relative w-1/3 ">
+    <div className=" relative w-full ">
       <Listbox value={selected} onChange={setSelected}>
         <div className="relative w-full  ">
           <Listbox.Button
             onClick={() => {
               setIsOpen((prev) => !prev);
             }}
-            className="relative w-fit flex  items-center tablet:w-full h-8 cursor-default rounded-lg bg-tertiary/20 py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm"
+            className={`relative w-fit flex  items-center tablet:w-full h-8 cursor-default rounded-lg  py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm bg-tertiary`}
           >
             <span className="block whitespace-nowrap">{selected}</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
