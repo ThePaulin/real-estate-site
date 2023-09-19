@@ -7,6 +7,7 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 import SaveButton from "../property/SaveButton";
 import { LOCALHOST_SAVED_ITEMS } from "@ali/src/utils/consts";
+import Image from "next/image";
 
 export default function SavedItems({
   savedItems,
@@ -117,10 +118,10 @@ function SavedItemCard({
           className="w-full flex flex-col tablet:flex-row justify-between items-center transition-all duration-75 border border-tertiary/25  hover:border-spacing-1 hover:border-primary"
           onClick={onClose}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           {!account && (
-            <img
+            <Image
               width={400}
+              height={400}
               src={urlFor(itemObj?.images.images.image).url()}
               alt={itemObj?.images.images.alt_text}
               className="rounded-md p-1 flex-1 w-full tablet:w-[150px]"

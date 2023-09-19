@@ -72,13 +72,16 @@ export function getColor(
 ) {
   // colors are only applied to text in the IHero
   if (item?._type === "hero") {
-    // @ts-expect-error  type error expected
     const color =
       type === "header"
+      // @ts-expect-error  type error expected
         ? page?.content[idx]?.header_color !== undefined
+        // @ts-expect-error  type error expected
           ? page?.content[idx]?.header_color
           : "black"
+          // @ts-expect-error  type error expected
         : page?.content[idx]?.paragraph_color !== undefined
+        // @ts-expect-error  type error expected
         ? page?.content[idx]?.paragraph_color
         : "black";
     return color;
