@@ -1,14 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 
-function useOpacityValue(cssVariable) {
-  return ({ opacityValue }) => {
-    if (opacityValue === undefined) {
-      return `rgb(var(${cssVariable}))`;
-    }
-    return `rgb(${cssVariable}) / ${opacityValue}`;
-  };
-}
-
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
@@ -24,6 +15,12 @@ module.exports = {
   mode: "jit",
   theme: {
     extend: {
+      height: {
+        header: "60px",
+      },
+      margin: {
+        header: "60px",
+      },
       colors: {
         primary: "rgb(var(--primary-color))",
         secondary: "rgb(var(--secondary-color))",

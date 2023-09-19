@@ -14,6 +14,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    // "preserveSymlinks": false,
     // "paths": {
     //   "@/*": ["./src/*"]
     // }
@@ -25,6 +26,6 @@
       "@ali/colors/*": ["./src/theme/colors"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "portable-text.d.ts"],
   "exclude": ["node_modules"]
 }

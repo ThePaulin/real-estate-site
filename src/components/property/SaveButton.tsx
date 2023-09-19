@@ -18,8 +18,6 @@ function SaveButton({
   const { data: session, status, update } = useSession();
   const savedItems = items;
 
-
-
   const [saveStatus, setSaveStatus] = useState<boolean>(false);
   const [saveStatusLoc, setSaveStatusLoc] = useState<boolean>(false);
 
@@ -31,9 +29,11 @@ function SaveButton({
       }
     } else {
       // logic to save to session storage
-      if (locItems !== undefined) {
-        setSaveStatusLoc(locItems.includes(item));
-      }
+      // if (locItems !== undefined) {
+      //   setSaveStatusLoc(locItems.includes(item));
+      // }
+
+      locItems !== undefined && setSaveStatusLoc(locItems.includes(item));
     }
   }, [
     setSaveStatus,
@@ -45,9 +45,7 @@ function SaveButton({
     savedItems,
   ]);
 
-
-  useEffect(() => {
-  }, [saveStatusLoc]);
+  useEffect(() => {}, [saveStatusLoc]);
 
   // useEffect(() => {
   //   // setSaveItem(item);
@@ -158,7 +156,6 @@ function SaveButton({
       session !== null &&
       session?.user !== undefined
     ) {
-      console.log("removing");
       await update({
         ...session,
         user: {

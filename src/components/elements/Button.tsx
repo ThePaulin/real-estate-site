@@ -37,7 +37,7 @@ export function Button({
 
   if (variant === "link" && href !== undefined) {
     return (
-      <Link href={href} className={styles}>
+      <Link href={href} className={styles} target={props.target}>
         {children}
       </Link>
     );

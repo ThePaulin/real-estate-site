@@ -1,18 +1,21 @@
 import clsx from "clsx";
 
 export function TextInput({
-  as: Component = "input",
   type = "text",
+  as: Component = type !== "textarea" ? "input" : "textarea",
   id,
+  name,
   placeholder,
   className,
   inputRef,
   onChange,
+  required = true,
   ...props
 }: {
   as?: React.ElementType;
   type?: "text" | "search" | "textarea" | "email" | "password";
   id: string;
+  name: string;
   placeholder?: string;
   className?: string;
   inputRef: React.MutableRefObject<string>;
@@ -20,11 +23,16 @@ export function TextInput({
     e: React.BaseSyntheticEvent<Event, EventTarget>,
     inputRef: React.MutableRefObject<string>
   ) => void;
+  required?: boolean;
 }): JSX.Element {
   const styles = clsx(
     className,
     " rounded-md hover:border-primary focus:outline-primary border-secondary border-2 "
   );
+
+  // if (type === "textarea") {
+  //   return
+  // }
   return (
     <Component
       onChange={onChange}
@@ -34,6 +42,8 @@ export function TextInput({
       id={id}
       placeholder={placeholder}
       className={styles}
+      required={required}
+      name={name}
     />
   );
 }

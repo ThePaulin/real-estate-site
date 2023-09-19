@@ -134,7 +134,6 @@ const Search = () => {
     setFoundAndFiltered(result);
     if (properties !== undefined) {
       setFound(properties);
-
     }
   }, [properties]);
 

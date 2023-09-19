@@ -1,3 +1,4 @@
+import type { NextApiRequest } from "next";
 import { type HTMLAttributeReferrerPolicy } from "react";
 
 export interface IMenuLink {
@@ -79,6 +80,7 @@ export interface IPropertyFull {
   _createdAt: string;
   _id: string;
   description: string;
+  content: IBlock[];
   tags: string[];
   title: string;
   type: string;
@@ -183,18 +185,20 @@ export interface ISiteMapPost {
 
 export interface ISitemapPostsObject {
   properties: IPropertyFullSearch[];
-  pages: Array<{
-    title: string;
-    slug: { current: string };
-    _updatedAt: string;
-    image: { url: string };
-  }>;
-  blogs: Array<{
-    title: string;
-    slug: { current: string };
-    _updatedAt: string;
-    image: { url: string };
-  }>;
+  pages: IArticlesAPI["articles"];
+  // pages: Array<{
+  //   title: string;
+  //   slug: { current: string };
+  //   _updatedAt: string;
+  //   image: { url: string };
+  // }>;
+  blogs: IArticlesAPI["articles"];
+  // blogs: Array<{
+  //   title: string;
+  //   slug: { current: string };
+  //   _updatedAt: string;
+  //   image: { url: string };
+  // }>;
 }
 
 export interface ImanageSavedItem {
@@ -207,4 +211,175 @@ export interface IUser {
   lastname: string;
   role: "customer" | "vendor";
   savedItems: string[];
+}
+
+export interface IHomepageArticle {
+  image: {
+    url: string;
+    altText: string;
+  };
+  content: {
+    label: string;
+    title: string;
+    sample: string;
+    url: string;
+  };
+}
+
+// for sanity pages
+
+export interface IMarkDef {
+  _type: string;
+}
+
+export interface ISpan {
+  _type: "span";
+  marks: IMarkDef[];
+  text: string;
+  _key: string;
+}
+
+export interface IBlock {
+  _type: "block";
+  style: string;
+  _key: string;
+  markDefs: IMarkDef[];
+  children: ISpan;
+}
+
+export interface IReference {
+  _type: "reference";
+  _ref: string;
+}
+
+export interface IAsset {
+  _type: "reference";
+  _ref: string;
+}
+
+export interface IBannerImage {
+  _type: "image";
+  asset: IReference;
+}
+
+export interface IBanner {
+  _type: "banner";
+  _key: string;
+  mobile_image: IBannerImage;
+  desktop_image: IBannerImage;
+  alt_text: string;
+  _createdAt: string;
+  _rev: string;
+  _id: string;
+  _updatedAt: string;
+}
+
+export interface IHeroContent {
+  _type: "block";
+  style: string;
+  _key: string;
+  markDefs: IMarkDef[];
+  children: ISpan;
+}
+
+export interface IHero {
+  _type: "hero";
+  _key: string;
+  layout: "image_right" | "image_left" | "image_center";
+  text_position: "text_right" | "text_left" | "text_center";
+  section_name: string;
+  header_color: "black" | "white" | "primary";
+  paragraph_color: "black" | "white" | "primary";
+  content: IBlock | IHeroContent;
+  image: IBanner;
+}
+
+export interface ISlug {
+  _type: "slug";
+  current: string;
+}
+
+export interface IAuthorReference {
+  _type: "reference";
+  _ref: string;
+  _id: string;
+  firstname: string;
+  lastname: string;
+  _createdAt: string;
+  _updatedAt: string;
+}
+
+export interface IImage {
+  _type: "image";
+  _key: string;
+  asset: IReference;
+}
+
+export interface IPage {
+  _type: "page";
+  _createdAt: string;
+  author: IAuthorReference;
+  image: IBanner;
+  subcategory: string;
+  title: string;
+  _updatedAt: string;
+  content: Array<IBlock | IImage | IHero>;
+  slug: ISlug;
+  category: string;
+  description: string;
+  _id: string;
+  _rev: string;
+  scheduled_for: string;
+}
+
+// description, title, subcategory, image->
+
+export interface IArticlesAPIArticle {
+  description: string;
+  title: string;
+  subcategory: string;
+  image: IBanner;
+  _id: string;
+  slug: ISlug;
+  _updatedAt: string;
+}
+export interface IArticlesAPI {
+  articles: IArticlesAPIArticle[];
+}
+
+// articles api
+
+export type articleRequestBody =
+  | { type: "all"; category: "page" | "article" }
+  | { type: "one"; slug: string; category: "page" | "article" };
+export interface ExtendedNextApiRequestArticles extends NextApiRequest {
+  body: articleRequestBody;
+}
+
+export interface IContactRequestBody {
+  name: string;
+  email: string;
+  inquiry: string;
+  message: string;
+}
+export interface ExtendedNextApiRequestContact extends NextApiRequest {
+  body: IContactRequestBody;
+}
+
+export interface IHeroBannerBody {
+  title: string;
+}
+export interface ExtendedNextApiRequestHeroBanner extends NextApiRequest {
+  body: IHeroBannerBody;
+}
+
+// Array<{banner: IBanner; title: string; _createdAt: string; _id: string; _rev: string; _type: string; _updatedAt: string }>
+export interface IHeroBanner {
+  banner: IBanner;
+  title: string;
+  _createdAt: string;
+  _id: string;
+  _rev: string;
+  _type: string;
+  _updatedAt: string;
 }

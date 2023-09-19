@@ -1,7 +1,12 @@
 import { useSession, signOut } from "next-auth/react";
 import clientPromise from "../../utils/mongodb";
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
-import { Button, IconAccount, Section, Text } from "@ali/src/components/elements";
+import {
+  Button,
+  IconAccount,
+  Section,
+  Text,
+} from "@ali/src/components/elements";
 import Layout from "@ali/src/components/global/Layout";
 import SavedItems from "@ali/src/components/global/SavedItems";
 
@@ -37,7 +42,7 @@ export default function Component({
         <Section
           padding="all"
           display="flex"
-          className="flex-col justify-center items-center"
+          className="flex-col justify-center items-center w-full h-[500px]"
         >
           {status !== "authenticated" ? (
             <Section
@@ -72,7 +77,9 @@ export default function Component({
                 <IconAccount />
               </div>
               <div className="flex flex-col justify-start w-full">
-                <Text as={'h1'} size="lead" fontWeight="bold" >Profile:</Text>
+                <Text as={"h1"} size="lead" fontWeight="bold">
+                  Profile:
+                </Text>
                 <ul>
                   <li>Firstname: {session?.user.firstname}</li>
                   <li>Lastname: {session?.user.lastname}</li>
@@ -80,10 +87,17 @@ export default function Component({
                 </ul>
               </div>
               <div>
-                <SavedItems savedItems={session?.user.savedItems} account={true}  />
+                <SavedItems
+                  savedItems={session?.user.savedItems}
+                  account={true}
+                />
               </div>
-              
-              <Button className="max-w-sm" onClick={signOut} variant={"outline"}>
+
+              <Button
+                className="max-w-sm mt-8"
+                onClick={signOut}
+                variant={"outline"}
+              >
                 Logout
               </Button>
             </Section>

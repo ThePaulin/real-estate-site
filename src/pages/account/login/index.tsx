@@ -1,9 +1,16 @@
-import { Button, TextBox, Text, Section } from "@ali/src/components/elements";
+import {
+  Button,
+  TextBox,
+  Text,
+  Section,
+  IconLogo,
+} from "@ali/src/components/elements";
 import { type FormEvent, useRef } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 import Layout from "@ali/src/components/global/Layout";
 import clientPromise from "@ali/src/utils/mongodb";
+import AccountSection from "@ali/src/components/account/AccountSection";
 
 export const getServerSideProps = async () => {
   try {
@@ -57,12 +64,11 @@ function Login({ isConnected }: { isConnected: boolean }) {
   return (
     <Layout title="login" description="login page">
       {isConnected ? (
-        <Section
-          padding="x"
-          display="flex"
-          className="flex-col justify-center items-center"
-        >
-          <Text size="heading">Got an Account?</Text>
+        <AccountSection>
+          <IconLogo />
+          <Text size="heading" className="pt-6">
+            Got an Account?
+          </Text>
           <form
             className="w-full flex flex-col gap-4 max-w-md"
             onSubmit={(e) => {
@@ -74,6 +80,7 @@ function Login({ isConnected }: { isConnected: boolean }) {
               inputRef={usernameRef}
               onChange={onChange}
               id="username"
+              name="username"
               labelText="Username"
               placeholder="username"
               classNames={{
@@ -87,6 +94,7 @@ function Login({ isConnected }: { isConnected: boolean }) {
               inputRef={passwordRef}
               onChange={onChange}
               id="password"
+              name="password"
               labelText="Password"
               placeholder="password"
               classNames={{
@@ -112,7 +120,7 @@ function Login({ isConnected }: { isConnected: boolean }) {
               </Text>
             </Button>
           </div>
-        </Section>
+        </AccountSection>
       ) : (
         <Section
           padding="x"

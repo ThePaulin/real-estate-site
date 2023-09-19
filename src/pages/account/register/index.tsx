@@ -1,9 +1,32 @@
-import { Button, TextBox, Text, Section } from "@ali/src/components/elements";
+import AccountSection from "@ali/src/components/account/AccountSection";
+import {
+  Button,
+  TextBox,
+  Text,
+  Section,
+  IconLogo,
+} from "@ali/src/components/elements";
 import Layout from "@ali/src/components/global/Layout";
+import clientPromise from "@ali/src/utils/mongodb";
 import { useRouter } from "next/router";
 import { type FormEvent, useRef } from "react";
 
-function Register() {
+export const getServerSideProps = async () => {
+  try {
+    await clientPromise;
+
+    return {
+      props: { isConnected: true },
+    };
+  } catch (e) {
+    console.error(e);
+    return {
+      props: { isConnected: false },
+    };
+  }
+};
+
+function Register({ isConnected }: { isConnected: boolean }) {
   const Router = useRouter();
 
   const usernameRef = useRef("");
@@ -44,7 +67,6 @@ function Register() {
       });
       // Await for data for any desirable next steps
       const data = await res.json();
-      // console.log(data);
 
       // user was created
       if (data.acknowledged === true) {
@@ -55,7 +77,6 @@ function Register() {
     }
 
     void handleRegister();
-    // return null;
   }
 
   function onChange(
@@ -66,83 +87,96 @@ function Register() {
   }
   return (
     <Layout title="register" description="register page">
-      <Section
-        padding="all"
-        display="flex"
-        className="flex-col justify-center items-center mb-16"
-      >
-        <Text size="heading">Create an Account?</Text>
-        <form
-          className="w-full flex flex-col gap-4 max-w-md"
-          onSubmit={(e) => {
-            handleSubmit(e);
-          }}
+      {isConnected ? (
+        <AccountSection>
+          <IconLogo />
+          <Text size="heading" className="pt-6">
+            Create an Account?
+          </Text>
+          <form
+            className="w-full flex flex-col gap-4 max-w-md"
+            onSubmit={(e) => {
+              handleSubmit(e);
+            }}
+          >
+            <TextBox
+              type="text"
+              inputRef={firstnameRef}
+              onChange={onChange}
+              id="firstname"
+              name="firstname"
+              labelText="Firstname"
+              placeholder="firstname"
+              classNames={{
+                root: "flex flex-col ",
+                label: "p-1 ",
+                input: "h-12 px-4 text-md",
+              }}
+            />
+            <TextBox
+              type="text"
+              inputRef={lastnameRef}
+              onChange={onChange}
+              id="lastname"
+              name="lastname"
+              labelText="Lastname"
+              placeholder="lastname"
+              classNames={{
+                root: "flex flex-col ",
+                label: "p-1 ",
+                input: "h-12 px-4 text-md",
+              }}
+            />
+            <TextBox
+              type="email"
+              inputRef={usernameRef}
+              onChange={onChange}
+              id="username"
+              name="username"
+              labelText="Username"
+              placeholder="username"
+              classNames={{
+                root: "flex flex-col ",
+                label: "p-1 ",
+                input: "h-12 px-4 text-md",
+              }}
+            />
+            <TextBox
+              type="password"
+              inputRef={passwordRef}
+              onChange={onChange}
+              id="password"
+              name="password"
+              labelText="Password"
+              placeholder="password"
+              classNames={{
+                root: "flex flex-col ",
+                label: "p-1 ",
+                input: "h-12 px-4 text-md",
+              }}
+            />
+            <Button type="submit" variant="primary">
+              Register
+            </Button>
+          </form>
+          <div className="flex justify-center items-center gap-1 mt-2">
+            <Text size="small">Have an account? Login one </Text>
+            <Button href="/account/login" variant="link" className="relative">
+              <Text size="small" className="underline underline-offset-2">
+                here
+              </Text>
+            </Button>
+          </div>
+        </AccountSection>
+      ) : (
+        <Section
+          padding="x"
+          display="flex"
+          className="flex-col justify-center items-center"
         >
-          <TextBox
-            type="text"
-            inputRef={firstnameRef}
-            onChange={onChange}
-            id="firstname"
-            labelText="Firstname"
-            placeholder="firstname"
-            classNames={{
-              root: "flex flex-col ",
-              label: "p-1 ",
-              input: "h-12 px-4 text-md",
-            }}
-          />
-          <TextBox
-            type="text"
-            inputRef={lastnameRef}
-            onChange={onChange}
-            id="lastname"
-            labelText="Lastname"
-            placeholder="lastname"
-            classNames={{
-              root: "flex flex-col ",
-              label: "p-1 ",
-              input: "h-12 px-4 text-md",
-            }}
-          />
-          <TextBox
-            type="email"
-            inputRef={usernameRef}
-            onChange={onChange}
-            id="username"
-            labelText="Username"
-            placeholder="username"
-            classNames={{
-              root: "flex flex-col ",
-              label: "p-1 ",
-              input: "h-12 px-4 text-md",
-            }}
-          />
-          <TextBox
-            type="password"
-            inputRef={passwordRef}
-            onChange={onChange}
-            id="password"
-            labelText="Password"
-            placeholder="password"
-            classNames={{
-              root: "flex flex-col ",
-              label: "p-1 ",
-              input: "h-12 px-4 text-md",
-            }}
-          />
-          <Button type="submit" variant="primary">
-            Register
-          </Button>
-        </form>
-        <div className="flex justify-center items-center gap-1 mt-2">
-          <Text size="small">Have an account? Login one </Text>
-          <Button href="/account/login" variant="link" className="relative">
-            <Text size="small" className="underline underline-offset-2">
-              here
-            </Text>
-          </Button>
-        </div>
-      </Section>
+          <Text>Loading...</Text>
+        </Section>
+      )}
     </Layout>
   );
 }

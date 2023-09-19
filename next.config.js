@@ -8,6 +8,16 @@ const nextConfig = {
   //   // !! WARN !!
   //   ignoreBuildErrors: true,
   // },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+        port: "",
+        pathname: "/images/82c04vam/real-estate-site-properties/**",
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;

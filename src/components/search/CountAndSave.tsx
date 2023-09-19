@@ -27,8 +27,7 @@ export function CountAndSave({
     }
   }, []);
 
-  useEffect(() => {
-  }, [locItems]);
+  useEffect(() => {}, [locItems]);
 
   return (
     <div className="flex w-full justify-between items-center ">
