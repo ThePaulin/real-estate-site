@@ -28,6 +28,7 @@ export function Button({
     link: "bg-none transition-all ",
     blank: "",
   };
+
   const styles = clsx(
     missingClass(className, "w-") && (variant === "link" ? "w-fit" : "w-full"),
     variantStyles[variant],
@@ -35,9 +36,9 @@ export function Button({
     className
   );
 
-  if (variant === "link" && href !== undefined) {
+  if (variant === "link" && href !== undefined || href !== undefined) {
     return (
-      <Link href={href} className={styles} target={props.target}>
+      <Link href={href} role="link" className={styles} target={props.target}>
         {children}
       </Link>
     );

@@ -7,6 +7,7 @@ import type { IArticlesAPI, IHeroBanner, articleRequestBody } from "../types";
 import ArticlesSection from "../components/global/ArticleSection";
 import BannerRenderer from "../components/global/BannerRenderer";
 import ServiceStatement from "../components/global/ServiceStatement";
+import Link from "next/link";
 
 export default function Home(): JSX.Element {
   const [loading, setLoading] = useState<boolean>(true);
@@ -93,12 +94,14 @@ export default function Home(): JSX.Element {
                       />
                     </div>
                   </div>
-
+ 
                   <BannerRenderer
                     image={heroBanner?.banner}
                     className="w-screen h-[600px] desktop:h-[800px] "
                   />
                 </div>
+                <Link href={'/terms-of-service'}>terms of service</Link>
+
                 <ArticlesSection articles={articles} layout="flex" />
                 <ServiceStatement />
               </motion.div>
